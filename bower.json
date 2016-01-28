@@ -1,0 +1,25 @@
+{
+  "name": "SCILLE_toogle_switch",
+  "version": "1.0.5",
+  "description": "Create Form.",
+  "authors": [
+    "Romain Dubois <dubois.rom@gmail.com>",
+    "Vincent Mézino <vincent.mezino@gmail.com>"
+  ],
+  "main": [
+    "./release/scripts/sc-from.min.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.13.4",
+    "angular": "~1.4.7",
+    "angular-mocks": "~1.4.7"
+  },
+  "licence": "MIT"
+}
