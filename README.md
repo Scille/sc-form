@@ -49,32 +49,46 @@ Directives can work on both attribute and element levels.
 ```html
 <div text-input-directive
     ng-model="textModel"
+    label="{{label}}"
+    icon="{{icon}}"
+    placeholder="{{placeholder}}"
+    popover-msg="{{popoverMsg}}"
+    error-msg="{{errorMsg]}"
+    upper-first-letter="upperFirstLetter"
+    is-disabled="isDisabled">
 </div>
 
 <div number-input-directive
     ng-model="numberModel"
+    >
 </div>
 
 <div date-input-directive
-    ng-model="dateModel"
+    ng-model="dateModel">
 </div>
 
 <div list-input-directive
-    ng-model="listModel"
+    ng-model="listModel">
 </div>
 
 <div array-input-directive
-    ng-model="arrayModel"
+    ng-model="arrayModel">
 </div>
 
 <div img-input-directive
-    ng-model="imgModel"
+    ng-model="imgModel">
 </div>
 ```
 
 *Note:*
 * **ng-model:** Will try to bind to the property given by evaluating the expression on the current scope. If the property doesn't already exist on this scope, it will be created implicitly and added to the scope.
-
+* **label**: Sets the label text
+* **icon**: Sets the icon
+* **placeholder**: Sets the input placeholder
+* **popover-msg**: Sets the popover message
+* **error-msg**: Sets the error message
+* **upper-first-letter*: Capitalizes the first letter of string.
+* **is-disabled**: Determines if the input is disabled or not.
 
 ## Directory structure
 
