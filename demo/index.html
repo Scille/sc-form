@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <link rel="shortcut icon" href="">
+  <title>Form Example</title>
+
+  <!-- injector:css -->
+  <link rel="stylesheet" href="/bower_components/bootstrap-css-only/css/bootstrap.css">
+  <link rel="stylesheet" href="/bower_components/components-font-awesome/css/font-awesome.css">
+  <!-- endinjector -->
+
+</head>
+
+<body>
+
+  <h1>Text Input Example</h1>
+
+  <h2>Usage</h2>
+  <p>Model Value: {{textModel}}</p>
+
+  <h2>Default</h2>
+  <div text-input-directive ng-model="textModel"></div>
+
+  <h2>Label</h2>
+  <div text-input-directive ng-model="textModel" label="Label"></div>
+
+  <h2>Icon</h2>
+  <div text-input-directive ng-model="textModel" icon="user"></div>
+
+  <h2>Placeholder</h2>
+  <div text-input-directive ng-model="textModel" placeholder="Placeholder"></div>
+
+  <h2>Popover Message</h2>
+  <div text-input-directive ng-model="textModel" popover-msg="Pop Over"></div>
+
+  <h2>Error Message</h2>
+  <div ng-init="errorMsg = ''">
+    <div>
+      <input type="text" name="error Message" ng-model="errorMsg">
+    </div></br>
+    <div text-input-directive ng-model="textModel" error-msg="errorMsg"></div>
+  </div>
+
+  <h2>Upper First Letter</h2>
+  <div ng-init="upperFirstLetter = true">
+    <button ng-click="upperFirstLetter = !upperFirstLetter">Click me</button>
+    <p>upperFirstLetter text-input: {{upperFirstLetter}}</p>
+      <div text-input-directive ng-model="textModel" upper-first-letter="upperFirstLetter"></div>
+  </div>
+
+  <h2>Disabled</h2>
+  <div ng-init="disabled = true">
+    <button ng-click="disabled = !disabled">Click me</button>
+    <p>Disabled toggle-switch: {{disabled}}</p>
+    <div text-input-directive ng-model="textModel" is-disabled="disabled"></div>
+  </div>
+
+
+  <!-- injector:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/bower_components/angular-mocks/angular-mocks.js"></script>
+  <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <!-- endinjector -->
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="scripts/form.min.js"></script>
+
+</body>
+</html>
