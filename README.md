@@ -59,8 +59,7 @@ Directives can work on both attribute and element levels.
 </div>
 
 <div number-input-directive
-    ng-model="numberModel"
-    >
+    ng-model="numberModel">
 </div>
 
 <div date-input-directive

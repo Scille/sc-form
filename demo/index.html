@@ -56,6 +56,50 @@
   </div>
 
 
+  <h1>Number Input Example</h1>
+
+  <h2>Usage</h2>
+  <p>Model Value: {{numberModel}}</p>
+
+  <h2>Default</h2>
+  <div number-input-directive ng-model="numberModel"></div>
+
+  <h2>Label</h2>
+  <div number-input-directive ng-model="numberModel" label="Label"></div>
+
+  <h2>Icon</h2>
+  <div number-input-directive ng-model="numberModel" icon="sort-numeric-asc"></div>
+
+  <h2>Placeholder</h2>
+  <div number-input-directive ng-model="numberModel" placeholder="Placeholder"></div>
+
+  <h2>Popover Message</h2>
+  <div number-input-directive ng-model="numberModel" popover-msg="Pop Over"></div>
+
+  <h2>Step</h2>
+  <div ng-init="step = ''">
+    <div>
+      <input type="text" name="step" ng-model="step">
+    </div></br>
+    <div number-input-directive ng-model="numberModel" step="step"></div>
+  </div>
+
+  <h2>Error Message</h2>
+  <div ng-init="errorMsg = ''">
+    <div>
+      <input type="text" name="error Message" ng-model="errorMsg">
+    </div></br>
+    <div number-input-directive ng-model="numberModel" error-msg="errorMsg"></div>
+  </div>
+
+  <h2>Disabled</h2>
+  <div ng-init="disabled = true">
+    <button ng-click="disabled = !disabled">Click me</button>
+    <p>Disabled toggle-switch: {{disabled}}</p>
+    <div number-input-directive ng-model="numberModel" is-disabled="disabled"></div>
+  </div>
+
+
   <!-- injector:js -->
   <script src="/bower_components/jquery/dist/jquery.js"></script>
   <script src="/bower_components/angular/angular.js"></script>
