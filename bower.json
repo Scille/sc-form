@@ -3,8 +3,9 @@
   "version": "1.0.5",
   "description": "Create Form.",
   "authors": [
-    "Romain Dubois <dubois.rom@gmail.com>",
-    "Vincent Mézino <vincent.mezino@gmail.com>"
+    "Romain Dubois <romain.dubois@scille.fr>",
+    "Jérôme Landieth <jerome.landieth@scille.fr>",
+    "Vincent Mézino <vincent.mezino@scille.fr>"
   ],
   "main": [
     "./release/scripts/sc-from.min.js"
@@ -22,7 +23,8 @@
     "angular-mocks": "~1.4.7",
     "bootstrap-css-only": "~3.3.6",
     "components-font-awesome": "~4.5.0",
-    "bootstrap": "~3.3.6"
+    "bootstrap": "~3.3.6",
+    "eonasdan-bootstrap-datetimepicker": "~4.17.37"
   },
   "licence": "MIT"
 }

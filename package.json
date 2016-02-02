@@ -6,11 +6,15 @@
   "contributors": [
     {
       "name": "DUBOIS Romain",
-      "email": "dubois.rom@gmail.com"
+      "email": "romain.dubois@scille.fr"
+    },
+    {
+      "name": "LANDIETH Jérôme",
+      "email": "jerome.landieth@scille.fr"
     },
     {
       "name": "MEZINO Vincent",
-      "email": "vincent.mezino@gmail.com"
+      "email": "vincent.mezino@scille.fr"
     }
   ],
   "scripts": {

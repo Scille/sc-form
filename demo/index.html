@@ -7,6 +7,7 @@
   <!-- injector:css -->
   <link rel="stylesheet" href="/bower_components/bootstrap-css-only/css/bootstrap.css">
   <link rel="stylesheet" href="/bower_components/components-font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css">
   <!-- endinjector -->
 
 </head>
@@ -21,39 +22,44 @@
   <h2>Default</h2>
   <div text-input-directive ng-model="textModel"></div>
 
-  <h2>Label</h2>
-  <div text-input-directive ng-model="textModel" label="Label"></div>
+  <button type="button" ng-click="moreTextInput = true">Show More</button>
+  <button type="button" ng-click="moreTextInput = false">Show Less</button>
+  <div ng-show="moreTextInput == true">
+    <h2>Label</h2>
+    <div text-input-directive ng-model="textModel" label="Label"></div>
 
-  <h2>Icon</h2>
-  <div text-input-directive ng-model="textModel" icon="user"></div>
+    <h2>Icon</h2>
+    <div text-input-directive ng-model="textModel" icon="user"></div>
 
-  <h2>Placeholder</h2>
-  <div text-input-directive ng-model="textModel" placeholder="Placeholder"></div>
+    <h2>Placeholder</h2>
+    <div text-input-directive ng-model="textModel" placeholder="Placeholder"></div>
 
-  <h2>Popover Message</h2>
-  <div text-input-directive ng-model="textModel" popover-msg="Pop Over"></div>
+    <h2>Popover Message</h2>
+    <div text-input-directive ng-model="textModel" popover-msg="Pop Over"></div>
 
-  <h2>Error Message</h2>
-  <div ng-init="errorMsg = ''">
-    <div>
-      <input type="text" name="error Message" ng-model="errorMsg">
-    </div></br>
-    <div text-input-directive ng-model="textModel" error-msg="errorMsg"></div>
+    <h2>Error Message</h2>
+    <div ng-init="errorMsg = ''">
+      <div>
+        <input type="text" name="error Message" ng-model="errorMsg">
+      </div></br>
+      <div text-input-directive ng-model="textModel" error-msg="errorMsg"></div>
+    </div>
+
+    <h2>Upper First Letter</h2>
+    <div ng-init="upperFirstLetter = true">
+      <button ng-click="upperFirstLetter = !upperFirstLetter">Click me</button>
+      <p>upperFirstLetter text-input: {{upperFirstLetter}}</p>
+        <div text-input-directive ng-model="textModel" upper-first-letter="upperFirstLetter"></div>
+    </div>
+
+    <h2>Disabled</h2>
+    <div ng-init="disabled = true">
+      <button ng-click="disabled = !disabled">Click me</button>
+      <p>Disabled text-input: {{disabled}}</p>
+      <div text-input-directive ng-model="textModel" is-disabled="disabled"></div>
+    </div>
   </div>
 
-  <h2>Upper First Letter</h2>
-  <div ng-init="upperFirstLetter = true">
-    <button ng-click="upperFirstLetter = !upperFirstLetter">Click me</button>
-    <p>upperFirstLetter text-input: {{upperFirstLetter}}</p>
-      <div text-input-directive ng-model="textModel" upper-first-letter="upperFirstLetter"></div>
-  </div>
-
-  <h2>Disabled</h2>
-  <div ng-init="disabled = true">
-    <button ng-click="disabled = !disabled">Click me</button>
-    <p>Disabled toggle-switch: {{disabled}}</p>
-    <div text-input-directive ng-model="textModel" is-disabled="disabled"></div>
-  </div>
 
 
   <h1>Number Input Example</h1>
@@ -64,39 +70,88 @@
   <h2>Default</h2>
   <div number-input-directive ng-model="numberModel"></div>
 
-  <h2>Label</h2>
-  <div number-input-directive ng-model="numberModel" label="Label"></div>
+  <button type="button" ng-click="moreNumberInput = true">Show More</button>
+  <button type="button" ng-click="moreNumberInput = false">Show Less</button>
+  <div ng-show="moreNumberInput == true">
+    <h2>Label</h2>
+    <div number-input-directive ng-model="numberModel" label="Label"></div>
 
-  <h2>Icon</h2>
-  <div number-input-directive ng-model="numberModel" icon="sort-numeric-asc"></div>
+    <h2>Icon</h2>
+    <div number-input-directive ng-model="numberModel" icon="sort-numeric-asc"></div>
 
-  <h2>Placeholder</h2>
-  <div number-input-directive ng-model="numberModel" placeholder="Placeholder"></div>
+    <h2>Placeholder</h2>
+    <div number-input-directive ng-model="numberModel" placeholder="Placeholder"></div>
 
-  <h2>Popover Message</h2>
-  <div number-input-directive ng-model="numberModel" popover-msg="Pop Over"></div>
+    <h2>Popover Message</h2>
+    <div number-input-directive ng-model="numberModel" popover-msg="Pop Over"></div>
 
-  <h2>Step</h2>
-  <div ng-init="step = ''">
-    <div>
-      <input type="text" name="step" ng-model="step">
-    </div></br>
-    <div number-input-directive ng-model="numberModel" step="step"></div>
+    <h2>Step</h2>
+    <div ng-init="stepValue = ''">
+      <div>
+        <input type="text" name="step" ng-model="stepValue">
+      </div></br>
+      <div number-input-directive ng-model="numberModel" step="stepValue"></div>
+    </div>
+
+    <h2>Error Message</h2>
+    <div ng-init="errorMsg = ''">
+      <div>
+        <input type="text" name="error Message" ng-model="errorMsg">
+      </div></br>
+      <div number-input-directive ng-model="numberModel" error-msg="errorMsg"></div>
+    </div>
+
+    <h2>Disabled</h2>
+    <div ng-init="disabled = true">
+      <button ng-click="disabled = !disabled">Click me</button>
+      <p>Disabled number-input: {{disabled}}</p>
+      <div number-input-directive ng-model="numberModel" is-disabled="disabled"></div>
+    </div>
+
+
   </div>
 
-  <h2>Error Message</h2>
-  <div ng-init="errorMsg = ''">
-    <div>
-      <input type="text" name="error Message" ng-model="errorMsg">
-    </div></br>
-    <div number-input-directive ng-model="numberModel" error-msg="errorMsg"></div>
-  </div>
 
-  <h2>Disabled</h2>
-  <div ng-init="disabled = true">
-    <button ng-click="disabled = !disabled">Click me</button>
-    <p>Disabled toggle-switch: {{disabled}}</p>
-    <div number-input-directive ng-model="numberModel" is-disabled="disabled"></div>
+  <h1>Date Input Example</h1>
+
+  <h2>Usage</h2>
+  <p>Model Value: {{dateModel}}</p>
+
+  <h2>Default</h2>
+  <div date-input-directive ng-model="dateModel"></div>
+
+  <button type="button" ng-click="moreDateInput = true">Show More</button>
+  <button type="button" ng-click="moreDateInput = false">Show Less</button>
+  <div ng-show="moreDateInput == true">
+    <h2>Label</h2>
+    <div date-input-directive ng-model="dateModel" label="Label"></div>
+
+    <h2>Placeholder</h2>
+    <div date-input-directive ng-model="dateModel" placeholder="Placeholder"></div>
+
+    <h2>Popover Message</h2>
+    <div date-input-directive ng-model="dateModel" popover-msg="Pop Over"></div>
+
+    <h2>Error Message</h2>
+    <div ng-init="errorMsg = ''">
+      <div>
+        <input type="text" name="error Message" ng-model="errorMsg">
+      </div></br>
+      <div date-input-directive ng-model="dateModel" error-msg="errorMsg"></div>
+    </div>
+
+    <h2>Disabled</h2>
+    <div ng-init="disabled = true">
+      <button ng-click="disabled = !disabled">Click me</button>
+      <p>Disabled date-input: {{disabled}}</p>
+      <div date-input-directive ng-model="dateModel" is-disabled="disabled"></div>
+    </div>
+
+    <h2>Approximative</h2>
+    <div ng-init="approximativeModel = true">
+      <p>approximative date-input: {{approximativeModel}}</p>
+      <div date-input-directive ng-model="dateModel" approximative-model="approximativeModel"></div>
+    </div>
   </div>
 
 
@@ -106,6 +161,9 @@
   <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <script src="/bower_components/angular-mocks/angular-mocks.js"></script>
   <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="/bower_components/moment/moment.js"></script>
+  <script src="/bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
+  <script src="/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
   <!-- endinjector -->
   <script type="text/javascript" src="app.js"></script>
   <script type="text/javascript" src="scripts/form.min.js"></script>

@@ -152,10 +152,13 @@ $ protractor ./test/protractor_conf.coffee
 ## Contributors
 
 DUBOIS Romain, Engineer R&D at [SCILLE](http://scille.eu/)
-<dubois.rom@gmail.com>
+<romain.dubois@scille.fr>
+
+Landieth Jérôme, Engineer R&D at [SCILLE](http://scille.eu/)
+<jerome.landieth@scille.fr>
 
 MEZINO Vincent, Engineer R&D at [SCILLE](http://scille.eu)
-<vincent.mezino@gmail.com>
+<vincent.mezino@scille.fr>
 
 
 ## License

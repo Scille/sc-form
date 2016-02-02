@@ -1,0 +1,21 @@
+<div class="form form-group" style="z-index: 1;">
+  <label ng-if="label != undefined" class="label-control">{{label}}</label>
+
+  <div class="input-group" id="{{dateTimePickerId}}">
+    <div class="input-group-addon">
+      <i class="fa fa-lg fa-calendar" ng-click="createDateTimePicker()"></i>
+    </div>
+    <input style="z-index: 1;" type="text" class="form-control" ng-model="localModel" ng-blur="onBlur()"
+           required placeholder="{{placeholder}}" ng-disabled="isDisabled" />
+
+    <div ng-show="isApproximative" class="input-group-addon">
+      <span>Approximative ?</span>
+      <input type="checkbox" ng-model="approximativeModel" ng-disabled="isDisabled"/>
+    </div>
+  </div>
+
+  <div ng-show="errorMsg" class="alert alert-danger">
+    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+    <span>{{errorMsg}}</span>
+  </div>
+</div>
