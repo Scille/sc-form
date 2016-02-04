@@ -5,7 +5,6 @@ guid = ->
     Math.floor((1 + Math.random()) * 0x10000).toString(16).substring 1
   s4() + s4() + '_' + s4() + '_' + s4() + '_' + s4() + '_' + s4() + s4() + s4()
 
-
 angular.module('sc-form', ['sc-form-template'])
 
 # Text Input
@@ -124,22 +123,21 @@ angular.module('sc-form', ['sc-form-template'])
         scope.isApproximative = !angular.isUndefined(iAttrs.approximativeModel)
 
   .controller 'dateInputController', ($scope) ->
-    ### Define origin Model and dateTimePickerText###
+    ### Define origin Model ###
     $scope.originModel = angular.copy($scope.localModel)
-    $scope.dateTimePickerText = undefined
+    $scope.dateTimePickerModel = undefined
 
-    # Create a DateTimePicker
-    $scope.createDateTimePicker = () ->
-      # For displaying datepicker
+    $ ->
+      angular.element("##{$scope.dateTimePickerId}").keydown(false)
       angular.element("##{$scope.dateTimePickerId}").datetimepicker(
-        date: $scope.localModel
         format: $scope.format
-        useCurrent: true
+        allowInputToggle:true
         sideBySide: true
         viewMode: 'years'
       )
-      # Getting input value
-      angular.element("##{$scope.dateTimePickerId}").on("dp.hide", () ->
+      angular.element("##{$scope.dateTimePickerId}").on('dp.change', ->
         $scope.localModel = angular.element("##{$scope.dateTimePickerId}").data("DateTimePicker").date().format($scope.format)
+        $scope.$apply()
+        return
       )
       return

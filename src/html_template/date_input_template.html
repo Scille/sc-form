@@ -3,11 +3,10 @@
 
   <div class="input-group" id="{{dateTimePickerId}}">
     <div class="input-group-addon">
-      <i class="fa fa-lg fa-calendar" ng-click="createDateTimePicker()"></i>
+      <i class="fa fa-lg fa-calendar"></i>
     </div>
-    <input style="z-index: 1;" type="text" class="form-control" ng-model="localModel" ng-blur="onBlur()"
+    <input style="z-index: 1;" type="text" class="form-control"
            required placeholder="{{placeholder}}" ng-disabled="isDisabled" />
-
     <div ng-show="isApproximative" class="input-group-addon">
       <span>Approximative ?</span>
       <input type="checkbox" ng-model="approximativeModel" ng-disabled="isDisabled"/>
