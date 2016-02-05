@@ -7,8 +7,8 @@ guid = ->
 
 angular.module('sc-form', ['sc-form-template'])
 
-# Text Input
-.directive 'textInputDirective', ->
+  # Text Input
+  .directive 'textInputDirective', ->
     restrict: 'EA'
     templateUrl: 'src/html_template/text_input_template.html'
     controller: 'textInputController'
@@ -50,8 +50,73 @@ angular.module('sc-form', ['sc-form-template'])
           $scope.localModel = $scope.localModel.charAt(0).toUpperCase() + $scope.localModel.slice(1)
 
 
-# Number Input
-.directive 'numberInputDirective', ->
+  # List Text Input
+  .directive 'listTextInputDirective', ->
+    restrict: 'EA'
+    templateUrl: 'src/html_template/list_text_input_template.html'
+    controller: 'listTextInputController'
+    require: 'ngModel'
+    scope:
+      isDisabled: '=?'
+      label: '@'
+      icon: '@'
+      placeholder: '@'
+      popoverMsg: '@'
+      errorMsg: '=?'
+      upperFirstLetter: '=?'
+      localModel: '=ngModel'
+
+    compile: (tElement, tAttrs) ->
+      if (angular.isUndefined(tAttrs.isDisabled))
+        tAttrs.isDisabled = 'false'
+
+      if (angular.isUndefined(tAttrs.upperFirstLetter))
+        tAttrs.upperFirstLetter = 'false'
+
+      postLink = (scope, iElement, iAttrs, ngModelCtrl) ->
+        # The $formatters pipeline. Convert a real model value into a value our
+        # view can use.
+        ngModelCtrl.$formatters.push (modelValue) ->
+          return modelValue
+
+        # The $parsers Pipeline. Converts the $viewValue into the $modelValue.
+        ngModelCtrl.$parsers.push (viewValue) ->
+          return viewValue
+
+        # Updating the UI to reflect $viewValue
+        ngModelCtrl.$render = ->
+          scope.localModel = ngModelCtrl.$viewValue
+
+        # Updating $viewValue when the UI changes
+        scope.$watch 'localModel', (value) ->
+          ngModelCtrl.$setViewValue(value)
+
+        # Check if we must create a popover.
+        if scope.popoverMsg && scope.popoverMsg != ''
+          $(iElement).popover({
+            trigger: 'focus'
+            content: scope.popoverMsg
+            placement: 'top'
+          })
+
+  .controller 'listTextInputController', ($scope) ->
+    ### Define local Model and newValue ###
+    $scope.localModel = []
+    $scope.newValue = undefined
+
+    $scope.onBlur = ->
+      if $scope.newValue && $scope.newValue != ''
+        $scope.newValue = $scope.newValue.trim()
+        if $scope.upperFirstLetter == true
+          $scope.newValue = $scope.newValue.charAt(0).toUpperCase() + $scope.newValue.slice(1)
+        $scope.localModel.push($scope.newValue)
+        $scope.newValue = ''
+
+    $scope.deleteValue = (key) ->
+      $scope.localModel.splice(key, 1)
+
+  # Number Input
+  .directive 'numberInputDirective', ->
     restrict: 'EA'
     templateUrl: 'src/html_template/number_input_template.html'
     controller: 'numberInputController'
@@ -84,8 +149,8 @@ angular.module('sc-form', ['sc-form-template'])
     $scope.originModel = angular.copy($scope.localModel)
 
 
-# Date Input
-.directive 'dateInputDirective', ->
+  # Date Input
+  .directive 'dateInputDirective', ->
     restrict: 'EA'
     templateUrl: 'src/html_template/date_input_template.html'
     controller: 'dateInputController'
