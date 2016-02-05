@@ -151,7 +151,7 @@
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
     <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>{{errorMsg}}<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
-            <div ng-init="errorMsg = 'Error: 0';">
+            <div ng-init="errorMsg = '';">
               <br />
               <div>
                 <label class="input-label" >errorMsg:</label><input type="text" name="error message" ng-model="errorMsg">
@@ -187,7 +187,14 @@
           
           <div id="list-text-input" class="tab-pane fade">
             <h3>List Text Input</h3>
-            <p>TODO</p>
+            <p>Model Value: {{listTextModel}}</p>
+            
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listTextModel<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div list-text-input-directive ng-model="listTextModel"></div><br />
+            
           </div>
           
           <div id="number-input" class="tab-pane fade">
