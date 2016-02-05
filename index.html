@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="description" content="sc-form : ">
 
+    <link rel="stylesheet" type="text/css" media="screen" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
     <title>sc-form</title>
@@ -56,16 +57,16 @@
     <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>isDisabled<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;
 
+&lt;<span class="pl-ent">div</span> <span class="pl-e">list-text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listModel<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;
+
 &lt;<span class="pl-ent">div</span> <span class="pl-e">number-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>numberModel<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;
 
 &lt;<span class="pl-ent">div</span> <span class="pl-e">date-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>dateModel<span class="pl-pds">"</span></span>&gt;
-&lt;/<span class="pl-ent">div</span>&gt;
-
-&lt;<span class="pl-ent">div</span> <span class="pl-e">list-input-directive</span>
-    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listModel<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;
 
 &lt;<span class="pl-ent">div</span> <span class="pl-e">array-input-directive</span>
@@ -96,7 +97,52 @@
           <strong>is-disabled</strong>: Determines if the input is disabled or not.</li>
         </ul>
 
-        <h2></h2><a id="demonstration" class="anchor" href="#demonstration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demonstration</h2>
+        <h2><a id="demonstration" class="anchor" href="#demonstration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demonstration</h2>
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#text-input">Text Input</a></li>
+          <li><a href="#list-text-input">List Text Input</a></li>
+          <li><a href="#number-input">Number Input</a></li>
+          <li><a href="#date-input">Date Input</a></li>
+          <li><a href="#array-input">Array Input</a></li>
+          <li><a href="#img-input">Image Input</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="text-input" class="tab-pane fade in active">
+            <h3>Text Input</h3>
+            <p>Model Value: {{textModel}}</p>
+            <h4><a id="text-input_demo_defaut" class="anchor" href="#text-input_demo_defaut" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span> <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div text-input-directive ng-model="textModel"></div><br />
+          </div>
+          
+          <div id="list-text-input" class="tab-pane fade">
+            <h3>List Text Input</h3>
+            <p>TODO</p>
+          </div>
+          
+          <div id="number-input" class="tab-pane fade">
+            <h3>Number Input</h3>
+            <p>TODO</p>
+          </div>
+          
+          <div id="date-input" class="tab-pane fade">
+            <h3>Date Input</h3>
+            <p>TODO</p>
+          </div>
+          
+          <div id="array-input" class="tab-pane fade">
+            <h3>Array Input</h3>
+            <p>TODO/p>
+          </div>
+          
+          <div id="img-input" class="tab-pane fade">
+            <h3>Image Input</h3>
+            <p>TODO</p>
+          </div>
+          
+        </div>
+        
+        
         
         <h2><a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributors</h2>
         <p>DUBOIS Romain, Engineer R&amp;D at <a href="http://scille.eu/">SCILLE</a>
@@ -117,6 +163,8 @@
     </div>
     
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script type="text/javascript"src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript"src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="javascripts/main.js"></script>
     <script type="text/javascript" src="https://rawgit.com/Scille/sc-form/master/release/scripts/form.min.js"></script>
