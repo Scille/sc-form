@@ -53,7 +53,7 @@
     <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"</span>{{icon}}<span class="pl-pds">"</span></span>
     <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>{{placeholder}}<span class="pl-pds">"</span></span>
     <span class="pl-e">popover-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>{{popoverMsg}}<span class="pl-pds">"</span></span>
-    <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>{{errorMsg]}<span class="pl-pds">"</span></span>
+    <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>errorMsg<span class="pl-pds">"</span></span>
     <span class="pl-e">upper-first-letter</span>=<span class="pl-s"><span class="pl-pds">"</span>upperFirstLetter<span class="pl-pds">"</span></span>
     <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>isDisabled<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;
@@ -145,6 +145,44 @@
     <span class="pl-e">popover-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>Pop Over<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
             <br /><div text-input-directive ng-model="textModel" popover-msg="Pop Over"></div><br />
+            
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error Message</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>{{errorMsg}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="errorMsg = 'Error: 0';">
+              <br />
+              <div>
+                <label>errorMsg:</label><input type="text" name="error message" ng-model="errorMsg">
+              </div><br />
+              <div text-input-directive ng-model="textModel" error-msg="errorMsg"></div>
+            </div><br />
+            
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upper First Letter</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">upper-first-letter</span>=<span class="pl-s"><span class="pl-pds">"</span>{{upperFirstLetter}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="upperFirstLetter = false;">
+              <br />
+              <button ng-click="upperFirstLetter = !upperFirstLetter">Click me</button>
+              <p>upperFirstLetter: {{upperFirstLetter}}</p>
+              <div text-input-directive ng-model="textModel" upper-first-letter="upperFirstLetter"></div>
+            </div><br />
+            
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disabled</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>{{isDisabled}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="isDisabled = false;">
+              <br />
+              <button ng-click="isDisabled = !isDisabled">Click me</button>
+              <p>isDisabled: {{isDisabled}}</p>
+              <div text-input-directive ng-model="textModel" is-disabled="isDisabled"></div>
+            </div><br />
+            
           </div>
           
           <div id="list-text-input" class="tab-pane fade">
