@@ -100,20 +100,51 @@
 
         <h2><a id="demonstration" class="anchor" href="#demonstration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demonstration</h2>
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#text-input">Text Input</a></li>
-          <li><a href="#list-text-input">List Text Input</a></li>
-          <li><a href="#number-input">Number Input</a></li>
-          <li><a href="#date-input">Date Input</a></li>
-          <li><a href="#array-input">Array Input</a></li>
-          <li><a href="#img-input">Image Input</a></li>
+          <li class="active"><a href="#text-input">Text</a></li>
+          <li><a href="#list-text-input">List Text</a></li>
+          <li><a href="#number-input">Number</a></li>
+          <li><a href="#date-input">Date</a></li>
+          <li><a href="#array-input">Array</a></li>
+          <li><a href="#img-input">Image</a></li>
         </ul>
         <div class="tab-content">
           <div id="text-input" class="tab-pane fade in active">
             <h3>Text Input</h3>
             <p>Model Value: {{textModel}}</p>
-            <h4><a id="text-input_demo_defaut" class="anchor" href="#text-input_demo_defaut" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h4>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span> <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
             <br /><div text-input-directive ng-model="textModel"></div><br />
+            
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Label</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"</span>Label<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div text-input-directive ng-model="textModel" label="Label"></div><br />
+            
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Icon</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"</span>user<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div text-input-directive ng-model="textModel" icon="user"></div><br />
+            
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Placeholder</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Placeholder<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div text-input-directive ng-model="textModel" placeholder="Placeholder"></div><br />
+            
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Popover Message</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">popover-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>Pop Over<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div text-input-directive ng-model="textModel" popover-msg="Pop Over"></div><br />
           </div>
           
           <div id="list-text-input" class="tab-pane fade">
