@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="main">
 
   <head>
     <meta charset='utf-8'>
@@ -31,28 +31,20 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h1>
-<a id="scille-form-for-angularjs" class="anchor" href="#scille-form-for-angularjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scille Form (for Angularjs)</h1>
+        
+        <h1><a id="scille-form-for-angularjs" class="anchor" href="#scille-form-for-angularjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scille Form (for Angularjs)</h1>
+        <p>A Form is a collection of Controls for AngularJS. Controls are ways for a user to enter data. This library is created by DUBOIS Romain and maintained by the Scille team.</p>
 
-<p>A Form is a collection of Controls for AngularJS. Controls are ways for a user to enter data. This library is created by DUBOIS Romain and maintained by the Scille team.</p>
+        <h2><a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
-<h2>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
-
-<h3>
-<a id="registration" class="anchor" href="#registration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Registration</h3>
-
-<p>To be able to use the directive, you need to register the sc-form module as a dependency:</p>
-
+        <h3><a id="registration" class="anchor" href="#registration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Registration</h3>
+        <p>To be able to use the directive, you need to register the sc-form module as a dependency:</p>
 <div class="highlight highlight-source-js"><pre><span class="pl-smi">angular</span>.<span class="pl-en">module</span>(<span class="pl-s"><span class="pl-pds">'</span>yourModule<span class="pl-pds">'</span></span>, [<span class="pl-s"><span class="pl-pds">'</span>sc-form<span class="pl-pds">'</span></span>
     <span class="pl-c">// other dependencies</span>
 ]);</pre></div>
 
-<h3>
-<a id="directive" class="anchor" href="#directive" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Directive</h3>
-
-<p>Directives can work on both attribute and element levels.</p>
-
+        <h3><a id="directive" class="anchor" href="#directive" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Directive</h3>
+        <p>Directives can work on both attribute and element levels.</p>
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
     <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"</span>{{label}}<span class="pl-pds">"</span></span>
@@ -84,41 +76,35 @@
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>imgModel<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
 
-<p><em>Note:</em></p>
+        <p><em>Note:</em></p>
+        <ul>
+          <li>
+          <strong>ng-model:</strong> Will try to bind to the property given by evaluating the expression on the current scope. If the property doesn't already exist on this scope, it will be created implicitly and added to the scope.</li>
+          <li>
+          <strong>label</strong>: Sets the label text</li>
+          <li>
+          <strong>icon</strong>: Sets the icon</li>
+          <li>
+          <strong>placeholder</strong>: Sets the input placeholder</li>
+          <li>
+          <strong>popover-msg</strong>: Sets the popover message</li>
+          <li>
+          <strong>error-msg</strong>: Sets the error message</li>
+          <li>
+          <strong>upper-first-letter</strong>: Capitalizes the first letter of string.</li>
+          <li>
+          <strong>is-disabled</strong>: Determines if the input is disabled or not.</li>
+        </ul>
 
-<ul>
-<li>
-<strong>ng-model:</strong> Will try to bind to the property given by evaluating the expression on the current scope. If the property doesn't already exist on this scope, it will be created implicitly and added to the scope.</li>
-<li>
-<strong>label</strong>: Sets the label text</li>
-<li>
-<strong>icon</strong>: Sets the icon</li>
-<li>
-<strong>placeholder</strong>: Sets the input placeholder</li>
-<li>
-<strong>popover-msg</strong>: Sets the popover message</li>
-<li>
-<strong>error-msg</strong>: Sets the error message</li>
-<li>
-<strong>upper-first-letter</strong>: Capitalizes the first letter of string.</li>
-<li>
-<strong>is-disabled</strong>: Determines if the input is disabled or not.</li>
-</ul>
-
-<h2>
-<a id="demonstration" class="anchor" href="#demonstration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demonstration</h2>
-
-<h2>
-<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributors</h2>
-
-<p>DUBOIS Romain, Engineer R&amp;D at <a href="http://scille.eu/">SCILLE</a>
-<a href="mailto:romain.dubois@scille.fr">romain.dubois@scille.fr</a></p>
-
-<p>Landieth Jérôme, Engineer R&amp;D at <a href="http://scille.eu/">SCILLE</a>
-<a href="mailto:jerome.landieth@scille.fr">jerome.landieth@scille.fr</a></p>
-
-<p>MEZINO Vincent, Engineer R&amp;D at <a href="http://scille.eu">SCILLE</a>
-<a href="mailto:vincent.mezino@scille.fr">vincent.mezino@scille.fr</a></p>
+        <h2></h2><a id="demonstration" class="anchor" href="#demonstration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demonstration</h2>
+        
+        <h2><a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributors</h2>
+        <p>DUBOIS Romain, Engineer R&amp;D at <a href="http://scille.eu/">SCILLE</a>
+        <a href="mailto:romain.dubois@scille.fr">romain.dubois@scille.fr</a></p>
+        <p>Landieth Jérôme, Engineer R&amp;D at <a href="http://scille.eu/">SCILLE</a>
+        <a href="mailto:jerome.landieth@scille.fr">jerome.landieth@scille.fr</a></p>
+        <p>MEZINO Vincent, Engineer R&amp;D at <a href="http://scille.eu">SCILLE</a>
+        <a href="mailto:vincent.mezino@scille.fr">vincent.mezino@scille.fr</a></p>
       </section>
     </div>
 
@@ -129,8 +115,6 @@
         <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-
-    
 
   </body>
 </html>
