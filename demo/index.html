@@ -14,191 +14,199 @@
 
 <body>
 
-  <h1>Text Input Example</h1>
+  <h1>SC-FORM Examples</h1>
 
-  <h2>Usage</h2>
-  <p>Model Value: {{textModel}}</p>
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#text-input">Text Input</a></li>
+    <li><a href="#list-text-input">List Text Input</a></li>
+    <li><a href="#number-input">Number Input</a></li>
+    <li><a href="#date-input">Date Input</a></li>
+    <li><a href="#array-input">Array Input</a></li>
+    <li><a href="#img-input">Image Input</a></li>
+  </ul>
 
-  <h2>Default</h2>
-  <div text-input-directive ng-model="textModel"></div>
+  <div class="tab-content">
+    <div id="text-input" class="tab-pane fade in active">
+      <h2>Text Input</h2>
 
-  <button type="button" ng-click="moreTextInput = true">Show More</button>
-  <button type="button" ng-click="moreTextInput = false">Show Less</button>
-  <div ng-show="moreTextInput == true">
-    <h2>Label</h2>
-    <div text-input-directive ng-model="textModel" label="Label"></div>
+      <h3>Usage</h3>
+      <p>Model Value: {{textModel}}</p>
 
-    <h2>Icon</h2>
-    <div text-input-directive ng-model="textModel" icon="user"></div>
+      <h3>Default</h3>
+      <div text-input-directive ng-model="textModel"></div>
 
-    <h2>Placeholder</h2>
-    <div text-input-directive ng-model="textModel" placeholder="Placeholder"></div>
+      <h3>Label</h3>
+      <div text-input-directive ng-model="textModel" label="Label"></div>
 
-    <h2>Popover Message</h2>
-    <div text-input-directive ng-model="textModel" popover-msg="Pop Over"></div>
+      <h3>Icon</h3>
+      <div text-input-directive ng-model="textModel" icon="user"></div>
 
-    <h2>Error Message</h2>
-    <div ng-init="errorMsg = ''">
-      <div>
-        <input type="text" name="error Message" ng-model="errorMsg">
-      </div></br>
-      <div text-input-directive ng-model="textModel" error-msg="errorMsg"></div>
+      <h3>Placeholder</h3>
+      <div text-input-directive ng-model="textModel" placeholder="Placeholder"></div>
+
+      <h3>Popover Message</h3>
+      <div text-input-directive ng-model="textModel" popover-msg="Pop Over"></div>
+
+      <h3>Error Message</h3>
+      <div ng-init="errorMsg = ''">
+        <div>
+          <input type="text" name="error Message" ng-model="errorMsg">
+        </div></br>
+        <div text-input-directive ng-model="textModel" error-msg="errorMsg"></div>
+      </div>
+
+      <h3>Upper First Letter</h3>
+      <div ng-init="upperFirstLetter = true">
+        <button ng-click="upperFirstLetter = !upperFirstLetter">Click me</button>
+        <p>upperFirstLetter text-input: {{upperFirstLetter}}</p>
+          <div text-input-directive ng-model="textModel" upper-first-letter="upperFirstLetter"></div>
+      </div>
+
+      <h3>Disabled</h3>
+      <div ng-init="disabled = true">
+        <button ng-click="disabled = !disabled">Click me</button>
+        <p>Disabled text-input: {{disabled}}</p>
+        <div text-input-directive ng-model="textModel" is-disabled="disabled"></div>
+      </div>
     </div>
 
-    <h2>Upper First Letter</h2>
-    <div ng-init="upperFirstLetter = true">
-      <button ng-click="upperFirstLetter = !upperFirstLetter">Click me</button>
-      <p>upperFirstLetter text-input: {{upperFirstLetter}}</p>
-        <div text-input-directive ng-model="textModel" upper-first-letter="upperFirstLetter"></div>
+    <div id="list-text-input" class="tab-pane fade">
+      <h2>List Text Input</h2>
+
+      <h3>Usage</h3>
+      <p>Model Value: {{listTextModel}}</p>
+
+      <h3>Default</h3>
+      <div list-text-input-directive ng-model="listTextModel"></div>
+
+      <h3>Label</h3>
+      <div list-text-input-directive ng-model="listTextModel" label="Label"></div>
+
+      <h3>Icon</h3>
+      <div list-text-input-directive ng-model="listTextModel" icon="user"></div>
+
+      <h3>Placeholder</h3>
+      <div list-text-input-directive ng-model="listTextModel" placeholder="Placeholder"></div>
+
+      <h3>Popover Message</h3>
+      <div list-text-input-directive ng-model="listTextModel" popover-msg="Pop Over"></div>
+
+      <h3>Error Message</h3>
+      <div ng-init="errorMsg = ''">
+        <div>
+          <input type="text" name="error Message" ng-model="errorMsg">
+        </div></br>
+        <div list-text-input-directive ng-model="listTextModel" error-msg="errorMsg"></div>
+      </div>
+
+      <h3>Upper First Letter</h3>
+      <div ng-init="upperFirstLetter = true">
+        <button ng-click="upperFirstLetter = !upperFirstLetter">Click me</button>
+        <p>upperFirstLetter text-input: {{upperFirstLetter}}</p>
+          <div list-text-input-directive ng-model="listTextModel" upper-first-letter="upperFirstLetter"></div>
+      </div>
+
+      <h3>Disabled</h3>
+      <div ng-init="disabled = true">
+        <button ng-click="disabled = !disabled">Click me</button>
+        <p>Disabled text-input: {{disabled}}</p>
+        <div list-text-input-directive ng-model="listTextModel" is-disabled="disabled"></div>
+      </div>
     </div>
 
-    <h2>Disabled</h2>
-    <div ng-init="disabled = true">
-      <button ng-click="disabled = !disabled">Click me</button>
-      <p>Disabled text-input: {{disabled}}</p>
-      <div text-input-directive ng-model="textModel" is-disabled="disabled"></div>
-    </div>
-  </div>
+    <div id="number-input" class="tab-pane fade">
+      <h2>Number Input</h2>
 
+      <h3>Usage</h3>
+      <p>Model Value: {{numberModel}}</p>
 
+      <h3>Default</h3>
+      <div number-input-directive ng-model="numberModel"></div>
 
-  <h1>List Text Input Example</h1>
+      <h3>Label</h3>
+      <div number-input-directive ng-model="numberModel" label="Label"></div>
 
-  <h2>Usage</h2>
-  <p>Model Value: {{listTextModel}}</p>
+      <h3>Icon</h3>
+      <div number-input-directive ng-model="numberModel" icon="sort-numeric-asc"></div>
 
-  <h2>Default</h2>
-  <div list-text-input-directive ng-model="listTextModel"></div>
+      <h3>Placeholder</h3>
+      <div number-input-directive ng-model="numberModel" placeholder="Placeholder"></div>
 
-  <button type="button" ng-click="moreListTextInput = true">Show More</button>
-  <button type="button" ng-click="moreListTextInput = false">Show Less</button>
-  <div ng-show="moreListTextInput == true">
-    <h2>Label</h2>
-    <div list-text-input-directive ng-model="listTextModel" label="Label"></div>
+      <h3>Popover Message</h3>
+      <div number-input-directive ng-model="numberModel" popover-msg="Pop Over"></div>
 
-    <h2>Icon</h2>
-    <div list-text-input-directive ng-model="listTextModel" icon="user"></div>
+      <h3>Step</h3>
+      <div ng-init="stepValue = ''">
+        <div>
+          <input type="text" name="step" ng-model="stepValue">
+        </div></br>
+        <div number-input-directive ng-model="numberModel" step="stepValue"></div>
+      </div>
 
-    <h2>Placeholder</h2>
-    <div list-text-input-directive ng-model="listTextModel" placeholder="Placeholder"></div>
+      <h3>Error Message</h3>
+      <div ng-init="errorMsg = ''">
+        <div>
+          <input type="text" name="error Message" ng-model="errorMsg">
+        </div></br>
+        <div number-input-directive ng-model="numberModel" error-msg="errorMsg"></div>
+      </div>
 
-    <h2>Popover Message</h2>
-    <div list-text-input-directive ng-model="listTextModel" popover-msg="Pop Over"></div>
-
-    <h2>Error Message</h2>
-    <div ng-init="errorMsg = ''">
-      <div>
-        <input type="text" name="error Message" ng-model="errorMsg">
-      </div></br>
-      <div list-text-input-directive ng-model="listTextModel" error-msg="errorMsg"></div>
-    </div>
-
-    <h2>Upper First Letter</h2>
-    <div ng-init="upperFirstLetter = true">
-      <button ng-click="upperFirstLetter = !upperFirstLetter">Click me</button>
-      <p>upperFirstLetter text-input: {{upperFirstLetter}}</p>
-        <div list-text-input-directive ng-model="listTextModel" upper-first-letter="upperFirstLetter"></div>
+      <h3>Disabled</h3>
+      <div ng-init="disabled = true">
+        <button ng-click="disabled = !disabled">Click me</button>
+        <p>Disabled number-input: {{disabled}}</p>
+        <div number-input-directive ng-model="numberModel" is-disabled="disabled"></div>
+      </div>
     </div>
 
-    <h2>Disabled</h2>
-    <div ng-init="disabled = true">
-      <button ng-click="disabled = !disabled">Click me</button>
-      <p>Disabled text-input: {{disabled}}</p>
-      <div list-text-input-directive ng-model="listTextModel" is-disabled="disabled"></div>
-    </div>
-  </div>
+    <div id="date-input" class="tab-pane fade">
+      <h2>Date Input</h2>
 
+      <h3>Usage</h3>
+      <p>Model Value: {{dateModel}}</p>
 
+      <h3>Default</h3>
+      <div date-input-directive ng-model="dateModel"></div>
 
-  <h1>Number Input Example</h1>
+      <h3>Label</h3>
+      <div date-input-directive ng-model="dateModel" label="Label"></div>
 
-  <h2>Usage</h2>
-  <p>Model Value: {{numberModel}}</p>
+      <h3>Placeholder</h3>
+      <div date-input-directive ng-model="dateModel" placeholder="Placeholder"></div>
 
-  <h2>Default</h2>
-  <div number-input-directive ng-model="numberModel"></div>
+      <h3>Popover Message</h3>
+      <div date-input-directive ng-model="dateModel" popover-msg="Pop Over"></div>
 
-  <button type="button" ng-click="moreNumberInput = true">Show More</button>
-  <button type="button" ng-click="moreNumberInput = false">Show Less</button>
-  <div ng-show="moreNumberInput == true">
-    <h2>Label</h2>
-    <div number-input-directive ng-model="numberModel" label="Label"></div>
+      <h3>Error Message</h3>
+      <div ng-init="errorMsg = ''">
+        <div>
+          <input type="text" name="error Message" ng-model="errorMsg">
+        </div></br>
+        <div date-input-directive ng-model="dateModel" error-msg="errorMsg"></div>
+      </div>
 
-    <h2>Icon</h2>
-    <div number-input-directive ng-model="numberModel" icon="sort-numeric-asc"></div>
+      <h3>Disabled</h3>
+      <div ng-init="disabled = true">
+        <button ng-click="disabled = !disabled">Click me</button>
+        <p>Disabled date-input: {{disabled}}</p>
+        <div date-input-directive ng-model="dateModel" is-disabled="disabled"></div>
+      </div>
 
-    <h2>Placeholder</h2>
-    <div number-input-directive ng-model="numberModel" placeholder="Placeholder"></div>
-
-    <h2>Popover Message</h2>
-    <div number-input-directive ng-model="numberModel" popover-msg="Pop Over"></div>
-
-    <h2>Step</h2>
-    <div ng-init="stepValue = ''">
-      <div>
-        <input type="text" name="step" ng-model="stepValue">
-      </div></br>
-      <div number-input-directive ng-model="numberModel" step="stepValue"></div>
-    </div>
-
-    <h2>Error Message</h2>
-    <div ng-init="errorMsg = ''">
-      <div>
-        <input type="text" name="error Message" ng-model="errorMsg">
-      </div></br>
-      <div number-input-directive ng-model="numberModel" error-msg="errorMsg"></div>
+      <h3>Approximative</h3>
+      <div ng-init="approximativeModel = true">
+        <p>approximative date-input: {{approximativeModel}}</p>
+        <div date-input-directive ng-model="dateModel" approximative-model="approximativeModel"></div>
+      </div>
     </div>
 
-    <h2>Disabled</h2>
-    <div ng-init="disabled = true">
-      <button ng-click="disabled = !disabled">Click me</button>
-      <p>Disabled number-input: {{disabled}}</p>
-      <div number-input-directive ng-model="numberModel" is-disabled="disabled"></div>
+    <div id="array-input" class="tab-pane fade">
+      <h2>Array Input</h2>
+      <p>TODO</p>
     </div>
 
-
-  </div>
-
-
-  <h1>Date Input Example</h1>
-
-  <h2>Usage</h2>
-  <p>Model Value: {{dateModel}}</p>
-
-  <h2>Default</h2>
-  <div date-input-directive ng-model="dateModel"></div>
-
-  <button type="button" ng-click="moreDateInput = true">Show More</button>
-  <button type="button" ng-click="moreDateInput = false">Show Less</button>
-  <div ng-show="moreDateInput == true">
-    <h2>Label</h2>
-    <div date-input-directive ng-model="dateModel" label="Label"></div>
-
-    <h2>Placeholder</h2>
-    <div date-input-directive ng-model="dateModel" placeholder="Placeholder"></div>
-
-    <h2>Popover Message</h2>
-    <div date-input-directive ng-model="dateModel" popover-msg="Pop Over"></div>
-
-    <h2>Error Message</h2>
-    <div ng-init="errorMsg = ''">
-      <div>
-        <input type="text" name="error Message" ng-model="errorMsg">
-      </div></br>
-      <div date-input-directive ng-model="dateModel" error-msg="errorMsg"></div>
-    </div>
-
-    <h2>Disabled</h2>
-    <div ng-init="disabled = true">
-      <button ng-click="disabled = !disabled">Click me</button>
-      <p>Disabled date-input: {{disabled}}</p>
-      <div date-input-directive ng-model="dateModel" is-disabled="disabled"></div>
-    </div>
-
-    <h2>Approximative</h2>
-    <div ng-init="approximativeModel = true">
-      <p>approximative date-input: {{approximativeModel}}</p>
-      <div date-input-directive ng-model="dateModel" approximative-model="approximativeModel"></div>
+    <div id="img-input" class="tab-pane fade">
+      <h2>Image Input</h2>
+      <p>TODO</p>
     </div>
   </div>
 
