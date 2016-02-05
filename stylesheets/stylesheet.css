@@ -423,3 +423,16 @@ Small Device Styles
   }
 
 }
+
+
+/*******************************************************************************
+Custom
+*******************************************************************************/
+
+.input-label{
+  display: inline-block;
+  float: left;
+  clear: left;
+  width: 150px;
+  text-align: center;
+}
