@@ -14,12 +14,12 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
     controller: 'textInputController'
     require: 'ngModel'
     scope:
-      isDisabled: '=?'
-      label: '@'
       icon: '@'
+      label: '@'
       placeholder: '@'
       popoverMsg: '@'
       errorMsg: '=?'
+      isDisabled: '=?'
       upperFirstLetter: '=?'
       localModel: '=ngModel'
 
@@ -57,12 +57,12 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
     controller: 'listTextInputController'
     require: 'ngModel'
     scope:
-      isDisabled: '=?'
-      label: '@'
       icon: '@'
+      label: '@'
       placeholder: '@'
       popoverMsg: '@'
       errorMsg: '=?'
+      isDisabled: '=?'
       upperFirstLetter: '=?'
       localModel: '=ngModel'
 
@@ -122,13 +122,13 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
     controller: 'numberInputController'
     require: 'ngModel'
     scope:
-      isDisabled: '=?'
-      label: '@'
       icon: '@'
+      label: '@'
       placeholder: '@'
       popoverMsg: '@'
-      step: '=?'
       errorMsg: '=?'
+      isDisabled: '=?'
+      step: '=?'
       localModel: '=ngModel'
 
     compile: (tElement, tAttrs) ->
@@ -156,14 +156,14 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
     controller: 'dateInputController'
     require: 'ngModel'
     scope:
-      isDisabled: '=?'
+      format: '@'
       label: '@'
       placeholder: '@'
       popoverMsg: '@'
-      format: '@'
-      errorMsg: '=?'
-      localModel: '=ngModel'
       approximativeModel: '=?'
+      errorMsg: '=?'
+      isDisabled: '=?'
+      localModel: '=ngModel'
 
     compile: (tElement, tAttrs) ->
       if (angular.isUndefined(tAttrs.isDisabled))
@@ -217,6 +217,7 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
     scope:
       addButton: '@'
       json: '@'
+      label: '@'
       isDisabled: '=?'
       localModel: '=ngModel'
 
@@ -230,10 +231,27 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
       if (angular.isUndefined(tAttrs.isDisabled))
         tAttrs.isDisabled = 'false'
 
+      postLink = (scope, iElement, iAttrs, ngModelCtrl) ->
+        # The $formatters pipeline. Convert a real model value into a value our
+        # view can use.
+        ngModelCtrl.$formatters.push (modelValue) ->
+          return modelValue
+
+        # The $parsers Pipeline. Converts the $viewValue into the $modelValue.
+        ngModelCtrl.$parsers.push (viewValue) ->
+          return viewValue
+
+        # Updating the UI to reflect $viewValue
+        ngModelCtrl.$render = ->
+          scope.localModel = ngModelCtrl.$viewValue
+
+        # Updating $viewValue when the UI changes
+        scope.$watch 'localModel', (value) ->
+          ngModelCtrl.$setViewValue(value)
 
   .controller 'arrayInputController', ($scope, $modal, $http) ->
-    ### Define origin Model ###
-    $scope.originModel = angular.copy($scope.localModel)
+    ### Define local Model and jsonData ###
+    $scope.localModel = []
     $scope.jsonData = undefined
 
     # Read data from a specific json file
@@ -252,23 +270,29 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
         resolve:
           jsonData: ->
             return $scope.jsonData
+          modalModel: ->
+            return null
       )
       modalInstance.result.then(
         (result) ->
-          console.log(result)
+          $scope.localModel.push(result)
       )
 
     $scope.editValue = (key) ->
+      console.log($scope.localModel)
+      console.log(key)
       modalInstance = $modal.open(
         templateUrl: 'src/html_template/array_input_modal_template.html'
         controller: 'arrayInputModalController'
         resolve:
           jsonData: ->
             return $scope.jsonData
+          modalModel: ->
+            return angular.copy($scope.localModel[key])
       )
       modalInstance.result.then(
         (result) ->
-          console.log(result)
+          $scope.localModel[key] = angular.copy(result)
       )
 
     $scope.deleteValue = (key) ->

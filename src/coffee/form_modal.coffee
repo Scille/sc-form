@@ -2,11 +2,16 @@
 
 angular.module('sc-form-modal', ['ui.bootstrap'])
 
-  .controller 'arrayInputModalController', ($scope, $modalInstance, jsonData) ->
-    $scope.modalModel = {}
+  .controller 'arrayInputModalController', ($scope, $modalInstance, jsonData, modalModel) ->
     $scope.jsonData = {}
+    $scope.modalModel = {}
+
     if jsonData?
       $scope.jsonData = angular.copy(jsonData)
+
+    if modalModel?
+      console.log(modalModel)
+      $scope.modalModel = angular.copy(modalModel)
 
     $scope.valid = ->
       $modalInstance.close($scope.modalModel)

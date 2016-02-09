@@ -6,10 +6,10 @@
 
 	<div class="modal-body">
 		<div ng-repeat="input in jsonData.inputs">
-			<div text-input-directive ng-if="input.type == 'text'" ng-model="modalModel[input.model]" label="{{input.label}}"></div>
-			<div list-text-input-directive ng-if="input.type == 'list-text'" ng-model="modalModel[input.model]" label="{{input.label}}"></div>
-			<div number-input-directive ng-if="input.type == 'number'" ng-model="modalModel[input.model]" label="{{input.label}}"></div>
-			<div date-input-directive ng-if="input.type == 'date'" ng-model="modalModel[input.model]" label="{{input.label}}"></div>
+			<div text-input-directive ng-if="input.type == 'text'" ng-model="modalModel[input.model]" label="{{input.model}}"></div>
+			<div list-text-input-directive ng-if="input.type == 'list-text'" ng-model="modalModel[input.model]" label="{{input.model}}"></div>
+			<div number-input-directive ng-if="input.type == 'number'" ng-model="modalModel[input.model]" label="{{input.model}}"></div>
+			<div date-input-directive ng-if="input.type == 'date'" ng-model="modalModel[input.model]" label="{{input.model}}"></div>
 		</div>
   </div>
 
