@@ -1,0 +1,23 @@
+<div class="form form-group" style="z-index: 1;">
+  <label ng-if="label != undefined" class="label-control">{{label}}</label>
+
+  <div ng-show="errorMsg" class="alert alert-danger">
+    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+    <span>{{errorMsg}}</span>
+  </div>
+
+  <div class="input-group form-control" ng-repeat="(key, value) in localModel track by key">
+    <div class="thumbnail" style="background-color:#f2f2f2;" >
+      <strong>{{key}}</strong>
+      <!-- <span ng-repeat="(elt) in value">{{elt}}</span> -->
+
+      <span class="pull-right">
+        <span class="fa fa-edit" ng-click="editValue(key)"></span>
+        <span class="fa fa-close" ng-click="deleteValue(key)"></span>
+      </span>
+
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary" ng-click="addValue()" ng-disabled="isDisabled"><span>{{ addButton }}</span></button>
+</div>

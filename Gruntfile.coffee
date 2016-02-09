@@ -62,6 +62,7 @@ module.exports = (grunt) ->
         files: [
           "<%= yeoman.demo %>/**/*.html"
           "<%= yeoman.demo %>/**/*.js"
+          "<%= yeoman.demo %>/**/*.json"
         ]
         tasks: ["newer:copy:dist"]
 
@@ -70,6 +71,7 @@ module.exports = (grunt) ->
           "<%= yeoman.dist %>/**/*.html"
           "<%= yeoman.dist %>/**/*.css"
           "<%= yeoman.dist %>/**/*.js"
+          "<%= yeoman.dist %>/**/*.json"
         ]
         options:
           livereload: true
@@ -170,6 +172,8 @@ module.exports = (grunt) ->
             "**/*.html"
             "*.js"
             "**/*.js"
+            "*.json"
+            "**/*.json"
           ]
         ]
 

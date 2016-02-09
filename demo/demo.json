@@ -1,0 +1,9 @@
+{
+  "title": "JSON Title",
+  "inputs": [
+    { "type": "text", "model": "textModel", "label": "Name" },
+    { "type": "list-text", "model": "listTextModel", "label": "First Name"},
+    { "type": "number", "model": "numberModel", "label": "Size (cm)" },
+    { "type": "date", "model": "dateModel", "label": "Birthday" }
+  ]
+}

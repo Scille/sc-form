@@ -5,7 +5,7 @@ guid = ->
     Math.floor((1 + Math.random()) * 0x10000).toString(16).substring 1
   s4() + s4() + '_' + s4() + '_' + s4() + '_' + s4() + '_' + s4() + s4() + s4()
 
-angular.module('sc-form', ['sc-form-template'])
+angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
 
   # Text Input
   .directive 'textInputDirective', ->
@@ -206,3 +206,70 @@ angular.module('sc-form', ['sc-form-template'])
         return
       )
       return
+
+
+  # Array Input
+  .directive 'arrayInputDirective', ->
+    restrict: 'EA'
+    templateUrl: 'src/html_template/array_input_template.html'
+    controller: 'arrayInputController'
+    require: 'ngModel'
+    scope:
+      addButton: '@'
+      json: '@'
+      isDisabled: '=?'
+      localModel: '=ngModel'
+
+    compile: (tElement, tAttrs) ->
+      if (angular.isUndefined(tAttrs.addButton))
+        tAttrs.addButton = 'Add'
+
+      if (angular.isUndefined(tAttrs.json))
+        tAttrs.json = 'json'
+
+      if (angular.isUndefined(tAttrs.isDisabled))
+        tAttrs.isDisabled = 'false'
+
+
+  .controller 'arrayInputController', ($scope, $modal, $http) ->
+    ### Define origin Model ###
+    $scope.originModel = angular.copy($scope.localModel)
+    $scope.jsonData = undefined
+
+    # Read data from a specific json file
+    $http.get($scope.json)
+      .success( (data) ->
+        $scope.jsonData = angular.copy(data)
+      )
+      .error( (data, status) ->
+        $scope.errorMsg = "Le fichier JSON (" + $scope.json + ") n'a pa pu être récupéré."
+      )
+
+    $scope.addValue = ->
+      modalInstance = $modal.open(
+        templateUrl: 'src/html_template/array_input_modal_template.html'
+        controller: 'arrayInputModalController'
+        resolve:
+          jsonData: ->
+            return $scope.jsonData
+      )
+      modalInstance.result.then(
+        (result) ->
+          console.log(result)
+      )
+
+    $scope.editValue = (key) ->
+      modalInstance = $modal.open(
+        templateUrl: 'src/html_template/array_input_modal_template.html'
+        controller: 'arrayInputModalController'
+        resolve:
+          jsonData: ->
+            return $scope.jsonData
+      )
+      modalInstance.result.then(
+        (result) ->
+          console.log(result)
+      )
+
+    $scope.deleteValue = (key) ->
+      $scope.localModel.splice(key, 1)

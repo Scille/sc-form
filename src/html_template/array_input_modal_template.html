@@ -1,0 +1,19 @@
+<div>
+	<div class="modal-header">
+    <button class="btn btn-danger pull-right" ng-click="cancel()"><i class="fa fa-lg fa-close"></i></button>
+	  <h3>{{jsonData.title}}</h3>
+	</div>
+
+	<div class="modal-body">
+		<div ng-repeat="input in jsonData.inputs">
+			<div text-input-directive ng-if="input.type == 'text'" ng-model="modalModel[input.model]" label="{{input.label}}"></div>
+			<div list-text-input-directive ng-if="input.type == 'list-text'" ng-model="modalModel[input.model]" label="{{input.label}}"></div>
+			<div number-input-directive ng-if="input.type == 'number'" ng-model="modalModel[input.model]" label="{{input.label}}"></div>
+			<div date-input-directive ng-if="input.type == 'date'" ng-model="modalModel[input.model]" label="{{input.label}}"></div>
+		</div>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="valid()">OK</button>
+  </div>
+</div>
