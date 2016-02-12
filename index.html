@@ -211,12 +211,35 @@
           
           <div id="date-input" class="tab-pane fade">
             <h3>Date Input</h3>
-            <p>TODO</p>
+            <p>Model Value: {{dateModel}}</p>
+            
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">date-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>dateModel<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div date-input-directive ng-model="dateModel"></div> <br />
           </div>
           
           <div id="array-input" class="tab-pane fade">
             <h3>Array Input</h3>
-            <p>TODO/p>
+            <p>Model Value: {{arrayModel}}</p>
+            <p>demo.json:</p>
+<div class="highlight highlight-text-html-basic"><pre>{
+    <span class="pl-ent">"title"</span>:<span class="pl-ent">"JSON Title"</span>,
+    <span class="pl-ent">"inputs"</span>: [
+        { <span class="pl-ent">"type"</span>: <span class="pl-ent">"text"</span>, <span class="pl-ent">"model"</span>: <span class="pl-ent">"Name"</span> },
+        { <span class="pl-ent">"type"</span>: <span class="pl-ent">"list-text"</span>, <span class="pl-ent">"model</span>": <span class="pl-ent">"FirstName"</span>},
+        { <span class="pl-ent">"type"</span>: <span class="pl-ent">"number"</span>, <span class="pl-ent">"model"</span>: <span class="pl-ent">"Size"</span> },
+        { <span class="pl-ent">"type"</span>: <span class="pl-ent">"date"</span>, <span class="pl-ent">"model"</span>: <span class="pl-ent">"Birthday"</span> }
+    ]
+}</pre></div>
+            
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">array-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>arrayModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">json</span>=<span class="pl-s"><span class="pl-pds">"</span>demo.json<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div array-input-directive ng-model="arrayModel" json="demo.json"></div> <br />
           </div>
           
           <div id="img-input" class="tab-pane fade">
