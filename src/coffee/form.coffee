@@ -187,31 +187,33 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
             placement: 'top'
           })
 
-        # Create datetimepicker ID
-        scope.dateTimePickerId = guid()
-
         # Check Approximative Model
         scope.isApproximative = !angular.isUndefined(iAttrs.approximativeModel)
 
-  .controller 'dateInputController', ($scope) ->
+  .controller 'dateInputController', ($scope, $timeout) ->
     ### Define origin Model ###
     $scope.originModel = angular.copy($scope.localModel)
     $scope.dateTimePickerModel = undefined
 
-    $ ->
-      angular.element("##{$scope.dateTimePickerId}").keydown(false)
-      angular.element("##{$scope.dateTimePickerId}").datetimepicker(
-        format: $scope.format
-        allowInputToggle:true
-        sideBySide: true
-        viewMode: 'years'
-      )
-      angular.element("##{$scope.dateTimePickerId}").on('dp.change', ->
-        $scope.localModel = angular.element("##{$scope.dateTimePickerId}").data("DateTimePicker").date().format($scope.format)
-        $scope.$apply()
+    # Create datetimepicker ID
+    $scope.dateTimePickerId = guid()
+    $timeout(
+      () ->
+        angular.element("##{$scope.dateTimePickerId}").keydown(false)
+        angular.element("##{$scope.dateTimePickerId}").datetimepicker(
+          format: $scope.format
+          allowInputToggle:true
+          sideBySide: true
+          viewMode: 'years'
+        )
+        angular.element("##{$scope.dateTimePickerId}").on('dp.change', ->
+          $scope.localModel = angular.element("##{$scope.dateTimePickerId}").data("DateTimePicker").date().format($scope.format)
+          $scope.$apply()
+          return
+        )
         return
-      )
-      return
+    )
+
 
 
   # Array Input
