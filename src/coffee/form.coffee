@@ -101,7 +101,6 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
 
   .controller 'listTextInputController', ($scope) ->
     ### Define local Model and newValue ###
-    $scope.localModel = []
     $scope.newValue = undefined
 
     $scope.onBlur = ->
@@ -109,11 +108,18 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
         $scope.newValue = $scope.newValue.trim()
         if $scope.upperFirstLetter == true
           $scope.newValue = $scope.newValue.charAt(0).toUpperCase() + $scope.newValue.slice(1)
+
+        if $scope.localModel == undefined
+          $scope.localModel = []
+
         $scope.localModel.push($scope.newValue)
         $scope.newValue = ''
 
     $scope.deleteValue = (key) ->
       $scope.localModel.splice(key, 1)
+
+      if $scope.localModel.length == 0
+        delete $scope.localModel
 
   # Number Input
   .directive 'numberInputDirective', ->
@@ -225,9 +231,6 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
       if (angular.isUndefined(tAttrs.addButton))
         tAttrs.addButton = 'Add'
 
-      if (angular.isUndefined(tAttrs.json))
-        tAttrs.json = 'json'
-
       if (angular.isUndefined(tAttrs.isDisabled))
         tAttrs.isDisabled = 'false'
 
@@ -251,7 +254,6 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
 
   .controller 'arrayInputController', ($scope, $modal, $http) ->
     ### Define local Model and jsonData ###
-    $scope.localModel = []
     $scope.jsonData = undefined
 
     # Read data from a specific json file
@@ -275,12 +277,14 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
       )
       modalInstance.result.then(
         (result) ->
-          $scope.localModel.push(result)
+          if !angular.equals({}, result)
+            if $scope.localModel == undefined
+              $scope.localModel = []
+
+            $scope.localModel.push(result)
       )
 
     $scope.editValue = (key) ->
-      console.log($scope.localModel)
-      console.log(key)
       modalInstance = $modal.open(
         templateUrl: 'src/html_template/array_input_modal_template.html'
         controller: 'arrayInputModalController'
@@ -297,3 +301,6 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
 
     $scope.deleteValue = (key) ->
       $scope.localModel.splice(key, 1)
+
+      if $scope.localModel.length == 0
+        delete $scope.localModel

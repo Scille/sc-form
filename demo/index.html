@@ -208,6 +208,21 @@
       <h3>Default</h3>
       <div array-input-directive ng-model="arrayModel" json="demo.json"></div>
 
+      <h3>Add Button Name</h3>
+      <div ng-init="addButton = ''">
+        <div>
+          <input type="text" name="add Button" ng-model="addButton">
+        </div></br>
+        <div array-input-directive ng-model="arrayModel" json="demo.json" add-button="{{addButton}}"></div>
+      </div>
+
+      <h3>Disabled</h3>
+      <div ng-init="disabled = true">
+        <button ng-click="disabled = !disabled">Click me</button>
+        <p>Disabled date-input: {{disabled}}</p>
+        <div array-input-directive ng-model="arrayModel" json="demo.json" is-disabled="disabled"></div>
+      </div>
+
     </div>
 
     <div id="img-input" class="tab-pane fade">

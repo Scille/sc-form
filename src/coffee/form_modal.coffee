@@ -10,7 +10,6 @@ angular.module('sc-form-modal', ['ui.bootstrap'])
       $scope.jsonData = angular.copy(jsonData)
 
     if modalModel?
-      console.log(modalModel)
       $scope.modalModel = angular.copy(modalModel)
 
     $scope.valid = ->
