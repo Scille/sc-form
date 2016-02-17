@@ -1,10 +1,5 @@
 'use strict'
 
-guid = ->
-  s4 = ->
-    Math.floor((1 + Math.random()) * 0x10000).toString(16).substring 1
-  s4() + s4() + '_' + s4() + '_' + s4() + '_' + s4() + '_' + s4() + s4() + s4()
-
 angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
 
   # Text Input
@@ -162,21 +157,24 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
     controller: 'dateInputController'
     require: 'ngModel'
     scope:
-      format: '@'
+      icon: '@'
       label: '@'
-      placeholder: '@'
       popoverMsg: '@'
+      type: '@'
       approximativeModel: '=?'
       errorMsg: '=?'
       isDisabled: '=?'
       localModel: '=ngModel'
 
     compile: (tElement, tAttrs) ->
+      if (angular.isUndefined(tAttrs.type))
+        tAttrs.type = 'date'
+      else if (!tAttrs.type.match("^(date|datetime-local)$"))
+        console.log("Error: type must date|datetime-local")
+        tAttrs.type = 'date'
+
       if (angular.isUndefined(tAttrs.isDisabled))
         tAttrs.isDisabled = 'false'
-
-      if (angular.isUndefined(tAttrs.format))
-        tAttrs.format = 'DD/MM/YYYY HH:mm'
 
       postLink = (scope, iElement, iAttrs) ->
         # Check if we must create a popover.
@@ -193,26 +191,6 @@ angular.module('sc-form', ['sc-form-template', 'sc-form-modal'])
   .controller 'dateInputController', ($scope, $timeout) ->
     ### Define origin Model ###
     $scope.originModel = angular.copy($scope.localModel)
-    $scope.dateTimePickerModel = undefined
-
-    # Create datetimepicker ID
-    $scope.dateTimePickerId = guid()
-    $timeout(
-      () ->
-        angular.element("##{$scope.dateTimePickerId}").keydown(false)
-        angular.element("##{$scope.dateTimePickerId}").datetimepicker(
-          format: $scope.format
-          allowInputToggle:true
-          sideBySide: true
-          viewMode: 'years'
-        )
-        angular.element("##{$scope.dateTimePickerId}").on('dp.change', ->
-          $scope.localModel = angular.element("##{$scope.dateTimePickerId}").data("DateTimePicker").date().format($scope.format)
-          $scope.$apply()
-          return
-        )
-        return
-    )
 
 
 

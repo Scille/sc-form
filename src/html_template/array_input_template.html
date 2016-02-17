@@ -1,4 +1,4 @@
-<div class="form form-group" style="z-index: 1;">
+<div class="sc-form form-group">
   <label ng-if="label != undefined" class="label-control">{{label}}</label>
 
   <div ng-show="errorMsg" class="alert alert-danger">
@@ -6,17 +6,19 @@
     <span>{{errorMsg}}</span>
   </div>
 
-  <div class="input-group form-control" ng-repeat="(key, elt) in localModel track by key">
-    <div class="thumbnail" style="background-color:#f2f2f2;" >
-      <span class="pull-right">
-        <span class="fa fa-edit" ng-if="!isDisabled" ng-click="editValue(key)"></span>
-        <span class="fa fa-close" ng-if="!isDisabled" ng-click="deleteValue(key)"></span>
-      </span>
-      <span ng-repeat="(id, value) in elt track by id">
-        <br /><span>{{id}}: {{value}}</span>
-      </span>
+  <div class="input-group form-group form-control" ng-show="localModel">
+    <div ng-repeat="(key, elt) in localModel track by key">
+      <div class="thumbnail" style="background-color:#f2f2f2;" >
+        <span class="pull-right">
+          <span class="fa fa-edit" ng-if="!isDisabled" ng-click="editValue(key)"></span>
+          <span class="fa fa-close" ng-if="!isDisabled" ng-click="deleteValue(key)"></span>
+        </span>
+        <span ng-repeat="(id, value) in elt track by id">
+          <br /><span>{{id}}: {{value}}</span>
+        </span>
+      </div>
     </div>
   </div>
 
-  <button type="button" class="btn btn-primary" ng-bind="addButton == '' ? 'Add' : addButton" ng-click="addValue()" ng-disabled="isDisabled"></button>
+  <input type="button" class="btn btn-primary" ng-value="addButton == '' ? 'Add' : addButton" ng-click="addValue()" ng-disabled="isDisabled" />
 </div>

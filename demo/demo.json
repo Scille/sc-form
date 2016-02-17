@@ -4,6 +4,7 @@
     { "type": "text", "model": "Name" },
     { "type": "list-text", "model": "FirstName"},
     { "type": "number", "model": "Size" },
-    { "type": "date", "model": "Birthday" }
+    { "type": "date", "model": "Birthday" },
+    { "type": "datetime-local", "model": "BirthdayWithHours" }
   ]
 }

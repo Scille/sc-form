@@ -1,11 +1,11 @@
-<div class="form form-group" style="z-index: 1;">
+<div class="sc-form form-group">
   <label ng-if="label != undefined" class="label-control">{{label}}</label>
 
   <div class="input-group">
     <div class="input-group-addon" ng-if="icon != undefined">
       <i class="fa fa-lg fa-{{icon}}"></i>
     </div>
-    <input style="z-index: 1;" type="number" class="form-control" ng-model="localModel" step="{{step}}"
+    <input type="number" class="form-control" ng-model="localModel" step="{{step}}"
            required placeholder="{{placeholder}}" ng-disabled="isDisabled" />
     <div class="input-group-addon alert-warning" ng-show="originModel != localModel">
       <i class="fa fa-lg fa-pencil"></i>

@@ -1,0 +1,41 @@
+// IMPORT
+// --------------------------------------
+
+@import "./default.less";
+
+
+
+// CSS
+// --------------------------------------
+
+.sc-form {
+
+  input[type=date],
+  input[type=time],
+  input[type=datetime-local] {
+
+    // If setting the input to "required" to eliminate the clear button does not work...
+    // Delete clear-button
+    &::-webkit-clear-button {
+      -webkit-appearance: none;
+      display: none;
+    }
+    // [END] Delete clear-button
+
+    // Delete spin-button
+    &::-webkit-inner-spin-button{
+      -webkit-appearance: none;
+      display: none;
+    }
+    // [END] Delete spin-button
+
+    // Use cursor pointer when we mouse over toggle-switch
+    &::-webkit-calendar-picker-indicator{
+      &:hover, &:active {
+        cursor:pointer;
+      }
+    }
+    // [END] Use cursor pointer when we mouse over toggle-switch
+  }
+
+}
