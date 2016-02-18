@@ -1,8 +1,8 @@
 'use strict'
 
-angular.module('sc-form-modal', ['ui.bootstrap'])
+angular.module('sc-array-input-modal', ['ui.bootstrap', 'array_input_modalTemplate'])
 
-  .controller 'arrayInputModalController', ($scope, $modalInstance, jsonData, modalModel) ->
+  .controller 'scArrayInputModalController', ($scope, $modalInstance, jsonData, modalModel) ->
     $scope.jsonData = {}
     $scope.modalModel = {}
 

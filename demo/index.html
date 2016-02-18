@@ -4,11 +4,12 @@
   <link rel="shortcut icon" href="">
   <title>Form Example</title>
 
-  <!-- injector:css -->
-  <link rel="stylesheet" href="/bower_components/bootstrap-css-only/css/bootstrap.css">
-  <link rel="stylesheet" href="/bower_components/components-font-awesome/css/font-awesome.css">
-  <!-- endinjector -->
-  <link rel="stylesheet" href="/css/form.min.css">
+  <!-- bower:css -->
+  <!-- bower installed css files will go here... -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- built css files will go here... -->
+  <!-- endinject -->
 
 </head>
 
@@ -33,40 +34,40 @@
       <p>Model Value: {{textModel}}</p>
 
       <h3>Default</h3>
-      <div text-input-directive ng-model="textModel"></div>
+      <div sc-text-input-directive ng-model="textModel"></div>
 
       <h3>Label</h3>
-      <div text-input-directive ng-model="textModel" label="Label"></div>
+      <div sc-text-input-directive ng-model="textModel" label="Label"></div>
 
       <h3>Icon</h3>
-      <div text-input-directive ng-model="textModel" icon="user"></div>
+      <div sc-text-input-directive ng-model="textModel" icon="user"></div>
 
       <h3>Placeholder</h3>
-      <div text-input-directive ng-model="textModel" placeholder="Placeholder"></div>
+      <div sc-text-input-directive ng-model="textModel" placeholder="Placeholder"></div>
 
       <h3>Popover Message</h3>
-      <div text-input-directive ng-model="textModel" popover-msg="Pop Over"></div>
+      <div sc-text-input-directive ng-model="textModel" popover-msg="Pop Over"></div>
 
       <h3>Error Message</h3>
       <div ng-init="errorMsg = ''">
         <div>
           <input type="text" name="error Message" ng-model="errorMsg">
         </div></br>
-        <div text-input-directive ng-model="textModel" error-msg="errorMsg"></div>
+        <div sc-text-input-directive ng-model="textModel" error-msg="errorMsg"></div>
       </div>
 
       <h3>Upper First Letter</h3>
       <div ng-init="upperFirstLetter = true">
         <button ng-click="upperFirstLetter = !upperFirstLetter">Click me</button>
         <p>upperFirstLetter text-input: {{upperFirstLetter}}</p>
-          <div text-input-directive ng-model="textModel" upper-first-letter="upperFirstLetter"></div>
+          <div sc-text-input-directive ng-model="textModel" upper-first-letter="upperFirstLetter"></div>
       </div>
 
       <h3>Disabled</h3>
       <div ng-init="disabled = true">
         <button ng-click="disabled = !disabled">Click me</button>
         <p>Disabled text-input: {{disabled}}</p>
-        <div text-input-directive ng-model="textModel" is-disabled="disabled"></div>
+        <div sc-text-input-directive ng-model="textModel" is-disabled="disabled"></div>
       </div>
     </div>
 
@@ -77,40 +78,40 @@
       <p>Model Value: {{listTextModel}}</p>
 
       <h3>Default</h3>
-      <div list-text-input-directive ng-model="listTextModel"></div>
+      <div sc-list-text-input-directive ng-model="listTextModel"></div>
 
       <h3>Label</h3>
-      <div list-text-input-directive ng-model="listTextModel" label="Label"></div>
+      <div sc-list-text-input-directive ng-model="listTextModel" label="Label"></div>
 
       <h3>Icon</h3>
-      <div list-text-input-directive ng-model="listTextModel" icon="user"></div>
+      <div sc-list-text-input-directive ng-model="listTextModel" icon="user"></div>
 
       <h3>Placeholder</h3>
-      <div list-text-input-directive ng-model="listTextModel" placeholder="Placeholder"></div>
+      <div sc-list-text-input-directive ng-model="listTextModel" placeholder="Placeholder"></div>
 
       <h3>Popover Message</h3>
-      <div list-text-input-directive ng-model="listTextModel" popover-msg="Pop Over"></div>
+      <div sc-list-text-input-directive ng-model="listTextModel" popover-msg="Pop Over"></div>
 
       <h3>Error Message</h3>
       <div ng-init="errorMsg = ''">
         <div>
           <input type="text" name="error Message" ng-model="errorMsg">
         </div></br>
-        <div list-text-input-directive ng-model="listTextModel" error-msg="errorMsg"></div>
+        <div sc-list-text-input-directive ng-model="listTextModel" error-msg="errorMsg"></div>
       </div>
 
       <h3>Upper First Letter</h3>
       <div ng-init="upperFirstLetter = true">
         <button ng-click="upperFirstLetter = !upperFirstLetter">Click me</button>
         <p>upperFirstLetter text-input: {{upperFirstLetter}}</p>
-          <div list-text-input-directive ng-model="listTextModel" upper-first-letter="upperFirstLetter"></div>
+          <div sc-list-text-input-directive ng-model="listTextModel" upper-first-letter="upperFirstLetter"></div>
       </div>
 
       <h3>Disabled</h3>
       <div ng-init="disabled = true">
         <button ng-click="disabled = !disabled">Click me</button>
         <p>Disabled text-input: {{disabled}}</p>
-        <div list-text-input-directive ng-model="listTextModel" is-disabled="disabled"></div>
+        <div sc-list-text-input-directive ng-model="listTextModel" is-disabled="disabled"></div>
       </div>
     </div>
 
@@ -121,26 +122,26 @@
       <p>Model Value: {{numberModel}}</p>
 
       <h3>Default</h3>
-      <div number-input-directive ng-model="numberModel"></div>
+      <div sc-number-input-directive ng-model="numberModel"></div>
 
       <h3>Label</h3>
-      <div number-input-directive ng-model="numberModel" label="Label"></div>
+      <div sc-number-input-directive ng-model="numberModel" label="Label"></div>
 
       <h3>Icon</h3>
-      <div number-input-directive ng-model="numberModel" icon="sort-numeric-asc"></div>
+      <div sc-number-input-directive ng-model="numberModel" icon="sort-numeric-asc"></div>
 
       <h3>Placeholder</h3>
-      <div number-input-directive ng-model="numberModel" placeholder="Placeholder"></div>
+      <div sc-number-input-directive ng-model="numberModel" placeholder="Placeholder"></div>
 
       <h3>Popover Message</h3>
-      <div number-input-directive ng-model="numberModel" popover-msg="Pop Over"></div>
+      <div sc-number-input-directive ng-model="numberModel" popover-msg="Pop Over"></div>
 
       <h3>Step</h3>
       <div ng-init="stepValue = ''">
         <div>
           <input type="text" name="step" ng-model="stepValue">
         </div></br>
-        <div number-input-directive ng-model="numberModel" step="stepValue"></div>
+        <div sc-number-input-directive ng-model="numberModel" step="stepValue"></div>
       </div>
 
       <h3>Error Message</h3>
@@ -148,14 +149,14 @@
         <div>
           <input type="text" name="error Message" ng-model="errorMsg">
         </div></br>
-        <div number-input-directive ng-model="numberModel" error-msg="errorMsg"></div>
+        <div sc-number-input-directive ng-model="numberModel" error-msg="errorMsg"></div>
       </div>
 
       <h3>Disabled</h3>
       <div ng-init="disabled = true">
         <button ng-click="disabled = !disabled">Click me</button>
         <p>Disabled number-input: {{disabled}}</p>
-        <div number-input-directive ng-model="numberModel" is-disabled="disabled"></div>
+        <div sc-number-input-directive ng-model="numberModel" is-disabled="disabled"></div>
       </div>
     </div>
 
@@ -166,36 +167,36 @@
       <p>Model Value: {{dateModel}}</p>
 
       <h3>Default</h3>
-      <div date-input-directive ng-model="dateModel"></div>
+      <div sc-date-input-directive ng-model="dateModel"></div>
 
       <h3>Label</h3>
-      <div date-input-directive ng-model="dateModel" label="Label"></div>
+      <div sc-date-input-directive ng-model="dateModel" label="Label"></div>
 
       <h3>Icon</h3>
-      <div date-input-directive ng-model="dateModel" icon="calendar"></div>
+      <div sc-date-input-directive ng-model="dateModel" icon="calendar"></div>
 
       <h3>Popover Message</h3>
-      <div date-input-directive ng-model="dateModel" popover-msg="Pop Over"></div>
+      <div sc-date-input-directive ng-model="dateModel" popover-msg="Pop Over"></div>
 
       <h3>Error Message</h3>
       <div ng-init="errorMsg = ''">
         <div>
           <input type="text" name="error Message" ng-model="errorMsg">
         </div></br>
-        <div date-input-directive ng-model="dateModel" error-msg="errorMsg"></div>
+        <div sc-date-input-directive ng-model="dateModel" error-msg="errorMsg"></div>
       </div>
 
       <h3>Disabled</h3>
       <div ng-init="disabled = true">
         <button ng-click="disabled = !disabled">Click me</button>
         <p>Disabled date-input: {{disabled}}</p>
-        <div date-input-directive ng-model="dateModel" is-disabled="disabled"></div>
+        <div sc-date-input-directive ng-model="dateModel" is-disabled="disabled"></div>
       </div>
 
       <h3>Approximative</h3>
       <div ng-init="approximativeModel = true">
         <p>approximative date-input: {{approximativeModel}}</p>
-        <div date-input-directive ng-model="dateModel" approximative-model="approximativeModel"></div>
+        <div sc-date-input-directive ng-model="dateModel" approximative-model="approximativeModel"></div>
       </div>
     </div>
 
@@ -206,21 +207,21 @@
       <p>Model Value: {{arrayModel}}</p>
 
       <h3>Default</h3>
-      <div array-input-directive ng-model="arrayModel" json="demo.json"></div>
+      <div sc-array-input-directive ng-model="arrayModel" json="demo.json"></div>
 
       <h3>Add Button Name</h3>
       <div ng-init="addButton = ''">
         <div>
           <input type="text" name="add Button" ng-model="addButton">
         </div></br>
-        <div array-input-directive ng-model="arrayModel" json="demo.json" add-button="{{addButton}}"></div>
+        <div sc-array-input-directive ng-model="arrayModel" json="demo.json" add-button="{{addButton}}"></div>
       </div>
 
       <h3>Disabled</h3>
       <div ng-init="disabled = true">
         <button ng-click="disabled = !disabled">Click me</button>
         <p>Disabled date-input: {{disabled}}</p>
-        <div array-input-directive ng-model="arrayModel" json="demo.json" is-disabled="disabled"></div>
+        <div sc-array-input-directive ng-model="arrayModel" json="demo.json" is-disabled="disabled"></div>
       </div>
 
     </div>
@@ -232,15 +233,13 @@
   </div>
 
 
-  <!-- injector:js -->
-  <script src="/bower_components/jquery/dist/jquery.js"></script>
-  <script src="/bower_components/angular/angular.js"></script>
-  <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-  <script src="/bower_components/angular-mocks/angular-mocks.js"></script>
-  <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <!-- endinjector -->
+  <!-- bower:js -->
+  <!-- bower installed scripts will go here... -->
+  <!-- endinject -->
   <script type="text/javascript" src="app.js"></script>
-  <script type="text/javascript" src="scripts/form.min.js"></script>
+  <!-- inject:js -->
+  <!-- app scripts will go here... -->
+  <!-- endinject -->
 
 </body>
 </html>
