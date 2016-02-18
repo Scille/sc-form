@@ -151,7 +151,6 @@ $ protractor ./test/protractor_conf.coffee
 ## Dependencies
 
 * see [Bootstrap](http://getbootstrap.com/)
-* see [Bootstrap Date/Time Picker](https://github.com/Eonasdan/bootstrap-datetimepicker)
 
 ## Contributors
 
