@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="https://rawgit.com/Scille/sc-form/master/release/css/form.min.css"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="https://rawgit.com/Scille/sc-form/master/release/sc-form.min.css"></script>
 
 
     <title>sc-form</title>
@@ -36,7 +36,7 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        
+
         <h1><a id="scille-form-for-angularjs" class="anchor" href="#scille-form-for-angularjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scille Form (for Angularjs)</h1>
         <p>A Form is a collection of Controls for AngularJS. Controls are ways for a user to enter data. This library is created by DUBOIS Romain and maintained by the Scille team.</p>
 
@@ -50,7 +50,7 @@
 
         <h3><a id="directive" class="anchor" href="#directive" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Directive</h3>
         <p>Directives can work on both attribute and element levels.</p>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-text-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
     <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"</span>{{label}}<span class="pl-pds">"</span></span>
     <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"</span>{{icon}}<span class="pl-pds">"</span></span>
@@ -61,23 +61,23 @@
     <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>isDisabled<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;
 
-&lt;<span class="pl-ent">div</span> <span class="pl-e">list-text-input-directive</span>
+&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-text-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listModel<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;
 
-&lt;<span class="pl-ent">div</span> <span class="pl-e">number-input-directive</span>
+&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-number-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>numberModel<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;
 
-&lt;<span class="pl-ent">div</span> <span class="pl-e">date-input-directive</span>
+&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-date-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>dateModel<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;
 
-&lt;<span class="pl-ent">div</span> <span class="pl-e">array-input-directive</span>
+&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-array-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>arrayModel<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;
 
-&lt;<span class="pl-ent">div</span> <span class="pl-e">img-input-directive</span>
+&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-img-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>imgModel<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
 
@@ -114,43 +114,43 @@
           <div id="text-input" class="tab-pane fade in active">
             <h3>Text Input</h3>
             <p>Model Value: {{textModel}}</p>
-            
+
             <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h4>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-text-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
-            <br /><div text-input-directive ng-model="textModel"></div><br />
-            
+            <br /><div sc-text-input-directive ng-model="textModel"></div><br />
+
             <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Label</h4>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-text-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
     <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"</span>Label<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
-            <br /><div text-input-directive ng-model="textModel" label="Label"></div><br />
-            
+            <br /><div sc-text-input-directive ng-model="textModel" label="Label"></div><br />
+
             <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Icon</h4>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-text-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
     <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"</span>user<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
-            <br /><div text-input-directive ng-model="textModel" icon="user"></div><br />
-            
+            <br /><div sc-text-input-directive ng-model="textModel" icon="user"></div><br />
+
             <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Placeholder</h4>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-text-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
     <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Placeholder<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
-            <br /><div text-input-directive ng-model="textModel" placeholder="Placeholder"></div><br />
-            
+            <br /><div sc-text-input-directive ng-model="textModel" placeholder="Placeholder"></div><br />
+
             <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Popover Message</h4>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-text-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
     <span class="pl-e">popover-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>Pop Over<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
-            <br /><div text-input-directive ng-model="textModel" popover-msg="Pop Over"></div><br />
-            
+            <br /><div sc-text-input-directive ng-model="textModel" popover-msg="Pop Over"></div><br />
+
             <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error Message</h4>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-text-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
     <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>{{errorMsg}}<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
@@ -159,11 +159,11 @@
               <div>
                 <label class="input-label" >errorMsg:</label><input type="text" name="error message" ng-model="errorMsg">
               </div><br />
-              <div text-input-directive ng-model="textModel" error-msg="errorMsg"></div>
+              <div sc-text-input-directive ng-model="textModel" error-msg="errorMsg"></div>
             </div><br />
-            
+
             <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upper First Letter</h4>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-text-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
     <span class="pl-e">upper-first-letter</span>=<span class="pl-s"><span class="pl-pds">"</span>{{upperFirstLetter}}<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
@@ -171,11 +171,11 @@
               <br />
               <button ng-click="upperFirstLetter = !upperFirstLetter">Click me</button>
               <p>upperFirstLetter: {{upperFirstLetter}}</p>
-              <div text-input-directive ng-model="textModel" upper-first-letter="upperFirstLetter"></div>
+              <div sc-text-input-directive ng-model="textModel" upper-first-letter="upperFirstLetter"></div>
             </div><br />
-            
+
             <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disabled</h4>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">text-input-directive</span>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-text-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
     <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>{{isDisabled}}<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
@@ -183,45 +183,45 @@
               <br />
               <button ng-click="isDisabled = !isDisabled">Click me</button>
               <p>isDisabled: {{isDisabled}}</p>
-              <div text-input-directive ng-model="textModel" is-disabled="isDisabled"></div>
+              <div sc-text-input-directive ng-model="textModel" is-disabled="isDisabled"></div>
             </div><br />
-            
+
           </div>
-          
+
           <div id="list-text-input" class="tab-pane fade">
             <h3>List Text Input</h3>
             <p>Model Value: {{listTextModel}}</p>
-            
+
             <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h4>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">list-text-input-directive</span>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-text-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listTextModel<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
-            <br /><div list-text-input-directive ng-model="listTextModel"></div><br />
-            
+            <br /><div sc-list-text-input-directive ng-model="listTextModel"></div><br />
+
           </div>
-          
+
           <div id="number-input" class="tab-pane fade">
             <h3>Number Input</h3>
             <p>Model Value: {{numberModel}}</p>
 
             <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h4>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">number-input-directive</span>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-number-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>numberModel<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
-             <br /><div number-input-directive ng-model="numberModel"></div> <br />
+             <br /><div sc-number-input-directive ng-model="numberModel"></div> <br />
           </div>
-          
+
           <div id="date-input" class="tab-pane fade">
             <h3>Date Input</h3>
             <p>Model Value: {{dateModel}}</p>
-            
+
             <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h4>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">date-input-directive</span>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-date-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>dateModel<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
-            <br /><div date-input-directive ng-model="dateModel"></div> <br />
+            <br /><div sc-date-input-directive ng-model="dateModel"></div> <br />
           </div>
-          
+
           <div id="array-input" class="tab-pane fade">
             <h3>Array Input</h3>
             <p>Model Value: {{arrayModel}}</p>
@@ -235,24 +235,24 @@
         { <span class="pl-ent">"type"</span>: <span class="pl-ent">"date"</span>, <span class="pl-ent">"model"</span>: <span class="pl-ent">"Birthday"</span> }
     ]
 }</pre></div>
-            
+
             <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h4>
-<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">array-input-directive</span>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-array-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>arrayModel<span class="pl-pds">"</span></span>
     <span class="pl-e">json</span>=<span class="pl-s"><span class="pl-pds">"</span>demo.json<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
-            <br /><div array-input-directive ng-model="arrayModel" json="demo.json"></div> <br />
+            <br /><div sc-array-input-directive ng-model="arrayModel" json="demo.json"></div> <br />
           </div>
-          
+
           <div id="img-input" class="tab-pane fade">
             <h3>Image Input</h3>
             <p>TODO</p>
           </div>
-          
+
         </div>
-        
-        
-        
+
+
+
         <h2><a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributors</h2>
         <p>DUBOIS Romain, Engineer R&amp;D at <a href="http://scille.eu/">SCILLE</a>
         <a href="mailto:romain.dubois@scille.fr">romain.dubois@scille.fr</a></p>
@@ -270,14 +270,14 @@
         <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script type="text/javascript" src="https://rawgit.com/angular-ui/bootstrap-bower/4fa8d643acc1829e77984dc004ceb52791c50592/ui-bootstrap-tpls.js"></script>
     <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="javascripts/main.js"></script>
-    <script type="text/javascript" src="https://rawgit.com/Scille/sc-form/master/release/scripts/form.min.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/Scille/sc-form/master/release/sc-form.min.js"></script>
 
   </body>
 </html>
