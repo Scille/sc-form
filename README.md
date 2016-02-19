@@ -13,7 +13,7 @@ $ sudo apt-get install nodejs
 $ sudo ln /usr/bin/nodejs /usr/bin/node
 
 $ sudo apt-get install npm
-$ sudo npm install -g bower grunt-cli coffee-script karma-cli protractor
+$ sudo npm install -g bower gulp coffee-script karma-cli protractor
 ```
 
 ### Download git repository
@@ -47,63 +47,92 @@ angular.module('yourModule', ['sc-form'
 
 Directives can work on both attribute and element levels.
 ```html
-<div text-input-directive
+<div sc-text-input-directive
     ng-model="textModel"
-    label="{{label}}"
     icon="{{icon}}"
+    label="{{label}}"
     placeholder="{{placeholder}}"
     popover-msg="{{popoverMsg}}"
-    error-msg="{{errorMsg]}"
+    error-msg="errorMsg"
     upper-first-letter="upperFirstLetter"
     is-disabled="isDisabled">
 </div>
 
-<div number-input-directive
-    ng-model="numberModel">
+<div sc-list-text-input-directive
+    ng-model="listModel"
+    icon="{{icon}}"
+    label="{{label}}"
+    placeholder="{{placeholder}}"
+    popover-msg="{{popoverMsg}}"
+    error-msg="errorMsg"
+    is-disabled="isDisabled"
+    upper-first-letter="upperFirstLetter">
 </div>
 
-<div date-input-directive
-    ng-model="dateModel">
+<div sc-number-input-directive
+    ng-model="numberModel"
+    icon="{{icon}}"
+    label="{{label}}"
+    placeholder="{{placeholder}}"
+    popover-msg="{{popoverMsg}}"
+    error-msg="errorMsg"
+    is-disabled="isDisabled"
+    step="step">
 </div>
 
-<div list-input-directive
-    ng-model="listModel">
+<div sc-date-input-directive
+    ng-model="dateModel"
+    icon="{{icon}}"
+    label="{{label}}"
+    popover-msg="{{popoverMsg}}"
+    type="{{type}}}"
+    approximative-model="approximativeModel"
+    error-msg="errorMsg"
+    is-disabled="isDisabled">
 </div>
 
-<div array-input-directive
-    ng-model="arrayModel">
+<div sc-array-input-directive
+    ng-model="arrayModel"
+    add-button="{{addButton}}"
+    json="{{json}}"
+    label="{{label}}"
+    is-disabled="isDisabled">
 </div>
 
-<div img-input-directive
+<div sc-img-input-directive
     ng-model="imgModel">
 </div>
 ```
 
 *Note:*
 * **ng-model:** Will try to bind to the property given by evaluating the expression on the current scope. If the property doesn't already exist on this scope, it will be created implicitly and added to the scope.
-* **label**: Sets the label text
-* **icon**: Sets the icon
-* **placeholder**: Sets the input placeholder
-* **popover-msg**: Sets the popover message
-* **error-msg**: Sets the error message
-* **upper-first-letter*: Capitalizes the first letter of string.
+* **add-button**: Sets the button value.
+* **icon**: Sets the icon.
+* **json**: Sets the JSON file.
+* **label**: Sets the label text.
+* **placeholder**: Sets the input placeholder.
+* **popover-msg**: Sets the popover message.
+* **type**: Sets the input type (date or datetime-local).
+* **approximative-model**: Determines if the input is an approximate date.
+* **error-msg**: Sets the error message.
 * **is-disabled**: Determines if the input is disabled or not.
+* **step**: Specifies the legal number intervals.
+* **upper-first-letter**: Capitalizes the first letter of string.
 
 ## Directory structure
 
 ```
 sc-form/
     |
-    |- demo/                    -> Contains JavaScript file and HTML file. (Used by Grunt to run the demonstration)
+    |- demo/                    -> Contains JavaScript file and HTML file. (Used by Gulp to run the demonstration)
     |
     |- release/                 -> Contains the production minified release of the app.
-    |   |- css/                     -> Minified CSS file.
-    |   '- script/                  -> Minified JavaScript file.
+    |   |- sc-form.min.css          -> Minified CSS file.
+    |   '- sc-form.min.js           -> Minified JavaScript file.
     |
     |- src/                     -> Contains CoffeeScript sources, LESS styles and other assets.
-    |   |- coffee/                  -> CoffeeScript sources.
-    |   |- html_template/           -> HTML that contains Angular-specific elements and attributes.
-    |   '- less/                    -> LESS sources.
+    |   |- script/                  -> CoffeeScript sources and HTML that contains Angular-specific elements and attributes.
+    |   '- style/                   -> LESS sources.
     |
     '- test/                    -> Contains tests for the application.
         |- e2e/                     -> End-To-End tests for AngularJS applications. (Protractor)
@@ -114,7 +143,7 @@ sc-form/
 
 Executing the demo with:
 ```bash
-$ grunt serve
+$ gulp serve
 ```
 
 Executing demo on GitHub Pages:
@@ -124,9 +153,9 @@ Executing demo on GitHub Pages:
 
 ### Unit Tests (Karma)
 
-Executing Unit Tests with Grunt:
+Executing Unit Tests with Gulp:
 ```bash
-$ grunt unit-test
+$ gulp unit-test
 ```
 
 Executing Unit Tests by Karma:
@@ -138,9 +167,9 @@ It will also generate HTML test coverage report inside ./.tmp/report-html direct
 
 ### End-To-End Tests (Protractor)
 
-Executing End-To-End Tests with Grunt:
+Executing End-To-End Tests with Gulp:
 ```bash
-$ grunt e2e-test
+$ gulp e2e-test
 ```
 
 Executing End-To-End Tests by Protractor:
