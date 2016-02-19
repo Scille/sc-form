@@ -7,4 +7,5 @@ angular.module('sc-form',
     'sc-number-input'
     'sc-date-input'
     'sc-array-input'
+    'sc-img-input'
   ])
