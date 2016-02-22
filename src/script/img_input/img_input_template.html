@@ -1,8 +1,8 @@
 <div class="sc-form form-group">
   <label ng-if="label != undefined" class="label-control">{{label}}</label>
 
-  <div class="dropzone" ng-style="{width: width, height: height}">
-    <div ng-style="{height: height, 'line-height': height}">{{placeholder}}</div>
+  <div class="dropzone" ng-style="{'width': width, 'height': height}">
+    <div ng-style="{'height': height, 'line-height': height}">{{placeholder}}</div>
     <input type="file" accept="image/*" ng-style="{'margin-top': '-' + height}"
            ng-disabled="isDisabled" />
   </div>

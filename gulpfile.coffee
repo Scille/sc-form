@@ -64,6 +64,7 @@ gulp.task 'watch', ->
   gulp.watch src.templates, ['scripts']
   gulp.watch src.stylesheets, ['stylesheets']
   gulp.watch src.index, ['index']
+  gulp.watch src.demo, ['demo']
   gulp.watch dest.all
     .on 'change', browserSync.reload
 
