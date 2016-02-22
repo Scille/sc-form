@@ -233,6 +233,27 @@
 
       <h3>Default</h3>
       <div sc-img-input-directive ng-model="imgModel"></div>
+
+      <h3>Label</h3>
+      <div sc-img-input-directive ng-model="imgModel" label="Label"></div>
+
+      <h3>Placeholder</h3>
+      <div sc-img-input-directive ng-model="imgModel" placeholder="Placeholder"></div>
+
+      <h3>Error Message</h3>
+      <div ng-init="errorMsg = ''">
+        <div>
+          <input type="text" name="error Message" ng-model="errorMsg">
+        </div></br>
+        <div sc-img-input-directive ng-model="imgModel" error-msg="errorMsg"></div>
+      </div>
+
+      <h3>Disabled</h3>
+      <div ng-init="disabled = true">
+        <button ng-click="disabled = !disabled">Click me</button>
+        <p>Disabled number-input: {{disabled}}</p>
+        <div sc-img-input-directive ng-model="imgModel" is-disabled="disabled"></div>
+      </div>
     </div>
   </div>
 

@@ -1,6 +1,11 @@
 <div class="sc-form form-group">
   <label ng-if="label != undefined" class="label-control">{{label}}</label>
 
+  <span class="pull-right" ng-if="!isDisabled">
+    <span class="fa fa-edit"  ng-show="localModel != undefined" ng-click="editValue()"></span>
+    <span class="fa fa-close" ng-show="localModel != undefined" ng-click="deleteValue()"></span>
+  </span>
+
   <div class="dropzone" ng-style="{'width': width, 'height': height}">
     <div ng-style="{'height': height, 'line-height': height}">{{placeholder}}</div>
     <input type="file" accept="image/*" ng-style="{'margin-top': '-' + height}"
