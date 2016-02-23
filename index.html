@@ -528,6 +528,45 @@
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>imgModel<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
             <br /><div sc-img-input-directive ng-model="imgModel"></div> <br />
+            
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Label</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-img-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>imgModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"</span>Label<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-img-input-directive ng-model="imgModel" label="Label"></div><br />
+
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Placeholder</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-img-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>imgModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Placeholder<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-img-input-directive ng-model="imgModel" placeholder="Placeholder"></div><br />
+
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error Message</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-img-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>imgModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>{{errorMsg}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="errorMsg = '';">
+              <br />
+              <div>
+                <label class="input-label" >errorMsg:</label><input type="text" name="error message" ng-model="errorMsg">
+              </div><br />
+              <div sc-img-input-directive ng-model="imgModel" error-msg="errorMsg"></div>
+            </div><br />
+
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disabled</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-img-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>imgModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>{{isDisabled}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="isDisabled = false;">
+              <br />
+              <button ng-click="isDisabled = !isDisabled">Click me</button>
+              <p>isDisabled: {{isDisabled}}</p>
+              <div sc-img-input-directive ng-model="imgModel" is-disabled="isDisabled"></div>
+            </div><br />
           </div>
 
         </div>
