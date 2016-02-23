@@ -482,7 +482,7 @@
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
             <br /><div sc-array-input-directive ng-model="arrayModel" json="demo.json"></div> <br />
             
-            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error Message</h4>
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add Button Value</h4>
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-date-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>numberModel<span class="pl-pds">"</span></span>
     <span class="pl-e">json</span>=<span class="pl-s"><span class="pl-pds">"</span>demo.json<span class="pl-pds">"</span></span>
@@ -493,7 +493,7 @@
               <div>
                 <label class="input-label" >addButton:</label><input type="text" name="add button" ng-model="addButton">
               </div><br />
-              <div sc-array-input-directive ng-model="numberModel" json="demo.json" add-button="addButton"></div>
+              <div sc-array-input-directive ng-model="numberModel" json="demo.json" add-button="{{addButton}}"></div>
             </div><br />
             
             <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Label</h4>
