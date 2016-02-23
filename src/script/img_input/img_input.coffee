@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('sc-img-input',  ['img_inputTemplate'])
+angular.module('sc-img-input',  ['img_inputTemplate', 'sc-img-input-modal'])
 
   .directive 'scImgInputDirective', ->
     restrict: 'EA'
@@ -45,7 +45,7 @@ angular.module('sc-img-input',  ['img_inputTemplate'])
           scope.localModel = ngModelCtrl.$viewValue
 
         # Updating $viewValue when the UI changes
-        scope.$watch 'localModel', (value) ->
+        scope.$watchCollection 'localModel', (value) ->
           ngModelCtrl.$setViewValue(value)
 
           $('.dropzone img', iElement).remove()
@@ -71,7 +71,20 @@ angular.module('sc-img-input',  ['img_inputTemplate'])
               )
         )
 
-  .controller 'scImgInputController', ($scope) ->
+  .controller 'scImgInputController', ($scope, $modal) ->
+
+    $scope.editValue = () ->
+      modalInstance = $modal.open(
+        templateUrl: 'script/img_input/modal/img_input_modal_template.html'
+        controller: 'scImgInputModalController'
+        resolve:
+          modalModel: ->
+            return angular.copy($scope.localModel.data)
+      )
+      modalInstance.result.then(
+        (result) ->
+          $scope.localModel.data = angular.copy(result)
+      )
 
     $scope.deleteValue = () ->
       delete $scope.localModel
