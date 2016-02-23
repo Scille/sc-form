@@ -36,11 +36,11 @@
       <h3>Default</h3>
       <div sc-text-input-directive ng-model="textModel"></div>
 
-      <h3>Label</h3>
-      <div sc-text-input-directive ng-model="textModel" label="Label"></div>
-
       <h3>Icon</h3>
       <div sc-text-input-directive ng-model="textModel" icon="user"></div>
+
+      <h3>Label</h3>
+      <div sc-text-input-directive ng-model="textModel" label="Label"></div>
 
       <h3>Placeholder</h3>
       <div sc-text-input-directive ng-model="textModel" placeholder="Placeholder"></div>
@@ -80,11 +80,11 @@
       <h3>Default</h3>
       <div sc-list-text-input-directive ng-model="listTextModel"></div>
 
-      <h3>Label</h3>
-      <div sc-list-text-input-directive ng-model="listTextModel" label="Label"></div>
-
       <h3>Icon</h3>
       <div sc-list-text-input-directive ng-model="listTextModel" icon="user"></div>
+
+      <h3>Label</h3>
+      <div sc-list-text-input-directive ng-model="listTextModel" label="Label"></div>
 
       <h3>Placeholder</h3>
       <div sc-list-text-input-directive ng-model="listTextModel" placeholder="Placeholder"></div>
@@ -124,25 +124,17 @@
       <h3>Default</h3>
       <div sc-number-input-directive ng-model="numberModel"></div>
 
-      <h3>Label</h3>
-      <div sc-number-input-directive ng-model="numberModel" label="Label"></div>
-
       <h3>Icon</h3>
       <div sc-number-input-directive ng-model="numberModel" icon="sort-numeric-asc"></div>
+
+      <h3>Label</h3>
+      <div sc-number-input-directive ng-model="numberModel" label="Label"></div>
 
       <h3>Placeholder</h3>
       <div sc-number-input-directive ng-model="numberModel" placeholder="Placeholder"></div>
 
       <h3>Popover Message</h3>
       <div sc-number-input-directive ng-model="numberModel" popover-msg="Pop Over"></div>
-
-      <h3>Step</h3>
-      <div ng-init="stepValue = ''">
-        <div>
-          <input type="text" name="step" ng-model="stepValue">
-        </div></br>
-        <div sc-number-input-directive ng-model="numberModel" step="stepValue"></div>
-      </div>
 
       <h3>Error Message</h3>
       <div ng-init="errorMsg = ''">
@@ -158,6 +150,14 @@
         <p>Disabled number-input: {{disabled}}</p>
         <div sc-number-input-directive ng-model="numberModel" is-disabled="disabled"></div>
       </div>
+
+      <h3>Step</h3>
+      <div ng-init="stepValue = ''">
+        <div>
+          <input type="text" name="step" ng-model="stepValue">
+        </div></br>
+        <div sc-number-input-directive ng-model="numberModel" step="stepValue"></div>
+      </div>
     </div>
 
     <div id="date-input" class="tab-pane fade">
@@ -169,14 +169,24 @@
       <h3>Default</h3>
       <div sc-date-input-directive ng-model="dateModel"></div>
 
-      <h3>Label</h3>
-      <div sc-date-input-directive ng-model="dateModel" label="Label"></div>
-
       <h3>Icon</h3>
       <div sc-date-input-directive ng-model="dateModel" icon="calendar"></div>
 
+      <h3>Label</h3>
+      <div sc-date-input-directive ng-model="dateModel" label="Label"></div>
+
       <h3>Popover Message</h3>
       <div sc-date-input-directive ng-model="dateModel" popover-msg="Pop Over"></div>
+
+      <h3>Type</h3>
+      <div sc-date-input-directive ng-model="dateModel" type="date"></div>
+      <div sc-date-input-directive ng-model="dateModel" type="datetime-local"></div>
+
+      <h3>Approximative</h3>
+      <div ng-init="approximativeModel = true">
+        <p>approximative date-input: {{approximativeModel}}</p>
+        <div sc-date-input-directive ng-model="dateModel" approximative-model="approximativeModel"></div>
+      </div>
 
       <h3>Error Message</h3>
       <div ng-init="errorMsg = ''">
@@ -193,11 +203,6 @@
         <div sc-date-input-directive ng-model="dateModel" is-disabled="disabled"></div>
       </div>
 
-      <h3>Approximative</h3>
-      <div ng-init="approximativeModel = true">
-        <p>approximative date-input: {{approximativeModel}}</p>
-        <div sc-date-input-directive ng-model="dateModel" approximative-model="approximativeModel"></div>
-      </div>
     </div>
 
     <div id="array-input" class="tab-pane fade">
@@ -216,6 +221,9 @@
         </div></br>
         <div sc-array-input-directive ng-model="arrayModel" json="demo.json" add-button="{{addButton}}"></div>
       </div>
+
+      <h3>Label</h3>
+      <div sc-array-input-directive ng-model="arrayModel" json="demo.json" label="Label"></div>
 
       <h3>Disabled</h3>
       <div ng-init="disabled = true">

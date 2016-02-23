@@ -100,7 +100,11 @@ Directives can work on both attribute and element levels.
 </div>
 
 <div sc-img-input-directive
-    ng-model="imgModel">
+    ng-model="imgModel"
+    label="{{label}}"
+    placeholder="{{placeholder}}"
+    error-msg="errorMsg"
+    is-disabled="isDisabled">
 </div>
 ```
 
@@ -186,7 +190,7 @@ $ protractor ./test/protractor_conf.coffee
 DUBOIS Romain, Engineer R&D at [SCILLE](http://scille.eu/)
 <romain.dubois@scille.fr>
 
-Landieth Jérôme, Engineer R&D at [SCILLE](http://scille.eu/)
+LANDIETH Jérôme, Engineer R&D at [SCILLE](http://scille.eu/)
 <jerome.landieth@scille.fr>
 
 MEZINO Vincent, Engineer R&D at [SCILLE](http://scille.eu)

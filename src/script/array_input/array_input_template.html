@@ -14,7 +14,7 @@
           <span class="fa fa-close" ng-click="deleteValue(key)"></span>
         </span>
         <span ng-repeat="(id, value) in elt track by id">
-          <br /><span>{{id}}: {{value}}</span>
+          <br /><span ng-bind="id"></span>: <span ng-bind="value.file ? value.file : value"></span>
         </span>
       </div>
     </div>
