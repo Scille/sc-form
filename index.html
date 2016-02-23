@@ -52,29 +52,54 @@
         <p>Directives can work on both attribute and element levels.</p>
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-text-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>textModel<span class="pl-pds">"</span></span>
-    <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"</span>{{label}}<span class="pl-pds">"</span></span>
-    <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"</span>{{icon}}<span class="pl-pds">"</span></span>
-    <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>{{placeholder}}<span class="pl-pds">"</span></span>
-    <span class="pl-e">popover-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>{{popoverMsg}}<span class="pl-pds">"</span></span>
+    <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"{{</span>icon<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"{{</span>label<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"{{</span>placeholder<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">popover-msg</span>=<span class="pl-s"><span class="pl-pds">"{{</span>popoverMsg<span class="pl-pds">}}"</span></span>
     <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>errorMsg<span class="pl-pds">"</span></span>
-    <span class="pl-e">upper-first-letter</span>=<span class="pl-s"><span class="pl-pds">"</span>upperFirstLetter<span class="pl-pds">"</span></span>
-    <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>isDisabled<span class="pl-pds">"</span></span>&gt;
+    <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>isDisabled<span class="pl-pds">"</span></span>
+    <span class="pl-e">upper-first-letter</span>=<span class="pl-s"><span class="pl-pds">"</span>upperFirstLetter<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;
 
 &lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-text-input-directive</span>
-    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listModel<span class="pl-pds">"</span></span>&gt;
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"{{</span>icon<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"{{</span>label<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"{{</span>placeholder<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">popover-msg</span>=<span class="pl-s"><span class="pl-pds">"{{</span>popoverMsg<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>errorMsg<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>isDisabled<span class="pl-pds">"</span></span>
+    <span class="pl-e">upper-first-letter</span>=<span class="pl-s"><span class="pl-pds">"</span>upperFirstLetter<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;
 
 &lt;<span class="pl-ent">div</span> <span class="pl-e">sc-number-input-directive</span>
-    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>numberModel<span class="pl-pds">"</span></span>&gt;
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>numberModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"{{</span>icon<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"{{</span>label<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"{{</span>placeholder<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">popover-msg</span>=<span class="pl-s"><span class="pl-pds">"{{</span>popoverMsg<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>errorMsg<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>isDisabled<span class="pl-pds">"</span></span>
+    <span class="pl-e">step</span>=<span class="pl-s"><span class="pl-pds">"</span>step<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;
 
 &lt;<span class="pl-ent">div</span> <span class="pl-e">sc-date-input-directive</span>
-    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>dateModel<span class="pl-pds">"</span></span>&gt;
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>dateModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"{{</span>icon<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"{{</span>label<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">popover-msg</span>=<span class="pl-s"><span class="pl-pds">"{{</span>popoverMsg<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"{{</span>type<span class="pl-pds">}}"</span></span
+    <span class="pl-e">approximative-model</span>=<span class="pl-s"><span class="pl-pds">"</span>approximative-model<span class="pl-pds">"</span></span>
+    <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>errorMsg<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>isDisabled<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;
 
 &lt;<span class="pl-ent">div</span> <span class="pl-e">sc-array-input-directive</span>
-    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>arrayModel<span class="pl-pds">"</span></span>&gt;
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>arrayModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">add-button</span>=<span class="pl-s"><span class="pl-pds">"{{</span>addButton<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">json</span>=<span class="pl-s"><span class="pl-pds">"{{</span>json<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"{{</span>label<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>isDisabled<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;
 
 &lt;<span class="pl-ent">div</span> <span class="pl-e">sc-img-input-directive</span>
@@ -86,19 +111,29 @@
           <li>
           <strong>ng-model:</strong> Will try to bind to the property given by evaluating the expression on the current scope. If the property doesn't already exist on this scope, it will be created implicitly and added to the scope.</li>
           <li>
-          <strong>label</strong>: Sets the label text</li>
+          <strong>add-button</strong>: Sets the button value</li>
           <li>
           <strong>icon</strong>: Sets the icon</li>
+          <li>
+          <strong>json</strong>: Sets the JSON file</li>
+          <li>
+          <strong>label</strong>: Sets the label text</li>
           <li>
           <strong>placeholder</strong>: Sets the input placeholder</li>
           <li>
           <strong>popover-msg</strong>: Sets the popover message</li>
           <li>
+          <strong>type</strong>: Sets the input type (date or datetime-local)</li>
+          <li>
+          <strong>approximative-model</strong>: Determines if the input is an approximate date</li>
+          <li>
           <strong>error-msg</strong>: Sets the error message</li>
           <li>
-          <strong>upper-first-letter</strong>: Capitalizes the first letter of string.</li>
+          <strong>is-disabled</strong>: Determines if the input is disabled or not</li>
           <li>
-          <strong>is-disabled</strong>: Determines if the input is disabled or not.</li>
+          <strong>step</strong>: Specifies the legal number intervals</li>
+          <li>
+          <strong>upper-first-letter</strong>: Capitalizes the first letter of string</li>
         </ul>
 
         <h2><a id="demonstration" class="anchor" href="#demonstration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demonstration</h2>
@@ -197,6 +232,71 @@
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listTextModel<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
             <br /><div sc-list-text-input-directive ng-model="listTextModel"></div><br />
+
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Label</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listTextModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"</span>Label<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-list-text-input-directive ng-model="listTextModel" label="Label"></div><br />
+
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Icon</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listTextModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"</span>user<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-list-text-input-directive ng-model="listTextModel" icon="user"></div><br />
+
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Placeholder</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listTextModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Placeholder<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-list-text-input-directive ng-model="listTextModel" placeholder="Placeholder"></div><br />
+
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Popover Message</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listTextModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">popover-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>Pop Over<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-list-text-input-directive ng-model="listTextModel" popover-msg="Pop Over"></div><br />
+
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error Message</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listTextModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>{{errorMsg}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="errorMsg = '';">
+              <br />
+              <div>
+                <label class="input-label" >errorMsg:</label><input type="text" name="error message" ng-model="errorMsg">
+              </div><br />
+              <div sc-list-text-input-directive ng-model="listTextModel" error-msg="errorMsg"></div>
+            </div><br />
+
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upper First Letter</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listTextModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">upper-first-letter</span>=<span class="pl-s"><span class="pl-pds">"</span>{{upperFirstLetter}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="upperFirstLetter = false;">
+              <br />
+              <button ng-click="upperFirstLetter = !upperFirstLetter">Click me</button>
+              <p>upperFirstLetter: {{upperFirstLetter}}</p>
+              <div sc-list-text-input-directive ng-model="listTextModel" upper-first-letter="upperFirstLetter"></div>
+            </div><br />
+
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disabled</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listTextModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>{{isDisabled}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="isDisabled = false;">
+              <br />
+              <button ng-click="isDisabled = !isDisabled">Click me</button>
+              <p>isDisabled: {{isDisabled}}</p>
+              <div sc-list-text-input-directive ng-model="listTextModel" is-disabled="isDisabled"></div>
+            </div><br />
 
           </div>
 
