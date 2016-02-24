@@ -2,12 +2,12 @@
 
 angular.module('sc-text-input',  ['text_inputTemplate'])
 
-  .directive 'scTextInputDirective', ->
+  .directive 'scTextInputDirective', -> {
     restrict: 'EA'
     templateUrl: 'script/text_input/text_input_template.html'
     controller: 'scTextInputController'
     require: 'ngModel'
-    scope:
+    scope: {
       icon: '@'
       label: '@'
       placeholder: '@'
@@ -16,6 +16,7 @@ angular.module('sc-text-input',  ['text_inputTemplate'])
       isDisabled: '=?'
       upperFirstLetter: '=?'
       localModel: '=ngModel'
+    }
 
     compile: (tElement, tAttrs) ->
       if (angular.isUndefined(tAttrs.isDisabled))
@@ -26,19 +27,20 @@ angular.module('sc-text-input',  ['text_inputTemplate'])
 
       postLink = (scope, iElement, iAttrs) ->
         # Check if we must create a popover.
-        if scope.popoverMsg && scope.popoverMsg != ''
+        if scope.popoverMsg and scope.popoverMsg isnt ''
           $(iElement).popover({
             trigger: 'focus'
             content: scope.popoverMsg
             placement: 'top'
           })
 
+  }
   .controller 'scTextInputController', ($scope) ->
     ### Define origin Model ###
     $scope.originModel = angular.copy($scope.localModel)
 
     $scope.onBlur = ->
-      if $scope.localModel && $scope.localModel != ''
+      if $scope.localModel and $scope.localModel isnt ''
         $scope.localModel = $scope.localModel.trim()
-        if $scope.upperFirstLetter == true
+        if $scope.upperFirstLetter is true
           $scope.localModel = $scope.localModel.charAt(0).toUpperCase() + $scope.localModel.slice(1)

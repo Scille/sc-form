@@ -2,12 +2,12 @@
   <label ng-if="label != undefined" class="label-control">{{label}}</label>
 
   <div class="form-group" ng-repeat="(key, value) in localModel track by key">
-    <div class="input-group">
+    <div ng-class="icon != undefined || !isDisabled ? 'input-group' : ''">
       <div class="input-group-addon" ng-if="icon != undefined">
         <i class="fa fa-lg fa-{{icon}}"></i>
       </div>
-      <input type="text" class="form-control" value="{{value}}" ng-disabled="isDisabled" />
-      <div class="input-group-addon" ng-show="!uDisabled">
+      <input type="text" class="form-control" value="{{value}}" readonly/>
+      <div class="input-group-addon" ng-if="!isDisabled">
         <a href="" ng-click="deleteValue(key)"><i class="fa fa-lg fa-close"></i></a>
       </div>
     </div>

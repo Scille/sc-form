@@ -2,12 +2,12 @@
 
 angular.module('sc-img-input',  ['img_inputTemplate', 'sc-img-input-modal'])
 
-  .directive 'scImgInputDirective', ->
+  .directive 'scImgInputDirective', -> {
     restrict: 'EA'
     templateUrl: 'script/img_input/img_input_template.html'
     controller: 'scImgInputController'
     require: 'ngModel'
-    scope:
+    scope: {
       height: '@'
       label: '@'
       placeholder: '@'
@@ -15,6 +15,7 @@ angular.module('sc-img-input',  ['img_inputTemplate', 'sc-img-input-modal'])
       errorMsg: '=?'
       isDisabled: '=?'
       localModel: '=ngModel'
+    }
 
     compile: (tElement, tAttrs) ->
 
@@ -65,26 +66,26 @@ angular.module('sc-img-input',  ['img_inputTemplate', 'sc-img-input-modal'])
 
             reader.onload = (e) ->
               scope.$apply(
-                scope.localModel =
-                  file: file.name
-                  data: e.target.result
+                scope.localModel = {file: file.name, data: e.target.result}
               )
         )
 
+  }
   .controller 'scImgInputController', ($scope, $modal) ->
 
-    $scope.editValue = () ->
-      modalInstance = $modal.open(
+    $scope.editValue = ->
+      modalInstance = $modal.open({
         templateUrl: 'script/img_input/modal/img_input_modal_template.html'
         controller: 'scImgInputModalController'
-        resolve:
+        resolve: {
           modalModel: ->
             return angular.copy($scope.localModel.data)
-      )
+        }
+      })
       modalInstance.result.then(
         (result) ->
           $scope.localModel.data = angular.copy(result)
       )
 
-    $scope.deleteValue = () ->
+    $scope.deleteValue = ->
       delete $scope.localModel

@@ -9,7 +9,7 @@ concat = require 'gulp-concat'
 uglify = require 'gulp-uglify'
 html2js = require 'gulp-ng-html2js'
 coffee = require 'gulp-coffee'
-#coffeelint = require 'gulp-coffeelint'
+coffeelint = require 'gulp-coffeelint'
 gutil = require 'gulp-util'
 rename = require 'gulp-rename'
 less = require 'gulp-less'
@@ -91,8 +91,8 @@ gulp.task 'coffee', ->
   gulp
   .src src.scripts
   .pipe cleanDest(dest.tmp.scripts)
-#  .pipe coffeelint()
-#  .pipe coffeelint.reporter('default')
+  .pipe coffeelint()
+  .pipe coffeelint.reporter('default')
   .pipe coffee()
   .pipe gulp.dest dest.tmp.scripts
   .on('error', gutil.log)

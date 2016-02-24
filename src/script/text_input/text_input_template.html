@@ -1,7 +1,7 @@
 <div class="sc-form form-group">
   <label ng-if="label != undefined" class="label-control">{{label}}</label>
 
-  <div class="input-group">
+  <div ng-class="icon != undefined || originModel != localModel ? 'input-group' : ''">
     <div class="input-group-addon" ng-if="icon != undefined">
       <i class="fa fa-lg fa-{{icon}}"></i>
     </div>

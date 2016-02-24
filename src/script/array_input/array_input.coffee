@@ -2,17 +2,18 @@
 
 angular.module('sc-array-input',  ['array_inputTemplate', 'sc-array-input-modal'])
 
-  .directive 'scArrayInputDirective', ->
+  .directive 'scArrayInputDirective', -> {
     restrict: 'EA'
     templateUrl: 'script/array_input/array_input_template.html'
     controller: 'scArrayInputController'
     require: 'ngModel'
-    scope:
+    scope: {
       addButton: '@'
       json: '@'
       label: '@'
       isDisabled: '=?'
       localModel: '=ngModel'
+    }
 
     compile: (tElement, tAttrs) ->
       if (angular.isUndefined(tAttrs.addButton))
@@ -39,48 +40,51 @@ angular.module('sc-array-input',  ['array_inputTemplate', 'sc-array-input-modal'
         scope.$watch 'localModel', (value) ->
           ngModelCtrl.$setViewValue(value)
 
+  }
   .controller 'scArrayInputController', ($scope, $modal, $http) ->
-    ### Define local Model and jsonData ###
-    $scope.jsonData = undefined
+    ### Define jsonData ###
+    jsonData = undefined
 
     # Read data from a specific json file
     $http.get($scope.json)
       .success( (data) ->
-        $scope.jsonData = angular.copy(data)
+        jsonData = angular.copy(data)
       )
       .error( (data, status) ->
         $scope.errorMsg = "Le fichier JSON (" + $scope.json + ") n'a pa pu être récupéré."
       )
 
     $scope.addValue = ->
-      modalInstance = $modal.open(
+      modalInstance = $modal.open({
         templateUrl: 'script/array_input/modal/array_input_modal_template.html'
         controller: 'scArrayInputModalController'
-        resolve:
+        resolve: {
           jsonData: ->
-            return $scope.jsonData
+            return jsonData
           modalModel: ->
             return null
-      )
+        }
+      })
       modalInstance.result.then(
         (result) ->
-          if !angular.equals({}, result)
-            if $scope.localModel == undefined
+          if not angular.equals({}, result)
+            if $scope.localModel is undefined
               $scope.localModel = []
 
             $scope.localModel.push(result)
       )
 
     $scope.editValue = (key) ->
-      modalInstance = $modal.open(
+      modalInstance = $modal.open({
         templateUrl: 'script/array_input/modal/array_input_modal_template.html'
         controller: 'scArrayInputModalController'
-        resolve:
+        resolve: {
           jsonData: ->
-            return $scope.jsonData
+            return jsonData
           modalModel: ->
             return angular.copy($scope.localModel[key])
-      )
+        }
+      })
       modalInstance.result.then(
         (result) ->
           $scope.localModel[key] = angular.copy(result)
@@ -89,5 +93,5 @@ angular.module('sc-array-input',  ['array_inputTemplate', 'sc-array-input-modal'
     $scope.deleteValue = (key) ->
       $scope.localModel.splice(key, 1)
 
-      if $scope.localModel.length == 0
+      if $scope.localModel.length is 0
         delete $scope.localModel
