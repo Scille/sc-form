@@ -465,13 +465,15 @@
           <div id="array-input" class="tab-pane fade">
             <h3>Array Input</h3>
             <p>Model Value: {{arrayModel}}</p>
-            <p>demo.json:</p>
+            <p>array_input.json:</p>
 <div class="highlight highlight-text-html-basic"><pre>{
     <span class="pl-ent">"title"</span>:<span class="pl-ent">"JSON Title"</span>,
     <span class="pl-ent">"inputs"</span>: [
         { <span class="pl-ent">"type"</span>: <span class="pl-ent">"text"</span>, <span class="pl-ent">"model"</span>: <span class="pl-ent">"Name"</span> },
         { <span class="pl-ent">"type"</span>: <span class="pl-ent">"list-text"</span>, <span class="pl-ent">"model</span>": <span class="pl-ent">"FirstName"</span>},
         { <span class="pl-ent">"type"</span>: <span class="pl-ent">"number"</span>, <span class="pl-ent">"model"</span>: <span class="pl-ent">"Size"</span> },
+        { <span class="pl-ent">"type"</span>: <span class="pl-ent">"select"</span>, <span class="pl-ent">"model"</span>: <span class="pl-ent">"Primary Eyes Colors"</span>, <span class="pl-ent">"optionsModel"</span>: [<span class="pl-ent">"blue"</span>, <span class="pl-ent">"grown"</span>, <span class="pl-ent">"green"</span>] },
+        { <span class="pl-ent">"type"</span>: <span class="pl-ent">"list-select"</span>, <span class="pl-ent">"model"</span>: <span class="pl-ent">"Eyes Color"</span>, <span class="pl-ent">"optionsJSON"</span>: <span class="pl-ent">"eyes_color.json"</span> }
         { <span class="pl-ent">"type"</span>: <span class="pl-ent">"date"</span>, <span class="pl-ent">"model"</span>: <span class="pl-ent">"Birthday"</span> },
         { <span class="pl-ent">"type"</span>: <span class="pl-ent">"datetime-local"</span>, <span class="pl-ent">"model"</span>: <span class="pl-ent">"BirthdayWithHours"</span> },
         { <span class="pl-ent">"type"</span>: <span class="pl-ent">"img"</span>, <span class="pl-ent">"model"</span>: <span class="pl-ent">"Picture"</span> }
@@ -481,14 +483,14 @@
             <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h4>
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-array-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>arrayModel<span class="pl-pds">"</span></span>
-    <span class="pl-e">json</span>=<span class="pl-s"><span class="pl-pds">"</span>demo.json<span class="pl-pds">"</span></span>&gt;
+    <span class="pl-e">json</span>=<span class="pl-s"><span class="pl-pds">"</span>array_input.json<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
-            <br /><div sc-array-input-directive ng-model="arrayModel" json="demo.json"></div> <br />
+            <br /><div sc-array-input-directive ng-model="arrayModel" json="array_input.json"></div> <br />
             
             <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Add Button Value</h4>
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-date-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>numberModel<span class="pl-pds">"</span></span>
-    <span class="pl-e">json</span>=<span class="pl-s"><span class="pl-pds">"</span>demo.json<span class="pl-pds">"</span></span>
+    <span class="pl-e">json</span>=<span class="pl-s"><span class="pl-pds">"</span>array_input.json<span class="pl-pds">"</span></span>
     <span class="pl-e">add-button</span>=<span class="pl-s"><span class="pl-pds">"</span>{{addButton}}<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
             <div ng-init="addButton = '';">
@@ -496,28 +498,28 @@
               <div>
                 <label class="input-label" >addButton:</label><input type="text" name="add button" ng-model="addButton">
               </div><br />
-              <div sc-array-input-directive ng-model="arrayModel" json="demo.json" add-button="{{addButton}}"></div>
+              <div sc-array-input-directive ng-model="arrayModel" json="array_input.json" add-button="{{addButton}}"></div>
             </div><br />
             
             <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Label</h4>
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-array-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>arrayModel<span class="pl-pds">"</span></span>
-    <span class="pl-e">json</span>=<span class="pl-s"><span class="pl-pds">"</span>demo.json<span class="pl-pds">"</span></span>
+    <span class="pl-e">json</span>=<span class="pl-s"><span class="pl-pds">"</span>array_input.json<span class="pl-pds">"</span></span>
     <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"</span>Label<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
-            <br /><div sc-array-input-directive ng-model="arrayModel" json="demo.json" label="Label"></div><br />
+            <br /><div sc-array-input-directive ng-model="arrayModel" json="array_input.json" label="Label"></div><br />
             
             <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disabled</h4>
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-array-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>arrayModel<span class="pl-pds">"</span></span>
-    <span class="pl-e">json</span>=<span class="pl-s"><span class="pl-pds">"</span>demo.json<span class="pl-pds">"</span></span>
+    <span class="pl-e">json</span>=<span class="pl-s"><span class="pl-pds">"</span>array_input.json<span class="pl-pds">"</span></span>
     <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>{{isDisabled}}<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
             <div ng-init="isDisabled = false;">
               <br />
               <button ng-click="isDisabled = !isDisabled">Click me</button>
               <p>isDisabled: {{isDisabled}}</p>
-              <div sc-array-input-directive ng-model="arrayModel" json="demo.json" is-disabled="isDisabled"></div>
+              <div sc-array-input-directive ng-model="arrayModel" json="array_input.json" is-disabled="isDisabled"></div>
             </div><br />
             
           </div>
