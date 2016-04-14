@@ -92,7 +92,7 @@ Directives can work on both attribute and element levels.
 </div>
 
 <div sc-select-input-directive
-    ng-model="textModel"
+    ng-model="selectModel"
     icon="{{icon}}"
     label="{{label}}"
     options-json="{{json}}"
@@ -102,7 +102,7 @@ Directives can work on both attribute and element levels.
 </div>
 
 <div sc-list-select-input-directive
-    ng-model="listModel"
+    ng-model="listSelectModel"
     icon="{{icon}}"
     label="{{label}}"
     options-json="{{json}}"
