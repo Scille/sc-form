@@ -91,6 +91,26 @@ Directives can work on both attribute and element levels.
     is-disabled="isDisabled">
 </div>
 
+<div sc-text-select-directive
+    ng-model="textModel"
+    icon="{{icon}}"
+    label="{{label}}"
+    options-json="{{json}}"
+    error-msg="errorMsg"
+    is-disabled="isDisabled"
+    options-model="optionsModel">
+</div>
+
+<div sc-list-select-input-directive
+    ng-model="listModel"
+    icon="{{icon}}"
+    label="{{label}}"
+    options-json="{{json}}"
+    error-msg="errorMsg"
+    is-disabled="isDisabled"
+    options-model="optionsModel">
+</div>
+
 <div sc-array-input-directive
     ng-model="arrayModel"
     add-button="{{addButton}}"
@@ -114,12 +134,14 @@ Directives can work on both attribute and element levels.
 * **icon**: Sets the icon.
 * **json**: Sets the JSON file.
 * **label**: Sets the label text.
+* **option-json**: Sets the select options values as JSON file.
 * **placeholder**: Sets the input placeholder.
 * **popover-msg**: Sets the popover message.
 * **type**: Sets the input type (date or datetime-local).
 * **approximative-model**: Determines if the input is an approximate date.
 * **error-msg**: Sets the error message.
 * **is-disabled**: Determines if the input is disabled or not.
+* **option-model**: Sets the select options values.
 * **step**: Specifies the legal number intervals.
 * **upper-first-letter**: Capitalizes the first letter of string.
 
