@@ -488,6 +488,160 @@
             
           </div>
 
+          <div id="select-input" class="tab-pane fade in active">
+            <h3>Select Input</h3>
+            <p>Model Value: {{selectModel}}</p>
+
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-select-input-directive ng-model="selectModel"></div><br />
+            
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Icon</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"</span>user<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-select-input-directive ng-model="selectModel" icon="user"></div><br />
+
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Label</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"</span>Label<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-select-input-directive ng-model="selectModel" label="Label"></div><br />
+            
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options Model</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">options-model</span>=<span class="pl-s"><span class="pl-pds">"</span>{{optionsListModel}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">options-model</span>=<span class="pl-s"><span class="pl-pds">"</span>{{optionsDictModel}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="optionsListModel = ['option L1', 'option L2']; optionsDictModel = [{libelle: 'libelle option D1', value: 'option D1'}, {libelle: 'libelle option D2', value: 'option D2'}]">
+              <br />
+              <div>
+                <p>Options List Model Value: {{optionsListModel}}</p></br>
+                <p>Options Dict Model Value: {{optionsDictModel}}</p>
+              </div><br />
+              <div sc-select-input-directive ng-model="selectModel" options-model="optionsListModel"></div>
+              <div sc-select-input-directive ng-model="selectModel" options-model="optionsDictModel"></div>
+            </div><br />
+            
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Options JSON</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">options-json</span>=<span class="pl-s"><span class="pl-pds">"</span>select_input.json<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-select-input-directive ng-model="selectModel" options-json="select_input.json"></div><br />
+
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error Message</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>{{errorMsg}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="errorMsg = '';">
+              <br />
+              <div>
+                <label class="input-label" >errorMsg:</label><input type="text" name="error message" ng-model="errorMsg">
+              </div><br />
+              <div sc-select-input-directive ng-model="selectModel" error-msg="errorMsg"></div>
+            </div><br />
+
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disabled</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>{{isDisabled}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="isDisabled = false;">
+              <br />
+              <button ng-click="isDisabled = !isDisabled">Click me</button>
+              <p>isDisabled: {{isDisabled}}</p>
+              <div sc-select-input-directive ng-model="selectModel" is-disabled="isDisabled"></div>
+            </div><br />
+
+          </div>
+
+          <div id="list-select-input" class="tab-pane fade in active">
+            <h3>List Select Input</h3>
+            <p>Model Value: {{selectModel}}</p>
+
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-list-select-input-directive ng-model="selectModel"></div><br />
+            
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Icon</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"</span>user<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-list-select-input-directive ng-model="selectModel" icon="user"></div><br />
+
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Label</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"</span>Label<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-list-select-input-directive ng-model="selectModel" label="Label"></div><br />
+            
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options Model</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">options-model</span>=<span class="pl-s"><span class="pl-pds">"</span>{{optionsListModel}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">options-model</span>=<span class="pl-s"><span class="pl-pds">"</span>{{optionsDictModel}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="optionsListModel = ['option L1', 'option L2']; optionsDictModel = [{libelle: 'libelle option D1', value: 'option D1'}, {libelle: 'libelle option D2', value: 'option D2'}]">
+              <br />
+              <div>
+                <p>Options List Model Value: {{optionsListModel}}</p></br>
+                <p>Options Dict Model Value: {{optionsDictModel}}</p>
+              </div><br />
+              <div sc-list-select-input-directive ng-model="selectModel" options-model="optionsListModel"></div>
+              <div sc-list-select-input-directive ng-model="selectModel" options-model="optionsDictModel"></div>
+            </div><br />
+            
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Options JSON</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">options-json</span>=<span class="pl-s"><span class="pl-pds">"</span>select_input.json<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-list-select-input-directive ng-model="selectModel" options-json="select_input.json"></div><br />
+
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error Message</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>{{errorMsg}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="errorMsg = '';">
+              <br />
+              <div>
+                <label class="input-label" >errorMsg:</label><input type="text" name="error message" ng-model="errorMsg">
+              </div><br />
+              <div sc-list-select-input-directive ng-model="selectModel" error-msg="errorMsg"></div>
+            </div><br />
+
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Disabled</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>selectModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>{{isDisabled}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="isDisabled = false;">
+              <br />
+              <button ng-click="isDisabled = !isDisabled">Click me</button>
+              <p>isDisabled: {{isDisabled}}</p>
+              <div sc-list-select-input-directive ng-model="selectModel" is-disabled="isDisabled"></div>
+            </div><br />
+
+          </div>
+
           <div id="array-input" class="tab-pane fade">
             <h3>Array Input</h3>
             <p>Model Value: {{arrayModel}}</p>
