@@ -22,6 +22,8 @@
     <li><a href="#list-text-input">List Text Input</a></li>
     <li><a href="#number-input">Number Input</a></li>
     <li><a href="#date-input">Date Input</a></li>
+    <li><a href="#select-input">Select Input</a></li>
+    <li><a href="#list-select-input">List Select Input</a></li>
     <li><a href="#array-input">Array Input</a></li>
     <li><a href="#img-input">Image Input</a></li>
   </ul>
@@ -205,6 +207,96 @@
 
     </div>
 
+    <div id="select-input" class="tab-pane fade">
+      <h2>Select Input</h2>
+
+      <h3>Usage</h3>
+      <p>Model Value: {{selectModel}}</p>
+
+      <h3>Default</h3>
+      <div sc-select-input-directive ng-model="selectModel"></div>
+
+      <h3>Icon</h3>
+      <div sc-select-input-directive ng-model="selectModel" icon="user"></div>
+
+      <h3>Label</h3>
+      <div sc-select-input-directive ng-model="selectModel" label="Label"></div>
+
+      <h3>Options Model</h3>
+      <div ng-init="optionsListModel = ['option L1', 'option L2']">
+        <p>Options List Model Value: {{optionsListModel}}</p></br>
+        <div sc-select-input-directive ng-model="selectModel" options-model="optionsListModel"></div>
+      </div>
+      <div ng-init="optionsDictModel = [{libelle: 'libelle option D1', value: 'option D1'}, {libelle: 'libelle option D2', value: 'option D2'}]">
+        <p>Options Dict Model Value: {{optionsDictModel}}</p></br>
+        <div sc-select-input-directive ng-model="selectModel" options-model="optionsDictModel"></div>
+      </div>
+
+      <h3>Options JSON</h3>
+      <div sc-select-input-directive ng-model="selectModel" options-json="select_input.json"></div>
+
+      <h3>Error Message</h3>
+      <div ng-init="errorMsg = ''">
+        <div>
+          <input type="text" name="error Message" ng-model="errorMsg">
+        </div></br>
+        <div sc-select-input-directive ng-model="selectModel" error-msg="errorMsg"></div>
+      </div>
+
+      <h3>Disabled</h3>
+      <div ng-init="disabled = true">
+        <button ng-click="disabled = !disabled">Click me</button>
+        <p>Disabled date-input: {{disabled}}</p>
+        <div sc-select-input-directive ng-model="selectModel" is-disabled="disabled"></div>
+      </div>
+
+    </div>
+
+    <div id="list-select-input" class="tab-pane fade">
+      <h2>List Select Input</h2>
+
+      <h3>Usage</h3>
+      <p>Model Value: {{listSelectModel}}</p>
+
+      <h3>Default</h3>
+      <div sc-list-select-input-directive ng-model="listSelectModel"></div>
+
+      <h3>Icon</h3>
+      <div sc-list-select-input-directive ng-model="listSelectModel" icon="user"></div>
+
+      <h3>Label</h3>
+      <div sc-list-select-input-directive ng-model="listSelectModel" label="Label"></div>
+
+      <h3>Options Model</h3>
+      <div ng-init="optionsListModel = ['option L1', 'option L2']">
+        <p>Options List Model Value: {{optionsListModel}}</p></br>
+        <div sc-list-select-input-directive ng-model="listSelectModel" options-model="optionsListModel"></div>
+      </div>
+      <div ng-init="optionsDictModel = [{libelle: 'libelle option D1', value: 'option D1'}, {libelle: 'libelle option D2', value: 'option D2'}]">
+        <p>Options Dict Model Value: {{optionsDictModel}}</p></br>
+        <div sc-list-select-input-directive ng-model="listSelectModel" options-model="optionsDictModel"></div>
+      </div>
+
+      <h3>Options JSON</h3>
+      <div sc-list-select-input-directive ng-model="listSelectModel" options-json="select_input.json"></div>
+
+      <h3>Error Message</h3>
+      <div ng-init="errorMsg = ''">
+        <div>
+          <input type="text" name="error Message" ng-model="errorMsg">
+        </div></br>
+        <div sc-list-select-input-directive ng-model="listSelectModel" error-msg="errorMsg"></div>
+      </div>
+
+      <h3>Disabled</h3>
+      <div ng-init="disabled = true">
+        <button ng-click="disabled = !disabled">Click me</button>
+        <p>Disabled date-input: {{disabled}}</p>
+        <div sc-list-select-input-directive ng-model="listSelectModel" is-disabled="disabled"></div>
+      </div>
+
+    </div>
+
     <div id="array-input" class="tab-pane fade">
       <h2>Array Input</h2>
 
@@ -212,24 +304,24 @@
       <p>Model Value: {{arrayModel}}</p>
 
       <h3>Default</h3>
-      <div sc-array-input-directive ng-model="arrayModel" json="demo.json"></div>
+      <div sc-array-input-directive ng-model="arrayModel" json="array_input.json"></div>
 
       <h3>Add Button Name</h3>
       <div ng-init="addButton = ''">
         <div>
           <input type="text" name="add Button" ng-model="addButton">
         </div></br>
-        <div sc-array-input-directive ng-model="arrayModel" json="demo.json" add-button="{{addButton}}"></div>
+        <div sc-array-input-directive ng-model="arrayModel" json="array_input.json" add-button="{{addButton}}"></div>
       </div>
 
       <h3>Label</h3>
-      <div sc-array-input-directive ng-model="arrayModel" json="demo.json" label="Label"></div>
+      <div sc-array-input-directive ng-model="arrayModel" json="array_input.json" label="Label"></div>
 
       <h3>Disabled</h3>
       <div ng-init="disabled = true">
         <button ng-click="disabled = !disabled">Click me</button>
         <p>Disabled date-input: {{disabled}}</p>
-        <div sc-array-input-directive ng-model="arrayModel" json="demo.json" is-disabled="disabled"></div>
+        <div sc-array-input-directive ng-model="arrayModel" json="array_input.json" is-disabled="disabled"></div>
       </div>
 
     </div>

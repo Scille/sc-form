@@ -8,14 +8,14 @@
     "Vincent Mézino <vincent.mezino@scille.fr>"
   ],
   "main": [
-    "./release/scripts/sc-from.min.js"
+    "sc-from.min.js",
+    "sc-from.min.css"
   ],
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "test",
-    "tests"
+    "test"
   ],
   "dependencies": {
     "angular-bootstrap": "~0.13.4",

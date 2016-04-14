@@ -56,6 +56,11 @@ angular.module('sc-list-text-input',  ['list_text_inputTemplate'])
     ### Define newValue ###
     $scope.newValue = undefined
 
+    $scope.keyDown = (keyEvent) ->
+      # Press Enter Button
+      if keyEvent.which is 13
+        $scope.onBlur()
+
     $scope.onBlur = ->
       if $scope.newValue and $scope.newValue isnt ''
         $scope.newValue = $scope.newValue.trim()

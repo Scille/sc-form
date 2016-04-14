@@ -4,6 +4,8 @@
     { "type": "text", "model": "Name" },
     { "type": "list-text", "model": "FirstName"},
     { "type": "number", "model": "Size" },
+    { "type": "select", "model": "Primary Eyes Colors", "optionsModel": ["blue", "brown", "green"] },
+    { "type": "list-select", "model": "Eyes Color", "optionsJSON": "eyes_color.json"},
     { "type": "date", "model": "Birthday" },
     { "type": "datetime-local", "model": "BirthdayWithHours" },
     { "type": "img", "model": "Picture" }

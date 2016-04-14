@@ -17,8 +17,9 @@
     <div class="input-group-addon" ng-if="icon != undefined">
       <i class="fa fa-lg fa-{{icon}}"></i>
     </div>
-    <input type="text" class="form-control" ng-model="newValue" ng-keydown="keyDown($event)" ng-blur="onBlur()"
-           required placeholder="{{placeholder}}" ng-disabled="isDisabled" />
+    <select ng-model="newValue" class="form-control" ng-disabled="isDisabled">
+        <option ng-repeat="opt in localOptionsModel" value="{{opt.value}}">{{opt.libelle}}</option>
+    </select>
   </div>
 
   <div ng-show="errorMsg" class="alert alert-danger">

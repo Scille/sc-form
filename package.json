@@ -1,10 +1,25 @@
 {
-  "name": "tk-front",
-  "version": "0.0.0",
+  "name": "SCILLE_form",
+  "version": "1.0.0",
+  "description": "Create Form.",
+  "author": "DUBOIS Romain",
+  "contributors": [
+    {
+      "name": "DUBOIS Romain",
+      "email": "romain.dubois@scille.fr"
+    },
+    {
+      "name": "LANDIETH Jérôme",
+      "email": "jerome.landieth@scille.fr"
+    },
+    {
+      "name": "MEZINO Vincent",
+      "email": "vincent.mezino@scille.fr"
+    }
+  ],
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp unit-test"
   },
-  "author": "Vincent MEZINO <vincent.mezino@scille.fr>",
   "devDependencies": {
     "browser-sync": "^2.10.0",
     "coffee-script": "^1.10.0",
@@ -24,5 +39,6 @@
     "wiredep": "^3.0.0",
     "main-bower-files": "^2.9.0",
     "run-sequence": "^1.1.4"
-  }
+  },
+  "license": "MIT"
 }
