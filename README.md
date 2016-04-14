@@ -91,7 +91,7 @@ Directives can work on both attribute and element levels.
     is-disabled="isDisabled">
 </div>
 
-<div sc-text-select-directive
+<div sc-select-input-directive
     ng-model="textModel"
     icon="{{icon}}"
     label="{{label}}"
