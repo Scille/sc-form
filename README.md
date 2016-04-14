@@ -134,14 +134,14 @@ Directives can work on both attribute and element levels.
 * **icon**: Sets the icon.
 * **json**: Sets the JSON file.
 * **label**: Sets the label text.
-* **option-json**: Sets the select options values as JSON file.
+* **options-json**: Sets the select options values as JSON file.
 * **placeholder**: Sets the input placeholder.
 * **popover-msg**: Sets the popover message.
 * **type**: Sets the input type (date or datetime-local).
 * **approximative-model**: Determines if the input is an approximate date.
 * **error-msg**: Sets the error message.
 * **is-disabled**: Determines if the input is disabled or not.
-* **option-model**: Sets the select options values.
+* **options-model**: Sets the select options values.
 * **step**: Specifies the legal number intervals.
 * **upper-first-letter**: Capitalizes the first letter of string.
 
