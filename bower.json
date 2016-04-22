@@ -8,8 +8,8 @@
     "Vincent Mézino <vincent.mezino@scille.fr>"
   ],
   "main": [
-    "sc-from.min.js",
-    "sc-from.min.css"
+    "release/sc-from.min.js",
+    "release/sc-from.min.css"
   ],
   "ignore": [
     "**/.*",
