@@ -67,6 +67,7 @@
     <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"{{</span>label<span class="pl-pds">}}"</span></span>
     <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"{{</span>placeholder<span class="pl-pds">}}"</span></span>
     <span class="pl-e">popover-msg</span>=<span class="pl-s"><span class="pl-pds">"{{</span>popoverMsg<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">change-position</span>=<span class="pl-s"><span class="pl-pds">"</span>changePosition<span class="pl-pds">"</span></span>
     <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>errorMsg<span class="pl-pds">"</span></span>
     <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>isDisabled<span class="pl-pds">"</span></span>
     <span class="pl-e">upper-first-letter</span>=<span class="pl-s"><span class="pl-pds">"</span>upperFirstLetter<span class="pl-pds">"</span></span>&gt;
@@ -109,6 +110,7 @@
     <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"{{</span>icon<span class="pl-pds">}}"</span></span>
     <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"{{</span>label<span class="pl-pds">}}"</span></span>
     <span class="pl-e">options-json</span>=<span class="pl-s"><span class="pl-pds">"{{</span>optionsJSON<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">change-position</span>=<span class="pl-s"><span class="pl-pds">"</span>changePosition<span class="pl-pds">"</span></span>
     <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>errorMsg<span class="pl-pds">"</span></span>
     <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>isDisabled<span class="pl-pds">"</span></span>
     <span class="pl-e">options-model</span>=<span class="pl-s"><span class="pl-pds">"</span>optionsModel<span class="pl-pds">"</span></span>&gt;
@@ -151,6 +153,8 @@
           <strong>type</strong>: Sets the input type (date or datetime-local)</li>
           <li>
           <strong>approximative-model</strong>: Determines if the input is an approximate date</li>
+          <li>
+          <strong>change-position</strong>: Determines if Up/Down buttons are hidden or not</li>
           <li>
           <strong>error-msg</strong>: Sets the error message</li>
           <li>
@@ -289,6 +293,18 @@
     <span class="pl-e">popover-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>Pop Over<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
             <br /><div sc-list-text-input-directive ng-model="listTextModel" popover-msg="Pop Over"></div><br />
+            
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Change Position</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-text-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listTextModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">change-position</span>=<span class="pl-s"><span class="pl-pds">"</span>{{changePosition}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="changePosition = false;">
+              <br />
+              <button ng-click="changePosition = !changePosition">Click me</button>
+              <p>changePosition: {{changePosition}}</p>
+              <div sc-list-text-input-directive ng-model="listTextModel" change-position="changePosition"></div>
+            </div><br />
 
             <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error Message</h4>
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-text-input-directive</span>
@@ -620,6 +636,18 @@
     <span class="pl-e">options-json</span>=<span class="pl-s"><span class="pl-pds">"</span>select_input.json<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
             <br /><div sc-list-select-input-directive ng-model="listSelectModel" options-json="select_input.json"></div><br />
+
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Change Position</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-select-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>listSelectModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">change-position</span>=<span class="pl-s"><span class="pl-pds">"</span>{{changePosition}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="changePosition = false;">
+              <br />
+              <button ng-click="changePosition = !changePosition">Click me</button>
+              <p>changePosition: {{changePosition}}</p>
+              <div sc-list-select-input-directive ng-model="listSelectModel" change-position="changePosition"></div>
+            </div><br />
 
             <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error Message</h4>
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-list-select-input-directive</span>
