@@ -12,6 +12,7 @@ angular.module('sc-list-text-input',  ['list_text_inputTemplate'])
       label: '@'
       placeholder: '@'
       popoverMsg: '@'
+      changePosition: '=?'
       errorMsg: '=?'
       isDisabled: '=?'
       upperFirstLetter: '=?'
@@ -19,6 +20,9 @@ angular.module('sc-list-text-input',  ['list_text_inputTemplate'])
     }
 
     compile: (tElement, tAttrs) ->
+      if (angular.isUndefined(tAttrs.changePosition))
+        tAttrs.changePosition = 'false'
+
       if (angular.isUndefined(tAttrs.isDisabled))
         tAttrs.isDisabled = 'false'
 
@@ -72,6 +76,18 @@ angular.module('sc-list-text-input',  ['list_text_inputTemplate'])
 
         $scope.localModel.push($scope.newValue)
         $scope.newValue = ''
+
+    $scope.upValue = (key) ->
+      if key > 0
+        temp = $scope.localModel[key]
+        $scope.localModel[key] = $scope.localModel[key - 1]
+        $scope.localModel[key - 1] = temp
+
+    $scope.downValue = (key) ->
+      if key < $scope.localModel.length - 1
+        temp = $scope.localModel[key]
+        $scope.localModel[key] = $scope.localModel[key + 1]
+        $scope.localModel[key + 1] = temp
 
     $scope.deleteValue = (key) ->
       $scope.localModel.splice(key, 1)

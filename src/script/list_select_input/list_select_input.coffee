@@ -11,6 +11,7 @@ angular.module('sc-list-select-input',  ['list_select_inputTemplate'])
       icon: '@'
       optionsJson: '@'
       label: '@'
+      changePosition: '=?'
       errorMsg: '=?'
       isDisabled: '=?'
       localModel: '=ngModel'
@@ -18,6 +19,9 @@ angular.module('sc-list-select-input',  ['list_select_inputTemplate'])
     }
 
     compile: (tElement, tAttrs) ->
+      if (angular.isUndefined(tAttrs.changePosition))
+        tAttrs.changePosition = 'false'
+
       if (angular.isUndefined(tAttrs.isDisabled))
         tAttrs.isDisabled = 'false'
 
@@ -72,6 +76,19 @@ angular.module('sc-list-select-input',  ['list_select_inputTemplate'])
 
         $scope.localModel.push(value)
         $scope.newValue = ''
+
+    ### Change value position ###
+    $scope.upValue = (key) ->
+      if key > 0
+        temp = $scope.localModel[key]
+        $scope.localModel[key] = $scope.localModel[key - 1]
+        $scope.localModel[key - 1] = temp
+
+    $scope.downValue = (key) ->
+      if key < $scope.localModel.length - 1
+        temp = $scope.localModel[key]
+        $scope.localModel[key] = $scope.localModel[key + 1]
+        $scope.localModel[key + 1] = temp
 
     ### Delete value ###
     $scope.deleteValue = (key) ->

@@ -94,6 +94,13 @@
       <h3>Popover Message</h3>
       <div sc-list-text-input-directive ng-model="listTextModel" popover-msg="Pop Over"></div>
 
+      <h3>Change Position</h3>
+      <div ng-init="changePosition = true">
+        <button ng-click="changePosition = !changePosition">Click me</button>
+        <p>Change Position list-text-input: {{changePosition}}</p>
+        <div sc-list-text-input-directive ng-model="listTextModel" change-position="changePosition"></div>
+      </div>
+
       <h3>Error Message</h3>
       <div ng-init="errorMsg = ''">
         <div>
@@ -105,14 +112,14 @@
       <h3>Upper First Letter</h3>
       <div ng-init="upperFirstLetter = true">
         <button ng-click="upperFirstLetter = !upperFirstLetter">Click me</button>
-        <p>upperFirstLetter text-input: {{upperFirstLetter}}</p>
+        <p>upperFirstLetter list-text-input: {{upperFirstLetter}}</p>
           <div sc-list-text-input-directive ng-model="listTextModel" upper-first-letter="upperFirstLetter"></div>
       </div>
 
       <h3>Disabled</h3>
       <div ng-init="disabled = true">
         <button ng-click="disabled = !disabled">Click me</button>
-        <p>Disabled text-input: {{disabled}}</p>
+        <p>Disabled list-text-input: {{disabled}}</p>
         <div sc-list-text-input-directive ng-model="listTextModel" is-disabled="disabled"></div>
       </div>
     </div>
@@ -279,6 +286,13 @@
 
       <h3>Options JSON</h3>
       <div sc-list-select-input-directive ng-model="listSelectModel" options-json="select_input.json"></div>
+
+      <h3>Change Position</h3>
+      <div ng-init="changePosition = true">
+        <button ng-click="changePosition = !changePosition">Click me</button>
+        <p>Change Position list-text-input: {{changePosition}}</p>
+        <div sc-list-select-input-directive ng-model="listSelectModel" change-position="changePosition"></div>
+      </div>
 
       <h3>Error Message</h3>
       <div ng-init="errorMsg = ''">

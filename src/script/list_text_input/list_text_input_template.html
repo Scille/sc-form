@@ -7,6 +7,10 @@
         <i class="fa fa-lg fa-{{icon}}"></i>
       </div>
       <input type="text" class="form-control" value="{{value}}" readonly/>
+      <ul class="input-group-addon fa-ul" style="padding: 0px;" ng-show="!isDisabled && changePosition && localModel.length != 1">
+        <li ng-hide="$first"><a href="" ng-click="upValue(key)"><i class="fa fa-arrow-up fa-fw"></i></a></li>
+        <li ng-hide="$last"><a href="" ng-click="downValue(key)"><i class="fa fa-arrow-down fa-fw"></i></a></li>
+      </ul>
       <div class="input-group-addon" ng-if="!isDisabled">
         <a href="" ng-click="deleteValue(key)"><i class="fa fa-lg fa-close"></i></a>
       </div>
