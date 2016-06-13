@@ -61,31 +61,30 @@ angular.module('sc-img-input',  ['img_inputTemplate', 'sc-img-input-modal'])
           file = this.files[0]
 
           if (file? and file.type.match('image.*'))
-            reader = new FileReader(file)
-            reader.readAsDataURL(file)
-
-            reader.onload = (e) ->
-              scope.$apply(
-                scope.localModel = {file: file.name, data: e.target.result}
-              )
+            scope.openModal(file)
         )
 
   }
   .controller 'scImgInputController', ($scope, $modal) ->
 
-    $scope.editValue = ->
-      modalInstance = $modal.open({
-        templateUrl: 'script/img_input/modal/img_input_modal_template.html'
-        controller: 'scImgInputModalController'
-        resolve: {
-          modalModel: ->
-            return angular.copy($scope.localModel.data)
-        }
-      })
-      modalInstance.result.then(
-        (result) ->
-          $scope.localModel.data = angular.copy(result)
-      )
+    $scope.openModal = (file) ->
+      reader = new FileReader(file)
+      reader.readAsDataURL(file)
 
-    $scope.deleteValue = ->
-      delete $scope.localModel
+      reader.onload = (e) ->
+        modalInstance = $modal.open({
+          templateUrl: 'script/img_input/modal/img_input_modal_template.html'
+          controller: 'scImgInputModalController'
+          resolve: {
+            modalModel: ->
+              return e.target.result
+          }
+        })
+        modalInstance.result.then(
+          # Close with img result
+          (result) ->
+            $scope.localModel = {file: file.name, data: result}
+          # Dismiss
+          ->
+            return
+        )
