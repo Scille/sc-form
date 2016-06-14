@@ -1,11 +1,11 @@
 'use strict'
 
-angular.module('sc-text-input',  ['text_inputTemplate'])
+angular.module('sc-file-input',  ['file_inputTemplate'])
 
-  .directive 'scTextInputDirective', -> {
+  .directive 'scFileInputDirective', -> {
     restrict: 'EA'
-    templateUrl: 'script/text_input/text_input_template.html'
-    controller: 'scTextInputController'
+    templateUrl: 'script/file_input/file_input_template.html'
+    controller: 'scFileInputController'
     require: 'ngModel'
     scope: {
       icon: '@'
@@ -35,7 +35,7 @@ angular.module('sc-text-input',  ['text_inputTemplate'])
           })
 
   }
-  .controller 'scTextInputController', ($scope) ->
+  .controller 'scFileInputController', ($scope) ->
     ### Define origin Model ###
     $scope.originModel = angular.copy($scope.localModel)
 
