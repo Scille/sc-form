@@ -218,6 +218,9 @@ LANDIETH Jérôme, Engineer R&D at [SCILLE](http://scille.eu/)
 MEZINO Vincent, Engineer R&D at [SCILLE](http://scille.eu)
 <vincent.mezino@scille.fr>
 
+STEMPERT Nicolas, Engineer R&D at [SCILLE](http://scille.eu)
+<nicolas.stempert@scille.fr>
+
 
 ## License
 
