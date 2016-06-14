@@ -10,4 +10,5 @@ angular.module('sc-form',
     'sc-list-select-input'
     'sc-array-input'
     'sc-img-input'
+    'sc-file-input'
   ])
