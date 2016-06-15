@@ -3,8 +3,8 @@
 
   <div class="dropzone" ng-style="{'width': width, 'height': height}">
     <div ng-style="{'height': height, 'line-height': height}">{{placeholder}}</div>
-    <input type="file" accept="image/*" ng-style="{'margin-top': '-' + height}"
-           ng-disabled="isDisabled" />
+    <input type="file" accept="*" ng-style="{'margin-top': '-' + height}"
+           ng-disabled="isDisabled" multiple />
   </div>
 
   <div ng-show="errorMsg" class="alert alert-danger">

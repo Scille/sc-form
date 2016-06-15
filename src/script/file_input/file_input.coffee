@@ -20,7 +20,7 @@ angular.module('sc-file-input',  ['file_inputTemplate', 'sc-file-input-modal'])
     compile: (tElement, tAttrs) ->
 
       if (angular.isUndefined(tAttrs.placeholder))
-        tAttrs.placeholder = 'Drop images here'
+        tAttrs.placeholder = 'Drop files here'
 
       if (angular.isUndefined(tAttrs.height))
         tAttrs.height = '200px'
@@ -60,13 +60,12 @@ angular.module('sc-file-input',  ['file_inputTemplate', 'sc-file-input-modal'])
         $('.dropzone input', iElement).on('change', (e) ->
           file = this.files[0]
 
-          if (file? and file.type.match('image.*'))
+          if (file?)
             scope.openModal(file)
         )
 
   }
   .controller 'scFileInputController', ($scope, $modal) ->
-
     $scope.openModal = (file) ->
       reader = new FileReader(file)
       reader.readAsDataURL(file)

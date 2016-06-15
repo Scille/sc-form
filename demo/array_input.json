@@ -8,6 +8,7 @@
     { "type": "list-select", "model": "Eyes Color", "optionsJSON": "eyes_color.json"},
     { "type": "date", "model": "Birthday" },
     { "type": "datetime-local", "model": "BirthdayWithHours" },
-    { "type": "img", "model": "Picture" }
+    { "type": "img", "model": "Picture" },
+    { "type": "file", "model": "File" }
   ]
 }
