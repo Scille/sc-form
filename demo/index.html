@@ -338,7 +338,6 @@
         <p>Disabled date-input: {{disabled}}</p>
         <div sc-array-input-directive ng-model="arrayModel" json="array_input.json" is-disabled="disabled"></div>
       </div>
-
     </div>
 
     <div id="img-input" class="tab-pane fade">
@@ -370,56 +369,35 @@
         <div sc-img-input-directive ng-model="imgModel" is-disabled="disabled"></div>
       </div>
     </div>
-  </div>
 
-  <div id="list-file-input" class="tab-pane fade">
-    <h2>List File Input</h2>
+    <div id="file-input" class="tab-pane fade">
+      <h2>File Input</h2>
+      <h3>Usage</h3>
+      <p>Model Value: {{fileModel}}</p>
 
-    <h3>Usage</h3>
-    <p>Model Value: {{listFileModel}}</p>
+      <h3>Default</h3>
+      <div sc-file-input-directive ng-model="fileModel"></div>
 
-    <h3>Default</h3>
-    <div sc-list-file-input-directive ng-model="listFileModel"></div>
+      <h3>Label</h3>
+      <div sc-file-input-directive ng-model="fileModel" label="Label"></div>
 
-    <h3>Icon</h3>
-    <div sc-list-file-input-directive ng-model="listFileModel" icon="user"></div>
+      <h3>Placeholder</h3>
+      <div sc-file-input-directive ng-model="fileModel" placeholder="Placeholder"></div>
 
-    <h3>Label</h3>
-    <div sc-list-file-input-directive ng-model="listFileModel" label="Label"></div>
+      <h3>Error Message</h3>
+      <div ng-init="errorMsg = ''">
+        <div>
+          <input type="text" name="error Message" ng-model="errorMsg">
+        </div></br>
+        <div sc-file-input-directive ng-model="fileModel" error-msg="errorMsg"></div>
+      </div>
 
-    <h3>Placeholder</h3>
-    <div sc-list-file-input-directive ng-model="listFileModel" placeholder="Placeholder"></div>
-
-    <h3>Popover Message</h3>
-    <div sc-list-file-input-directive ng-model="listFileModel" popover-msg="Pop Over"></div>
-
-    <h3>Change Position</h3>
-    <div ng-init="changePosition = true">
-      <button ng-click="changePosition = !changePosition">Click me</button>
-      <p>Change Position list-file-input: {{changePosition}}</p>
-      <div sc-list-file-input-directive ng-model="listFileModel" change-position="changePosition"></div>
-    </div>
-
-    <h3>Error Message</h3>
-    <div ng-init="errorMsg = ''">
-      <div>
-        <input type="file" name="error Message" ng-model="errorMsg">
-      </div></br>
-      <div sc-list-file-input-directive ng-model="listFileModel" error-msg="errorMsg"></div>
-    </div>
-
-    <h3>Upper First Letter</h3>
-    <div ng-init="upperFirstLetter = true">
-      <button ng-click="upperFirstLetter = !upperFirstLetter">Click me</button>
-      <p>upperFirstLetter list-file-input: {{upperFirstLetter}}</p>
-        <div sc-list-file-input-directive ng-model="listFileModel" upper-first-letter="upperFirstLetter"></div>
-    </div>
-
-    <h3>Disabled</h3>
-    <div ng-init="disabled = true">
-      <button ng-click="disabled = !disabled">Click me</button>
-      <p>Disabled list-file-input: {{disabled}}</p>
-      <div sc-list-file-input-directive ng-model="listFileModel" is-disabled="disabled"></div>
+      <h3>Disabled</h3>
+      <div ng-init="disabled = true">
+        <button ng-click="disabled = !disabled">Click me</button>
+        <p>Disabled number-input: {{disabled}}</p>
+        <div sc-file-input-directive ng-model="fileModel" is-disabled="disabled"></div>
+      </div>
     </div>
   </div>
 

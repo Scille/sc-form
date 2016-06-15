@@ -1,13 +1,10 @@
 <div class="sc-form form-group">
   <label ng-if="label != undefined" class="label-control">{{label}}</label>
 
-  <div ng-class="icon != undefined || originModel != localModel ? 'input-group' : ''">
-    <div class="input-group-addon" ng-if="icon != undefined">
-      <i class="fa fa-lg fa-{{icon}}"></i>
-    </div>
-    <input type="text" class="form-control" ng-model="localModel" ng-blur="onBlur()"
-           required placeholder="{{placeholder}}" ng-disabled="isDisabled" />
-    <div class="input-group-addon alert-warning" ng-show="originModel != localModel"><i class="fa fa-lg fa-pencil"></i></div>
+  <div class="dropzone" ng-style="{'width': width, 'height': height}">
+    <div ng-style="{'height': height, 'line-height': height}">{{placeholder}}</div>
+    <input type="file" accept="image/*" ng-style="{'margin-top': '-' + height}"
+           ng-disabled="isDisabled" />
   </div>
 
   <div ng-show="errorMsg" class="alert alert-danger">

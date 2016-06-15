@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('sc-file-input',  ['file_inputTemplate'])
+angular.module('sc-file-input',  ['file_inputTemplate', 'sc-file-input-modal'])
 
   .directive 'scFileInputDirective', -> {
     restrict: 'EA'
@@ -8,39 +8,83 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
     controller: 'scFileInputController'
     require: 'ngModel'
     scope: {
-      icon: '@'
+      height: '@'
       label: '@'
       placeholder: '@'
-      popoverMsg: '@'
+      width: '@'
       errorMsg: '=?'
       isDisabled: '=?'
-      upperFirstLetter: '=?'
       localModel: '=ngModel'
     }
 
     compile: (tElement, tAttrs) ->
+
+      if (angular.isUndefined(tAttrs.placeholder))
+        tAttrs.placeholder = 'Drop images here'
+
+      if (angular.isUndefined(tAttrs.height))
+        tAttrs.height = '200px'
+
+      if (angular.isUndefined(tAttrs.width))
+        tAttrs.width = '200px'
+
       if (angular.isUndefined(tAttrs.isDisabled))
         tAttrs.isDisabled = 'false'
 
-      if (angular.isUndefined(tAttrs.upperFirstLetter))
-        tAttrs.upperFirstLetter = 'false'
+      postLink = (scope, iElement, iAttrs, ngModelCtrl) ->
+        # The $formatters pipeline. Convert a real model value into a value our
+        # view can use.
+        ngModelCtrl.$formatters.push (modelValue) ->
+          return modelValue
 
-      postLink = (scope, iElement, iAttrs) ->
-        # Check if we must create a popover.
-        if scope.popoverMsg and scope.popoverMsg isnt ''
-          $(iElement).popover({
-            trigger: 'focus'
-            content: scope.popoverMsg
-            placement: 'top'
-          })
+        # The $parsers Pipeline. Converts the $viewValue into the $modelValue.
+        ngModelCtrl.$parsers.push (viewValue) ->
+          return viewValue
+
+        # Updating the UI to reflect $viewValue
+        ngModelCtrl.$render = ->
+          scope.localModel = ngModelCtrl.$viewValue
+
+        # Updating $viewValue when the UI changes
+        scope.$watchCollection 'localModel', (value) ->
+          ngModelCtrl.$setViewValue(value)
+
+          $('.dropzone file', iElement).remove()
+          if (value? and value.data?)
+            file = $('<file />').attr('src', value.data).fadeIn()
+            $('.dropzone div', iElement).html(file)
+          else
+            $('.dropzone div', iElement).html(scope.placeholder)
+
+
+        $('.dropzone input', iElement).on('change', (e) ->
+          file = this.files[0]
+
+          if (file? and file.type.match('image.*'))
+            scope.openModal(file)
+        )
 
   }
-  .controller 'scFileInputController', ($scope) ->
-    ### Define origin Model ###
-    $scope.originModel = angular.copy($scope.localModel)
+  .controller 'scFileInputController', ($scope, $modal) ->
 
-    $scope.onBlur = ->
-      if $scope.localModel and $scope.localModel isnt ''
-        $scope.localModel = $scope.localModel.trim()
-        if $scope.upperFirstLetter is true
-          $scope.localModel = $scope.localModel.charAt(0).toUpperCase() + $scope.localModel.slice(1)
+    $scope.openModal = (file) ->
+      reader = new FileReader(file)
+      reader.readAsDataURL(file)
+
+      reader.onload = (e) ->
+        modalInstance = $modal.open({
+          templateUrl: 'script/file_input/modal/file_input_modal_template.html'
+          controller: 'scFileInputModalController'
+          resolve: {
+            modalModel: ->
+              return e.target.result
+          }
+        })
+        modalInstance.result.then(
+          # Close with file result
+          (result) ->
+            $scope.localModel = {file: file.name, data: result}
+          # Dismiss
+          ->
+            return
+        )

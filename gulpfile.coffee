@@ -82,7 +82,7 @@ gulp.task 'connect', ->
       }
     }
     port: config.port
-    open: "local"
+    open: false
     browser: "chromium-browser"
   )
 
