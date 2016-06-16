@@ -20,7 +20,7 @@ angular.module('sc-img-input',  ['img_inputTemplate', 'sc-img-input-modal'])
     compile: (tElement, tAttrs) ->
 
       if (angular.isUndefined(tAttrs.placeholder))
-        tAttrs.placeholder = 'Drop images here'
+        tAttrs.placeholder = 'Drop an image here'
 
       if (angular.isUndefined(tAttrs.height))
         tAttrs.height = '200px'
