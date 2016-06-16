@@ -26,7 +26,7 @@ angular.module('sc-file-input',  ['file_inputTemplate', 'sc-file-input-modal'])
         tAttrs.height = '200px'
 
       if (angular.isUndefined(tAttrs.width))
-        tAttrs.width = '200px'
+        tAttrs.width = '300px'
 
       if (angular.isUndefined(tAttrs.isDisabled))
         tAttrs.isDisabled = 'false'
