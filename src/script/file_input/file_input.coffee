@@ -66,24 +66,29 @@ angular.module('sc-file-input',  ['file_inputTemplate', 'sc-file-input-modal'])
 
   }
   .controller 'scFileInputController', ($scope, $modal) ->
-    $scope.openModal = (file) ->
-      reader = new FileReader(file)
-      reader.readAsDataURL(file)
+    $scope.openModal = (files) ->
+      imgs = []
+      for file in files
+        reader = new FileReader(file)
+        reader.readAsDataURL(file)
+        reader.fileName = file.name
 
-      reader.onload = (e) ->
-        modalInstance = $modal.open({
-          templateUrl: 'script/file_input/modal/file_input_modal_template.html'
-          controller: 'scFileInputModalController'
-          resolve: {
-            modalModel: ->
-              return e.target.result
-          }
-        })
-        modalInstance.result.then(
-          # Close with file result
-          (result) ->
-            $scope.localModel = {file: file.name, data: result}
-          # Dismiss
-          ->
-            return
-        )
+        reader.onload = (e) ->
+          imgs.push({name:e.target.fileName, data:e.target.result, canvas:{}})
+
+      modalInstance = $modal.open({
+        templateUrl: 'script/file_input/modal/file_input_modal_template.html'
+        controller: 'scFileInputModalController'
+        resolve: {
+          modalModel: ->
+            return imgs
+        }
+      })
+      modalInstance.result.then(
+        # Close with img result
+        (result) ->
+          $scope.localModel = result
+        # Dismiss
+        ->
+          return
+      )
