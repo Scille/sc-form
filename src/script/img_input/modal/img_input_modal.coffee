@@ -2,40 +2,33 @@
 
 angular.module('sc-img-input-modal', ['ui.bootstrap', 'img_input_modalTemplate'])
   .controller 'scImgInputModalController', ($scope, $modalInstance, modalModel) ->
-    $scope.imgs = modalModel
+    $scope.canvas = {
+      image: modalModel
+    }
 
     $scope.$watch 'zoom', (value, old) ->
       if old?
         if value > old
-          angular.forEach($scope.imgs, (img, key) ->
-            img.canvas.zoomIn()
-          )
+          $scope.canvas.zoomIn()
         else
-          angular.forEach($scope.imgs, (img, key) ->
-            img.canvas.zoomOut()
-          )
+          $scope.canvas.zoomOut()
 
     $scope.ok = ->
-      results = []
-      angular.forEach($scope.imgs, (img, key) ->
-        dataURL = img.canvas.getDataURL()
-        frontier = dataURL.search(',')
-        shortDataUrl = dataURL.substr(frontier + 1)
-        decoded = atob(shortDataUrl)
-        length = decoded.length
-        ab = new ArrayBuffer(length)
-        ua = new Uint8Array(ab)
-        for i in [0 .. length - 1]
-          ua[i] = decoded.charCodeAt(i)
-        blob = new Blob([ua], {type: 'image/png'})
-        reader = new FileReader(blob)
-        reader.readAsDataURL(blob)
-        reader.fileName = img.name
+      dataURL = $scope.canvas.getDataURL()
+      frontier = dataURL.search(',')
+      shortDataUrl = dataURL.substr(frontier + 1)
+      decoded = atob(shortDataUrl)
+      length = decoded.length
+      ab = new ArrayBuffer(length)
+      ua = new Uint8Array(ab)
+      for i in [0 .. length - 1]
+        ua[i] = decoded.charCodeAt(i)
+      blob = new Blob([ua], {type: 'image/png'})
+      reader = new FileReader(blob)
+      reader.readAsDataURL(blob)
 
-        reader.onload = (e) ->
-          results.push({file:e.target.fileName, data:e.target.result})
-      )
-      $modalInstance.close(results)
+      reader.onload = (e) ->
+        $modalInstance.close(e.target.result)
 
     $scope.cancel = ->
       $modalInstance.dismiss('cancel')
@@ -45,7 +38,6 @@ angular.module('sc-img-input-modal', ['ui.bootstrap', 'img_input_modalTemplate']
     restrict: 'EA'
     scope: {
       canvas: '=?'
-      img: '=?'
     }
 
     link: (scope, iElement, iAttrs) ->
@@ -69,7 +61,7 @@ angular.module('sc-img-input-modal', ['ui.bootstrap', 'img_input_modalTemplate']
 
       # Load Image
       photo = new Image()
-      photo.src = scope.img.data
+      photo.src = scope.canvas.image
       photo.onload = ->
         ctx.clearRect(0, 0, canvasWidth, canvasHeight)
         # http://www.w3schools.com/tags/canvasdrawimage.asp
