@@ -50,47 +50,41 @@ angular.module('sc-img-input',  ['img_inputTemplate', 'sc-img-input-modal'])
           ngModelCtrl.$setViewValue(value)
 
           $('.dropzone img', iElement).remove()
-          if (value? and value[0]? and value[0].data?)
-            img = $('<img />').attr('src', value[0].data).fadeIn()
+          if (value? and value.data?)
+            img = $('<img />').attr('src', value.data).fadeIn()
             $('.dropzone div', iElement).html(img)
           else
             $('.dropzone div', iElement).html(scope.placeholder)
 
 
         $('.dropzone input', iElement).on('change', (e) ->
-          files = []
-          for file in this.files
-            if (file? and file.type.match('image.*'))
-              files.push(file)
+          file = this.files[0]
 
-          scope.openModal(files)
+          if (file? and file.type.match('image.*'))
+            scope.openModal(file)
         )
 
   }
   .controller 'scImgInputController', ($scope, $modal) ->
-    $scope.openModal = (files) ->
-      imgs = []
-      for file in files
-        reader = new FileReader(file)
-        reader.readAsDataURL(file)
-        reader.fileName = file.name
 
-        reader.onload = (e) ->
-          imgs.push({name:e.target.fileName, data:e.target.result, canvas:{}})
+    $scope.openModal = (file) ->
+      reader = new FileReader(file)
+      reader.readAsDataURL(file)
 
-      modalInstance = $modal.open({
-        templateUrl: 'script/img_input/modal/img_input_modal_template.html'
-        controller: 'scImgInputModalController'
-        resolve: {
-          modalModel: ->
-            return imgs
-        }
-      })
-      modalInstance.result.then(
-        # Close with img result
-        (result) ->
-          $scope.localModel = result
-        # Dismiss
-        ->
-          return
-      )
+      reader.onload = (e) ->
+        modalInstance = $modal.open({
+          templateUrl: 'script/img_input/modal/img_input_modal_template.html'
+          controller: 'scImgInputModalController'
+          resolve: {
+            modalModel: ->
+              return e.target.result
+          }
+        })
+        modalInstance.result.then(
+          # Close with img result
+          (result) ->
+            $scope.localModel = {file: file.name, data: result}
+          # Dismiss
+          ->
+            return
+        )
