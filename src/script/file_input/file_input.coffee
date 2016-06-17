@@ -58,15 +58,13 @@ angular.module('sc-file-input',  ['file_inputTemplate', 'sc-file-input-modal'])
 
 
         $('.dropzone input', iElement).on('change', (e) ->
-          file = this.files[0]
-
-          if (file?)
-            scope.openModal(file)
+            scope.openModal(this.files)
         )
 
   }
   .controller 'scFileInputController', ($scope, $modal) ->
     $scope.openModal = (files) ->
+      ###
       imgs = []
       for file in files
         reader = new FileReader(file)
@@ -75,13 +73,14 @@ angular.module('sc-file-input',  ['file_inputTemplate', 'sc-file-input-modal'])
 
         reader.onload = (e) ->
           imgs.push({name:e.target.fileName, data:e.target.result, canvas:{}})
+      ###
 
       modalInstance = $modal.open({
         templateUrl: 'script/file_input/modal/file_input_modal_template.html'
         controller: 'scFileInputModalController'
         resolve: {
-          modalModel: ->
-            return imgs
+          files: ->
+            return files
         }
       })
       modalInstance.result.then(
