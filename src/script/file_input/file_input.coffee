@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('sc-file-input',  ['file_inputTemplate', 'sc-file-input-modal'])
+angular.module('sc-file-input',  ['file_inputTemplate'])
   .directive 'scFileInputDirective', -> {
     restrict: 'EA'
     templateUrl: 'script/file_input/file_input_template.html'
@@ -49,17 +49,18 @@ angular.module('sc-file-input',  ['file_inputTemplate', 'sc-file-input-modal'])
         scope.$watchCollection 'localModel', (value) ->
           ngModelCtrl.$setViewValue(value)
 
-          $('.dropzone file', iElement).remove()
+          $('.file-dropzone file', iElement).remove()
           if (value? and value.data?)
             file = $('<file />').attr('src', value.data).fadeIn()
-            $('.dropzone div', iElement).html(file)
+            $('.file-dropzone div', iElement).html(file)
           else
-            $('.dropzone div', iElement).html(scope.placeholder)
+            $('.file-dropzone div', iElement).html(scope.placeholder)
 
 
-        $('.dropzone input', iElement).on('change', (e) ->
-            #scope.openModal(this.files)
-            #scope.addFiles(this.files)
+        $('.file-dropzone input', iElement).on('change', (e) ->
+          #scope.openModal(this.files)
+          #scope.addFiles(this.files)
+          console.log(e)
         )
 
   }
@@ -102,7 +103,7 @@ angular.module('sc-file-input',  ['file_inputTemplate', 'sc-file-input-modal'])
   }
 
   link: (scope, iElement, iAttrs) ->
-    #console.log(scope.files)
+    console.log(scope.files)
 }
 
 .filter 'size',  ->
@@ -113,11 +114,11 @@ angular.module('sc-file-input',  ['file_inputTemplate', 'sc-file-input-modal'])
     if (isNaN(size))
       return "0"
 
-    unit = ["o","KiB","MiB","GiB","TiB"]
+    unit = ["o", "KiB", "MiB", "GiB", "TiB"]
     i = 0
     while (size >= 1024)
-        i++
-        size = size/1024
+      i++
+      size = size / 1024
 
     out = size.toFixed(2) + ' ' + unit[i]
     return out
@@ -156,7 +157,7 @@ angular.module('sc-file-input',  ['file_inputTemplate', 'sc-file-input-modal'])
       if (icons[exp]?)
         out = icons[exp]
 
-    if (out == "")
+    if (out is "")
       out = icons["default"]
 
     return out

@@ -9,6 +9,7 @@ angular.module('sc-file-input-modal', ['ui.bootstrap', 'file_input_modalTemplate
     $scope.cancel = ->
       $modalInstance.dismiss('cancel')
 
+###
 .directive 'fileInfo', -> {
   restrict: 'EA'
   scope: {
@@ -16,8 +17,10 @@ angular.module('sc-file-input-modal', ['ui.bootstrap', 'file_input_modalTemplate
   }
 
   link: (scope, iElement, iAttrs) ->
-    console.log(scope.files)
+    console.log('linkInputModal')
+    #console.log(scope.files)
 }
+
 
 .filter 'size',  ->
   return (input) ->
@@ -27,11 +30,11 @@ angular.module('sc-file-input-modal', ['ui.bootstrap', 'file_input_modalTemplate
     if (isNaN(size))
       return "0"
 
-    unit = ["o","KiB","MiB","GiB","TiB"]
+    unit = ["o", "KiB", "MiB", "GiB", "TiB"]
     i = 0
     while (size >= 1024)
-        i++
-        size = size/1024
+      i++
+      size = size / 1024
 
     out = size.toFixed(2) + ' ' + unit[i]
     return out
@@ -70,7 +73,8 @@ angular.module('sc-file-input-modal', ['ui.bootstrap', 'file_input_modalTemplate
       if (icons[exp]?)
         out = icons[exp]
 
-    if (out == "")
+    if (out is "")
       out = icons["default"]
 
     return out
+###

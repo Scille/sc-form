@@ -49,15 +49,15 @@ angular.module('sc-img-input',  ['img_inputTemplate', 'sc-img-input-modal'])
         scope.$watchCollection 'localModel', (value) ->
           ngModelCtrl.$setViewValue(value)
 
-          $('.dropzone img', iElement).remove()
+          $('.img-dropzone img', iElement).remove()
           if (value? and value.data?)
             img = $('<img />').attr('src', value.data).fadeIn()
-            $('.dropzone div', iElement).html(img)
+            $('.img-dropzone div', iElement).html(img)
           else
-            $('.dropzone div', iElement).html(scope.placeholder)
+            $('.img-dropzone div', iElement).html(scope.placeholder)
 
 
-        $('.dropzone input', iElement).on('change', (e) ->
+        $('.img-dropzone input', iElement).on('change', (e) ->
           file = this.files[0]
 
           if (file? and file.type.match('image.*'))
