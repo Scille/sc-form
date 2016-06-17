@@ -6,7 +6,13 @@
     <input type="file" accept="*" ng-style="{'margin-top': '-' + height}"
            ng-disabled="isDisabled" multiple />
   </div>
-
+  <div file-info files="files">
+    <div ng-repeat="file in files" style="margin-bottom:5px">
+      <i class="fa fa-{{file.type | type}} fa-lg" aria-hidden="true"></i> {{file.name}}
+      <!--<progressbar class="progress-striped active" max="100" value="progress" type="info">{{progress}}%</progressbar>-->
+      <span class="pull-right"> ({{file.size | size}})</span><br>
+    </div>
+  </div>
   <div ng-show="errorMsg" class="alert alert-danger">
     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
     <span>{{errorMsg}}</span>

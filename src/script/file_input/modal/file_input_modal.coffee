@@ -16,7 +16,6 @@ angular.module('sc-file-input-modal', ['ui.bootstrap', 'file_input_modalTemplate
   }
 
   link: (scope, iElement, iAttrs) ->
-    console.log('toto')
     console.log(scope.files)
 }
 
