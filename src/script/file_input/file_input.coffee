@@ -14,7 +14,6 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
       errorMsg: '=?'
       isDisabled: '=?'
       localModel: '=ngModel'
-      files: '=?'
     }
 
     compile: (tElement, tAttrs) ->
@@ -26,7 +25,7 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
         tAttrs.height = '200px'
 
       if (angular.isUndefined(tAttrs.width))
-        tAttrs.width = '300px'
+        tAttrs.width = '500px'
 
       if (angular.isUndefined(tAttrs.isDisabled))
         tAttrs.isDisabled = 'false'
@@ -58,17 +57,26 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
 
 
         $('.file-dropzone input', iElement).on('change', (e) ->
-          #scope.openModal(this.files)
-          #scope.addFiles(this.files)
-          console.log(e)
+          scope.addFiles(this.files)
         )
 
   }
   .controller 'scFileInputController', ($scope, $modal) ->
     $scope.addFiles = (files) ->
-      #console.log(files)
+      angular.forEach files,
+        (item) ->
+          item.progress = 0
       $scope.files = files
-    $scope.openModal = (files) ->
+      $scope.$apply()
+    $scope.startUpload = (file) ->
+      console.log('startUpload')
+      console.log(file)
+      if (file?)
+        file.progress = 70
+    $scope.cancelUpload = (file) ->
+      console.log('cancelUpload')
+      console.log(file)
+      $scope.addFiles($scope.files)
       ###
       imgs = []
       for file in files
@@ -80,84 +88,82 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
           imgs.push({name:e.target.fileName, data:e.target.result, canvas:{}})
       ###
 
-      modalInstance = $modal.open({
-        templateUrl: 'script/file_input/modal/file_input_modal_template.html'
-        controller: 'scFileInputModalController'
-        resolve: {
-          files: ->
-            return files
-        }
-      })
-      modalInstance.result.then(
-        # Close with img result
-        (result) ->
-          $scope.localModel = result
-        # Dismiss
-        ->
-          return
-      )
-.directive 'fileInfo', -> {
-  restrict: 'EA'
-  scope: {
-    files: '=?'
+  .directive 'fileInfo', -> {
+    restrict: 'EA'
   }
 
-  link: (scope, iElement, iAttrs) ->
-    console.log(scope.files)
-}
+  .filter 'name',  ->
+    return (input) ->
+      out = input
+      if (input.length > 25)
+        out = input.substr(0, 15) + '...' + input.slice(-9)
 
-.filter 'size',  ->
-  return (input) ->
-    out = ""
-    size = parseInt(input)
+      return out
 
-    if (isNaN(size))
-      return "0"
+  .filter 'size',  ->
+    return (input) ->
+      out = ""
+      size = parseInt(input)
 
-    unit = ["o", "KiB", "MiB", "GiB", "TiB"]
-    i = 0
-    while (size >= 1024)
-      i++
-      size = size / 1024
+      if (isNaN(size))
+        return "0"
 
-    out = size.toFixed(2) + ' ' + unit[i]
-    return out
+      unit = ["o", "KiB", "MiB", "GiB", "TiB"]
+      i = 0
+      while (size >= 1024)
+        i++
+        size = size / 1024
 
-.filter 'type',  ->
-  return (input) ->
-    out = ""
-    icons = {
-      "text": "file-text-o"
-      "video": "file-video-o"
-      "audio": "file-audio-o"
-      "image": "file-image-o"
-      "application/pdf": "file-pdf-o"
-      "application/zip": "file-zip-o"
-      "application/msword": "file-word-o"
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "file-word-o"
-      "application/vnd.oasis.opendocument.text": "file-word-o"
-      "application/vnd.ms-excel": "file-excel-o"
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "file-excel-o"
-      "application/vnd.oasis.opendocument.spreadsheet": "file-excel-o"
-      "application/vnd.ms-powerpoint": "file-powerpoint-o"
-      "application/vnd.openxmlformats-officedocument.presentationml.presentation": "file-powerpoint-o"
-      "application/vnd.oasis.opendocument.presentation": "file-powerpoint-o"
-      "files": "files-o"
-      "default": "file-o"
-      #"": "file-code-o"
-    }
+      out = size.toFixed(1) + ' ' + unit[i]
+      return out
 
-    unless (input?)
-      return "ERROR"
+  .filter 'type',  ->
+    return (input) ->
+      out = ""
+      icons = {
+        "text": "file-text-o"
+        "video": "file-video-o"
+        "audio": "file-audio-o"
+        "image": "file-image-o"
+        "application/pdf": "file-pdf-o"
+        "application/zip": "file-zip-o"
+        "application/msword": "file-word-o"
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document": "file-word-o"
+        "application/vnd.oasis.opendocument.text": "file-word-o"
+        "application/vnd.ms-excel": "file-excel-o"
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": "file-excel-o"
+        "application/vnd.oasis.opendocument.spreadsheet": "file-excel-o"
+        "application/vnd.ms-powerpoint": "file-powerpoint-o"
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation": "file-powerpoint-o"
+        "application/vnd.oasis.opendocument.presentation": "file-powerpoint-o"
+        "files": "files-o"
+        "default": "file-o"
+        #"": "file-code-o"
+      }
 
-    if (icons[input]?)
-      out = icons[input]
-    else if (input.match("(.*?)/")?)
-      exp = input.match("(.*?)/")[1]
-      if (icons[exp]?)
-        out = icons[exp]
+      unless (input?)
+        return "ERROR"
 
-    if (out is "")
-      out = icons["default"]
+      if (icons[input]?)
+        out = icons[input]
+      else if (input.match("(.*?)/")?)
+        exp = input.match("(.*?)/")[1]
+        if (icons[exp]?)
+          out = icons[exp]
 
-    return out
+      if (out is "")
+        out = icons["default"]
+
+      return out
+
+  .filter 'progress', ->
+    return (input) ->
+      out = ""
+      progress = parseInt(input)
+
+      if (isNaN(progress) or progress is 0)
+        return ""
+
+      out = progress + '%'
+
+      return out

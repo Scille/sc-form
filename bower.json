@@ -5,7 +5,8 @@
   "authors": [
     "Romain Dubois <romain.dubois@scille.fr>",
     "Jérôme Landieth <jerome.landieth@scille.fr>",
-    "Vincent Mézino <vincent.mezino@scille.fr>"
+    "Vincent Mézino <vincent.mezino@scille.fr>",
+    "Nicolas Stempert <nicolas.stempert@scille.fr>"
   ],
   "main": [
     "release/sc-from.min.js",

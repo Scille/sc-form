@@ -1,18 +1,27 @@
-<div class="sc-form form-group">
+<div class="sc-form form-group" ng-style="{'width': width}" style="margin:auto">
   <label ng-if="label != undefined" class="label-control">{{label}}</label>
 
-  <div class="dropzone file-dropzone" ng-style="{'width': width, 'height': height}">
+  <div class="dropzone file-dropzone" ng-style="{'height': height}">
     <div ng-style="{'height': height, 'line-height': height}">{{placeholder}}</div>
     <input type="file" accept="*" ng-style="{'margin-top': '-' + height}"
            ng-disabled="isDisabled" multiple />
   </div>
-  <!-- <div file-info files="files">
-    <div ng-repeat="file in files" style="margin-bottom:5px">
-      <i class="fa fa-{{file.type | type}} fa-lg" aria-hidden="true"></i> {{file.name}}
-      <<progressbar class="progress-striped active" max="100" value="progress" type="info">{{progress}}%</progressbar>
-      <span class="pull-right"> ({{file.size | size}})</span><br>
+  <div file-info>
+    <div ng-show="files.length > 0" class="file-info-command-line">
+      <!-- <progressbar ng-show="file.progress != 0" class="progress-striped active pull-right" max="100" value="file.progress" type="info" style="width:140px;display:inline-block;margin-bottom:0px;background:#dcecf2;">{{file.progress | progress}}</progressbar> -->
+      <div ng-click="startUpload()" class="progress-bar-button pull-left" style="width:235px;display:inline-block;">START</div>
+      <div ng-click="cancelUpload()" class="progress-bar-button progress-bar-button-cancel pull-right" style="width:235px;display:inline-block;">CANCEL</div>
     </div>
-  </div> -->
+    <div class="file-info-line" ng-repeat="file in files">
+      <i class="fa fa-{{file.type | type}} fa-lg pull-left" aria-hidden="true" title="{{file.name}}" style="margin-top:4px;"></i>
+      <span> {{file.name | name}}</span>
+      <div class="pull-right" style="display:flex;">
+        <span style="margin:auto;margin-right:5px;">{{file.size | size}}</span>
+        <progressbar ng-show="file.progress != 0" class="progress-striped active" max="100" value="file.progress" type="info" style="width:140px;display:inline-block;margin-bottom:0px;background:#dcecf2;">{{file.progress | progress}}</progressbar>
+        <div ng-show="file.progress == 0" ng-click="startUpload(file)" class="progress-bar-button" style="width:140px;display:inline-block;">START</div>
+      </div>
+    </div>
+  </div>
   <div ng-show="errorMsg" class="alert alert-danger">
     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
     <span>{{errorMsg}}</span>

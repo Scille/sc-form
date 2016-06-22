@@ -40,7 +40,7 @@
 
   .dropzone {
     border: 2px dashed @dropzone;
-    border-radius: 5px;
+    //border-radius: 5px;
     // width: 200px;
     // height: 200px;
     color: @dropzone;
@@ -186,4 +186,65 @@
       }
     }
   }
+}
+
+.progress-bar span {
+  font-size:11px;
+}
+
+.progress-bar-button {
+  height:20px;
+  line-height:20px;
+  background:@bsInfo;
+  border-radius:4px;
+  -webkit-border-radius:4px;
+  box-shadow:inset 0 -1px 0 rgba(0, 0, 0, .15);
+  -webkit-box-shadow:inset 0 -1px 0 rgba(0, 0, 0, .15);
+  font-size:11px;
+  color:white;
+  text-align:center;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.progress-bar-button:hover {
+  background:darken(@bsInfo, 10%);
+}
+
+.progress-bar-button:active {
+  background:darken(@bsInfo, 20%);
+}
+
+.progress-bar-button-cancel {
+  background:@bsDanger;
+}
+
+.progress-bar-button-cancel:hover {
+  background:darken(@bsDanger, 10%);
+}
+
+.progress-bar-button-cancel:active {
+  background:darken(@bsDanger, 20%);
+}
+
+.file-dropzone {
+  background:darken(white, 1%);
+  color:rgba(0,0,0,0.35) !important;
+}
+
+.file-info-command-line {
+  border:1px solid rgba(0,0,0,0.25);
+  padding:5px 10px;
+  background:darken(white, 10%);
+  height:32px;
+}
+
+.file-info-line {
+  border:1px solid rgba(0,0,0,0.25);
+  padding:5px 10px;
+  background:darken(white, 1%);
+}
+
+.file-info-line:nth-child(odd) {
+  background:darken(white, 4%);
 }
