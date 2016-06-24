@@ -63,30 +63,35 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
   }
   .controller 'scFileInputController', ($scope, $modal) ->
     $scope.addFiles = (files) ->
-      angular.forEach files,
-        (item) ->
-          item.progress = 0
-      $scope.files = files
-      $scope.$apply()
-    $scope.startUpload = (file) ->
-      console.log('startUpload')
-      console.log(file)
-      if (file?)
-        file.progress = 70
-    $scope.cancelUpload = (file) ->
-      console.log('cancelUpload')
-      console.log(file)
-      $scope.addFiles($scope.files)
-      ###
-      imgs = []
+      filelist = []
       for file in files
+        filelist.push(file)
+      $scope.files = filelist
+      $scope.localModel = $scope.files
+      $scope.$apply()
+
+    $scope.download = () ->
+      file = this.file
+      if (file?)
         reader = new FileReader(file)
         reader.readAsDataURL(file)
         reader.fileName = file.name
-
         reader.onload = (e) ->
-          imgs.push({name:e.target.fileName, data:e.target.result, canvas:{}})
-      ###
+          hiddenElement = document.createElement('a')
+          hiddenElement.href = e.target.result
+          hiddenElement.target = '_blank'
+          hiddenElement.download = e.target.fileName
+          hiddenElement.click()
+
+    $scope.reset = () ->
+      $scope.files = []
+      $scope.localModel = $scope.files
+
+    $scope.delete = () ->
+      file = this.file
+      if (file?)
+        $scope.files = $scope.files.filter (f) -> f isnt file
+        $scope.localModel = $scope.files
 
   .directive 'fileInfo', -> {
     restrict: 'EA'
@@ -108,7 +113,7 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
       if (isNaN(size))
         return "0"
 
-      unit = ["o", "KiB", "MiB", "GiB", "TiB"]
+      unit = ["B", "KiB", "MiB", "GiB", "TiB"]
       i = 0
       while (size >= 1024)
         i++
