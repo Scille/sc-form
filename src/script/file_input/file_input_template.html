@@ -7,7 +7,7 @@
            ng-disabled="isDisabled" multiple />
   </div>
   <div file-info>
-    <div class="file-info-line" ng-repeat="file in files">
+    <div class="file-info-line" ng-repeat="file in localModel">
       <i class="fa fa-{{file.type | type}} fa-lg pull-left" aria-hidden="true" title="{{file.name}}" style="margin-top:4px;"></i>
       <span> {{file.name | name}}</span>
       <div class="pull-right" style="display:flex;">

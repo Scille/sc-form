@@ -45,7 +45,7 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
           scope.localModel = ngModelCtrl.$viewValue
 
         # Updating $viewValue when the UI changes
-        scope.$watchCollection 'localModel', (value) ->
+        scope.$watch 'localModel', (value) ->
           ngModelCtrl.$setViewValue(value)
 
           $('.file-dropzone file', iElement).remove()
@@ -62,13 +62,12 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
 
   }
   .controller 'scFileInputController', ($scope, $modal) ->
-    $scope.files = []
+    $scope.localModel = []
     $scope.addFiles = (files) ->
       for file in files
-        fileExist = $scope.files.filter (f) -> f.name is file.name
+        fileExist = $scope.localModel.filter (f) -> f.name is file.name
         unless (fileExist.length > 0)
-          $scope.files.push(file)
-      $scope.localModel = $scope.files
+          $scope.localModel.push(file)
       $scope.$apply()
 
     $scope.download = () ->
@@ -87,8 +86,7 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
     $scope.delete = () ->
       file = this.file
       if (file?)
-        $scope.files = $scope.files.filter (f) -> f isnt file
-        $scope.localModel = $scope.files
+        $scope.localModel = $scope.localModel.filter (f) -> f isnt file
 
   .directive 'fileInfo', -> {
     restrict: 'EA'
