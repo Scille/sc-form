@@ -62,11 +62,12 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
 
   }
   .controller 'scFileInputController', ($scope, $modal) ->
+    $scope.files = []
     $scope.addFiles = (files) ->
-      filelist = []
       for file in files
-        filelist.push(file)
-      $scope.files = filelist
+        fileExist = $scope.files.filter (f) -> f.name is file.name
+        unless (fileExist.length > 0)
+          $scope.files.push(file)
       $scope.localModel = $scope.files
       $scope.$apply()
 
@@ -83,10 +84,6 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
           hiddenElement.download = e.target.fileName
           hiddenElement.click()
 
-    $scope.reset = () ->
-      $scope.files = []
-      $scope.localModel = $scope.files
-
     $scope.delete = () ->
       file = this.file
       if (file?)
@@ -100,8 +97,8 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
   .filter 'name',  ->
     return (input) ->
       out = input
-      if (input.length > 25)
-        out = input.substr(0, 15) + '...' + input.slice(-9)
+      if (input.length > 35)
+        out = input.substr(0, 25) + '...' + input.slice(-9)
 
       return out
 

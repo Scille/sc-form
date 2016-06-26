@@ -7,16 +7,13 @@
            ng-disabled="isDisabled" multiple />
   </div>
   <div file-info>
-    <div ng-show="files.length > 0" class="file-info-command-line">
-      <div ng-click="reset()" class="progress-bar-button progress-bar-button-reset" style="width:480px;display:inline-block;">RESET</div>
-    </div>
     <div class="file-info-line" ng-repeat="file in files">
       <i class="fa fa-{{file.type | type}} fa-lg pull-left" aria-hidden="true" title="{{file.name}}" style="margin-top:4px;"></i>
       <span> {{file.name | name}}</span>
       <div class="pull-right" style="display:flex;">
         <span style="margin:auto;margin-right:5px;">{{file.size | size}}</span>
-        <div ng-click="download()" class="progress-bar-button" style="width:80px;display:inline-block;margin-right:5px;">DOWNLOAD</div>
-        <div ng-click="delete()" class="progress-bar-button progress-bar-button-reset" style="width:80px;display:inline-block;">DELETE</div>
+        <div ng-click="download()" class="progress-bar-button" style="width:30px;display:inline-block;margin-right:5px;"><i class="fa fa-download fa-lg" aria-hidden="true"></i></div>
+        <div ng-click="delete()" class="progress-bar-button progress-bar-button-reset" style="width:30px;display:inline-block;"><i class="fa fa-trash fa-lg" aria-hidden="true" style="vertical-align:-7%;"></i></div>
       </div>
     </div>
   </div>
