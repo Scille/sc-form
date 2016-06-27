@@ -62,6 +62,10 @@ angular.module('sc-img-input',  ['img_inputTemplate', 'sc-img-input-modal'])
 
           if (file? and file.type.match('image.*'))
             scope.openModal(file)
+
+          # Allow to detect input type=file “change” for the same file
+          this.value = null
+          return false
         )
 
   }

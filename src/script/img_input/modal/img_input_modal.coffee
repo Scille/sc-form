@@ -6,12 +6,9 @@ angular.module('sc-img-input-modal', ['ui.bootstrap', 'img_input_modalTemplate']
       image: modalModel
     }
 
-    $scope.$watch 'zoom', (value, old) ->
-      if old?
-        if value > old
-          $scope.canvas.zoomIn()
-        else
-          $scope.canvas.zoomOut()
+    $scope.$watch 'zoom', (value) ->
+      if value?
+        $scope.canvas.zoom(value / 100)
 
     $scope.ok = ->
       dataURL = $scope.canvas.getDataURL()
@@ -58,6 +55,9 @@ angular.module('sc-img-input-modal', ['ui.bootstrap', 'img_input_modalTemplate']
       y = 0
       width = 0
       height = 0
+      # Original size image used in zoom function
+      width_ori = 0
+      height_ori = 0
 
       # Load Image
       photo = new Image()
@@ -77,6 +77,10 @@ angular.module('sc-img-input-modal', ['ui.bootstrap', 'img_input_modalTemplate']
         else
           height = canvasHeight
           width = height / ratio
+
+        # save new size image (used in zoom function)
+        width_ori = width
+        height_ori = height
 
         # place image
         if width is canvasWidth
@@ -126,23 +130,23 @@ angular.module('sc-img-input-modal', ['ui.bootstrap', 'img_input_modalTemplate']
         moving = false
       )
 
+      iElement.bind("mouseover", (event) ->
+        # stop moving
+        moving = false
+      )
+
       scope.canvas.getDataURL = ->
         return iElement[0].toDataURL()
 
-      scope.canvas.zoomIn = (pixels = 5) ->
+      scope.canvas.zoom = (scale) ->
         ctx.clearRect(0, 0, canvasWidth, canvasHeight)
-        width += 2 * pixels
-        height = width * ratio
-        x -= pixels
-        y -= pixels * ratio
-        ctx.drawImage(photo, x, y, width, height)
 
-      scope.canvas.zoomOut = (pixels = 5) ->
-        ctx.clearRect(0, 0, canvasWidth, canvasHeight)
-        width -= 2 * pixels
-        height = width * ratio
-        x += pixels
-        y += pixels * ratio
+        x += (width - width_ori * scale) / 2
+        y += (height - height_ori * scale) / 2
+
+        width = width_ori * scale
+        height = height_ori * scale
+
         ctx.drawImage(photo, x, y, width, height)
 
       _move = (lX, lY, cX, cY) ->
