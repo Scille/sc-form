@@ -83,7 +83,7 @@ angular.module('sc-img-input',  ['img_inputTemplate', 'sc-img-input-modal'])
         modalInstance.result.then(
           # Close with img result
           (result) ->
-            $scope.localModel = {file: file.name, data: result}
+            $scope.localModel = {name: file.name, data: result}
           # Dismiss
           ->
             return

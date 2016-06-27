@@ -7,13 +7,13 @@
            ng-disabled="isDisabled" multiple />
   </div>
   <div file-info>
-    <div class="file-info-line" ng-repeat="file in localModel">
-      <i class="fa fa-{{file.type | type}} fa-lg pull-left" aria-hidden="true" title="{{file.name}}" style="margin-top:4px;"></i>
-      <span> {{file.name | name}}</span>
+    <div class="file-info-line" ng-repeat="(key, value) in localModel track by key">
+      <i class="fa fa-{{value.type | type}} fa-lg pull-left" aria-hidden="true" title="{{value.name}}" style="margin-top:4px;"></i>
+      <span> {{value.name | name}}</span>
       <div class="pull-right" style="display:flex;">
-        <span style="margin:auto;margin-right:5px;">{{file.size | size}}</span>
-        <div ng-click="download()" class="progress-bar-button" style="width:30px;display:inline-block;margin-right:5px;"><i class="fa fa-download fa-lg" aria-hidden="true"></i></div>
-        <div ng-click="delete()" class="progress-bar-button progress-bar-button-reset" style="width:30px;display:inline-block;"><i class="fa fa-trash fa-lg" aria-hidden="true" style="vertical-align:-7%;"></i></div>
+        <span style="margin:auto;margin-right:5px;">{{value.size | size}}</span>
+        <div ng-click="downloadFile(key)" class="progress-bar-button" style="width:30px;display:inline-block;margin-right:5px;"><i class="fa fa-download fa-lg" aria-hidden="true"></i></div>
+        <div ng-click="deletefile(key)" ng-if="!isDisabled" class="progress-bar-button progress-bar-button-reset" style="width:30px;display:inline-block;"><i class="fa fa-trash fa-lg" aria-hidden="true" style="vertical-align:-7%;"></i></div>
       </div>
     </div>
   </div>

@@ -33,7 +33,6 @@ angular.module('sc-select-input',  ['select_inputTemplate'])
           $scope.errorMsg = "Le fichier JSON (" + $scope.optionsJson + ") n'a pa pu être récupéré."
         )
     else
-      console.log("watch")
       $scope.$watch 'optionsModel', (value) ->
         if not value?
           $scope.localOptionsModel = [{libelle: "No options", value: null}]

@@ -58,20 +58,29 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
 
         $('.file-dropzone input', iElement).on('change', (e) ->
           scope.addFiles(this.files)
+
+          # Allow to detect input type=file “change” for the same file
+          this.value = null
+          return false
         )
 
   }
   .controller 'scFileInputController', ($scope, $modal) ->
-    $scope.localModel = []
+
+    ### Add Files ###
     $scope.addFiles = (files) ->
+      if $scope.localModel is undefined
+        $scope.localModel = []
+
       for file in files
-        fileExist = $scope.localModel.filter (f) -> f.name is file.name
+        fileExist = (elt for elt in $scope.localModel when elt.name is file.name)
         unless (fileExist.length > 0)
           $scope.localModel.push(file)
       $scope.$apply()
 
-    $scope.download = () ->
-      file = this.file
+    ### Download file ###
+    $scope.downloadFile = (key) ->
+      file = $scope.localModel[key]
       if (file?)
         reader = new FileReader(file)
         reader.readAsDataURL(file)
@@ -83,10 +92,13 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
           hiddenElement.download = e.target.fileName
           hiddenElement.click()
 
-    $scope.delete = () ->
-      file = this.file
-      if (file?)
-        $scope.localModel = $scope.localModel.filter (f) -> f isnt file
+    ### Delete file ###
+    $scope.deletefile = (key) ->
+      $scope.localModel.splice(key, 1)
+
+      if $scope.localModel.length is 0
+        delete $scope.localModel
+
 
   .directive 'fileInfo', -> {
     restrict: 'EA'

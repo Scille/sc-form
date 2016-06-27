@@ -126,6 +126,14 @@ Directives can work on both attribute and element levels.
     error-msg="errorMsg"
     is-disabled="isDisabled">
 </div>
+
+<div sc-file-input-directive
+    ng-model="fileModel"
+    label="{{label}}"
+    placeholder="{{placeholder}}"
+    error-msg="errorMsg"
+    is-disabled="isDisabled">
+</div>
 ```
 
 *Note:*
