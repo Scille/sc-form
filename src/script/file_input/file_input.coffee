@@ -48,14 +48,6 @@ angular.module('sc-file-input',  ['file_inputTemplate'])
         scope.$watch 'localModel', (value) ->
           ngModelCtrl.$setViewValue(value)
 
-          $('.file-dropzone file', iElement).remove()
-          if (value? and value.data?)
-            file = $('<file />').attr('src', value.data).fadeIn()
-            $('.file-dropzone div', iElement).html(file)
-          else
-            $('.file-dropzone div', iElement).html(scope.placeholder)
-
-
         $('.file-dropzone input', iElement).on('change', (e) ->
           scope.addFiles(this.files)
 
