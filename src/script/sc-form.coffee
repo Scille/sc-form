@@ -4,6 +4,7 @@ angular.module('sc-form',
   [
     'sc-text-input'
     'sc-list-text-input'
+    'sc-pwd-input'
     'sc-number-input'
     'sc-date-input'
     'sc-select-input'

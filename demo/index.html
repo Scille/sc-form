@@ -20,6 +20,7 @@
   <ul class="nav nav-tabs">
     <li class="active"><a href="#text-input">Text Input</a></li>
     <li><a href="#list-text-input">List Text Input</a></li>
+    <li><a href="#pwd-input">Password Input</a></li>
     <li><a href="#number-input">Number Input</a></li>
     <li><a href="#date-input">Date Input</a></li>
     <li><a href="#select-input">Select Input</a></li>
@@ -121,6 +122,42 @@
         <button ng-click="disabled = !disabled">Click me</button>
         <p>Disabled list-text-input: {{disabled}}</p>
         <div sc-list-text-input-directive ng-model="listTextModel" is-disabled="disabled"></div>
+      </div>
+    </div>
+
+    <div id="pwd-input" class="tab-pane fade">
+      <h2>Password Input</h2>
+
+      <h3>Usage</h3>
+      <p>Model Value: {{pwdModel}}</p>
+
+      <h3>Default</h3>
+      <div sc-pwd-input-directive ng-model="pwdModel"></div>
+
+      <h3>Icon</h3>
+      <div sc-pwd-input-directive ng-model="pwdModel" icon="lock"></div>
+
+      <h3>Label</h3>
+      <div sc-pwd-input-directive ng-model="pwdModel" label="Label"></div>
+
+      <h3>Placeholder</h3>
+      <div sc-pwd-input-directive ng-model="pwdModel" placeholder="Placeholder"></div>
+
+      <h3>Popover Message</h3>
+      <div sc-pwd-input-directive ng-model="pwdModel" popover-msg="Pop Over"></div>
+
+      <h3>Error Message</h3>
+      <div ng-init="errorMsg = ''">
+        <div>
+          <input type="text" name="error Message" ng-model="errorMsg">
+        </div></br>
+        <div sc-pwd-input-directive ng-model="pwdModel" error-msg="errorMsg"></div>
+      </div>
+
+      <h3>Regex</h3>
+      <div ng-init="strength = {regex: '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$', error: 'Should contain at least one digit, one lower case, one upper case and at least 8 characters'}">
+        <p>Strength pwd-input: {{strength}}</p>
+        <div sc-pwd-input-directive ng-model="pwdModel" strength="strength"></div>
       </div>
     </div>
 

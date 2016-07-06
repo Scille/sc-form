@@ -1,0 +1,16 @@
+<div class="sc-form form-group">
+  <label ng-if="label != undefined" class="label-control">{{label}}</label>
+
+  <div ng-class="icon != undefined ? 'input-group' : ''">
+    <div class="input-group-addon" ng-if="icon != undefined">
+      <i class="fa fa-lg fa-{{icon}}"></i>
+    </div>
+    <input type="password" class="form-control" ng-model="localModel"
+           required placeholder="{{placeholder}}" />
+  </div>
+
+  <div ng-show="errorMsg || !strength.match" class="alert alert-danger">
+    <div ng-show="errorMsg"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span> {{errorMsg}}</span></div>
+    <div ng-show="!strength.match"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span> {{strength.error}}</span></div>
+  </div>
+</div>
