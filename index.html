@@ -73,6 +73,16 @@
     <span class="pl-e">upper-first-letter</span>=<span class="pl-s"><span class="pl-pds">"</span>upperFirstLetter<span class="pl-pds">"</span></span>&gt;
 &lt;/<span class="pl-ent">div</span>&gt;
 
+&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-pwd-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>pwdModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"{{</span>icon<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"{{</span>label<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"{{</span>placeholder<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">popover-msg</span>=<span class="pl-s"><span class="pl-pds">"{{</span>popoverMsg<span class="pl-pds">}}"</span></span>
+    <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>errorMsg<span class="pl-pds">"</span></span>
+    <span class="pl-e">strength</span>=<span class="pl-s"><span class="pl-pds">"</span>strength<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;
+
 &lt;<span class="pl-ent">div</span> <span class="pl-e">sc-number-input-directive</span>
     <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>numberModel<span class="pl-pds">"</span></span>
     <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"{{</span>icon<span class="pl-pds">}}"</span></span>
@@ -162,6 +172,8 @@
           <li>
           <strong>options-model</strong>: Sets the select options values</li>
           <li>
+          <strong>strength</strong>: Sets the regex password and unmatch password error value.</li>
+          <li>
           <strong>step</strong>: Specifies the legal number intervals</li>
           <li>
           <strong>upper-first-letter</strong>: Capitalizes the first letter of string</li>
@@ -171,6 +183,7 @@
         <ul class="nav nav-tabs">
           <li class="active"><a href="#text-input">Text</a></li>
           <li><a href="#list-text-input">List Text</a></li>
+          <li><a href="#pwd-input">Password</a></li>
           <li><a href="#number-input">Number</a></li>
           <li><a href="#date-input">Date</a></li>
           <li><a href="#select-input">Select</a></li>
@@ -343,6 +356,70 @@
               <div sc-list-text-input-directive ng-model="listTextModel" is-disabled="isDisabled"></div>
             </div><br />
 
+          </div>
+
+          <div id="pwd-input" class="tab-pane fade">
+            <h3>Password Input</h3>
+            <p>Model Value: {{pwdModel}}</p>
+
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Default</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-pwd-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>pwdModel<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-pwd-input-directive ng-model="pwdModel"></div> <br />
+             
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Icon</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-pwd-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>pwdModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">icon</span>=<span class="pl-s"><span class="pl-pds">"</span>user<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-pwd-input-directive ng-model="pwdModel" icon="lock"></div><br />
+            
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Label</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-pwd-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>pwdModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">label</span>=<span class="pl-s"><span class="pl-pds">"</span>Label<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-pwd-input-directive ng-model="pwdModel" label="Label"></div><br />
+
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Placeholder</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-pwd-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>pwdModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">placeholder</span>=<span class="pl-s"><span class="pl-pds">"</span>Placeholder<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-pwd-input-directive ng-model="pwdModel" placeholder="Placeholder"></div><br />
+
+            <h4><a class="anchor"aria-hidden="true"><span class="octicon octicon-link"></span></a>Popover Message</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-pwd-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>pwdModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">popover-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>Pop Over<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <br /><div sc-pwd-input-directive ng-model="pwdModel" popover-msg="Pop Over"></div><br />
+
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Error Message</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-pwd-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>pwdModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">error-msg</span>=<span class="pl-s"><span class="pl-pds">"</span>{{errorMsg}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="errorMsg = '';">
+              <br />
+              <div>
+                <label class="input-label" >errorMsg:</label><input type="text" name="error message" ng-model="errorMsg">
+              </div><br />
+              <div sc-pwd-input-directive ng-model="pwdModel" error-msg="errorMsg"></div>
+            </div><br />
+
+            <h4><a class="anchor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Strength</h4>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">sc-pwd-input-directive</span>
+    <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>pwdModel<span class="pl-pds">"</span></span>
+    <span class="pl-e">is-disabled</span>=<span class="pl-s"><span class="pl-pds">"</span>{{isDisabled}}<span class="pl-pds">"</span></span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+            <div ng-init="strength = {regex: '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$', error: 'Should contain at least one digit, one lower case, one upper case and at least 8 characters'};">
+              <br />
+              <p>Strength: {{strength}}</p>
+              <div sc-pwd-input-directive ng-model="pwdModel" strength="strength"></div>
+            </div><br />
+            
           </div>
 
           <div id="number-input" class="tab-pane fade">
