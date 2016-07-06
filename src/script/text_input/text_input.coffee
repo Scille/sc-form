@@ -35,7 +35,10 @@ angular.module('sc-text-input',  ['text_inputTemplate'])
           })
 
   }
-  .controller 'scTextInputController', ($scope) ->
+  .controller 'scTextInputController', ($scope, uuid) ->
+    ### Get UUID ###
+    $scope.uuid = uuid.new()
+
     ### Define origin Model ###
     $scope.originModel = angular.copy($scope.localModel)
 

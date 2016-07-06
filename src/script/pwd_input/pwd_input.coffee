@@ -5,6 +5,7 @@ angular.module('sc-pwd-input',  ['pwd_inputTemplate'])
   .directive 'scPwdInputDirective', -> {
     restrict: 'EA'
     templateUrl: 'script/pwd_input/pwd_input_template.html'
+    controller: 'scPwdInputController'
     require: 'ngModel'
     scope: {
       icon: '@'
@@ -51,3 +52,6 @@ angular.module('sc-pwd-input',  ['pwd_inputTemplate'])
           })
 
   }
+  .controller 'scPwdInputController', ($scope, uuid) ->
+    ### Get UUID ###
+    $scope.uuid = uuid.new()

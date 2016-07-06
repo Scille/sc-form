@@ -43,7 +43,10 @@ angular.module('sc-list-select-input',  ['list_select_inputTemplate'])
         scope.$watch 'localModel', (value) ->
           ngModelCtrl.$setViewValue(value)
   }
-  .controller 'scListSelectInputController', ($scope, $http) ->
+  .controller 'scListSelectInputController', ($scope, $http, uuid) ->
+    ### Get UUID ###
+    $scope.uuid = uuid.new()
+
     ### Define newValue ###
     $scope.newValue = undefined
     ### Get options values ###

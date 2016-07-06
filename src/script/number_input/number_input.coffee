@@ -32,6 +32,9 @@ angular.module('sc-number-input',  ['number_inputTemplate'])
           })
 
   }
-  .controller 'scNumberInputController', ($scope) ->
+  .controller 'scNumberInputController', ($scope, uuid) ->
+    ### Get UUID ###
+    $scope.uuid = uuid.new()
+
     ### Define origin Model ###
     $scope.originModel = angular.copy($scope.localModel)

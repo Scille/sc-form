@@ -1,11 +1,11 @@
 <div class="sc-form form-group">
-  <label ng-if="label != undefined" class="label-control">{{label}}</label>
+  <label ng-if="label != undefined" class="label-control" for="{{uuid}}">{{label}}</label>
 
   <div ng-class="icon != undefined || originModel != localModel || isApproximative ? 'input-group' : ''">
     <div class="input-group-addon" ng-if="icon != undefined">
       <i class="fa fa-lg fa-{{icon}}"></i>
     </div>
-    <input type="{{type}}" class="form-control" ng-model="localModel"
+    <input type="{{type}}" id="{{uuid}}" class="form-control" ng-model="localModel"
            required ng-disabled="isDisabled" />
     <div class="input-group-addon alert-warning" ng-show="originModel != localModel">
       <i class="fa fa-lg fa-pencil"></i>

@@ -56,7 +56,10 @@ angular.module('sc-list-text-input',  ['list_text_inputTemplate'])
           })
 
   }
-  .controller 'scListTextInputController', ($scope) ->
+  .controller 'scListTextInputController', ($scope, uuid) ->
+    ### Get UUID ###
+    $scope.uuid = uuid.new()
+
     ### Define newValue ###
     $scope.newValue = undefined
 

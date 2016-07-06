@@ -41,6 +41,9 @@ angular.module('sc-date-input',  ['date_inputTemplate'])
         scope.isApproximative = not angular.isUndefined(iAttrs.approximativeModel)
 
   }
-  .controller 'scDateInputController', ($scope, $timeout) ->
+  .controller 'scDateInputController', ($scope, uuid) ->
+    ### Get UUID ###
+    $scope.uuid = uuid.new()
+
     ### Define origin Model ###
     $scope.originModel = angular.copy($scope.localModel)

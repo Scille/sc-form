@@ -21,7 +21,10 @@ angular.module('sc-select-input',  ['select_inputTemplate'])
       if (angular.isUndefined(tAttrs.isDisabled))
         tAttrs.isDisabled = 'false'
   }
-  .controller 'scSelectInputController', ($scope, $http) ->
+  .controller 'scSelectInputController', ($scope, $http, uuid) ->
+    ### Get UUID ###
+    $scope.uuid = uuid.new()
+
     ### Get options values ###
     if $scope.optionsJson? and $scope.optionsJson isnt ''
       $http.get($scope.optionsJson)

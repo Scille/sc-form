@@ -1,11 +1,11 @@
 <div class="sc-form form-group">
-  <label ng-if="label != undefined" class="label-control">{{label}}</label>
+  <label ng-if="label != undefined" class="label-control" for="{{uuid}}">{{label}}</label>
 
   <div ng-class="icon != undefined ? 'input-group' : ''">
     <div class="input-group-addon" ng-if="icon != undefined">
       <i class="fa fa-lg fa-{{icon}}"></i>
     </div>
-    <select ng-model="localModel" class="form-control" ng-disabled="isDisabled">
+    <select ng-model="localModel" id="{{uuid}}" class="form-control" ng-disabled="isDisabled">
         <option ng-repeat="opt in localOptionsModel" value="{{opt.value}}">{{opt.libelle}}</option>
     </select>
   </div>
