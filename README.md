@@ -69,6 +69,16 @@ Directives can work on both attribute and element levels.
     upper-first-letter="upperFirstLetter">
 </div>
 
+<div sc-pwd-input-directive
+    ng-model="pwdModel"
+    icon="{{icon}}"
+    label="{{label}}"
+    placeholder="{{placeholder}}"
+    popover-msg="{{popoverMsg}}"
+    error-msg="errorMsg"
+    strength="strength">
+</div>
+
 <div sc-number-input-directive
     ng-model="numberModel"
     icon="{{icon}}"
@@ -142,6 +152,7 @@ Directives can work on both attribute and element levels.
 * **error-msg**: Sets the error message.
 * **is-disabled**: Determines if the input is disabled or not.
 * **options-model**: Sets the select options values.
+* **strength**: Sets the regex password and unmatch password error value.
 * **step**: Specifies the legal number intervals.
 * **upper-first-letter**: Capitalizes the first letter of string.
 
