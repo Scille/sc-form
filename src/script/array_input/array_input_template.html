@@ -10,8 +10,8 @@
     <div ng-repeat="(key, elt) in localModel track by key">
       <div class="thumbnail" style="background-color:#f2f2f2;" >
         <span class="pull-right" ng-if="!isDisabled">
-          <span class="fa fa-edit" ng-click="editValue(key)"></span>
-          <span class="fa fa-close" ng-click="deleteValue(key)"></span>
+          <a href="javascript:void(0)" ng-click="editValue(key)"><i class="fa fa-edit"></i></a>
+          <a href="javascript:void(0)" ng-click="deleteValue(key)"><i class="fa fa-close"></i></a>
         </span>
         <span ng-repeat="(id, value) in elt track by id">
           <br /><span ng-bind="id"></span>: <span ng-bind="value.file ? value.file : value"></span>
@@ -20,5 +20,7 @@
     </div>
   </div>
 
-  <input type="button" class="btn btn-primary" ng-value="addButton == '' ? 'Add' : addButton" ng-click="addValue()" ng-disabled="isDisabled" />
+  <div>
+    <input type="button" class="btn btn-primary" ng-value="addButton == '' ? 'Add' : addButton" ng-click="addValue()" ng-disabled="isDisabled" />
+  <div>
 </div>
